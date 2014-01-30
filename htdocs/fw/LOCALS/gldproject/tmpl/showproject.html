@@ -1,32 +1,76 @@
 <div class='row'>
-  <form action='' method='post'>
+  <form action='/' method='post'>
     <fieldset>
-        <legend>".$o->project_id.": ".$o->title."</legend>
-        <div class='row'>
+        <legend>Proiect #".$o->project_id.": ".$o->title."</legend>
+        <div class='row-collapsed'>
             <div class='large-5 columns'>
-              <div class='row'>
+              <div class='row-collapsed'>
                   <div class='small-12 columns'>
                     <h4>{$o->title}</h4>
                   </div>
                   <div class='small-12 columns'>
-                      <input type='text' name='title' placeholder='URL proiect (opțional)' value='{$o->project_url}'>
+                      <a href='{$o->project_url}'>{$o->project_url}</a>
                   </div>
               </div>
             </div>
             <div class='large-6 columns'>
-              <div class='row'>
-                  <div class='small-12 columns'>
-                    <input type='text' name='title' placeholder='Numele coordonatorului'>
-                  </div>
-                  <div class='small-12 columns'>
-                    <input type='text' name='title' placeholder='Email coordonator'>
-                  </div>
-                  <div class='small-12 columns'>
-                      <input type='text' name='title' placeholder='URL coordonator (opțional)'>
-                  </div>
+              <div class='row-collapsed'>
+                <ul class='large-block-grid-1'>
+                  <li>
+                    <span class='label'>Coordonator</span>
+                  <br>
+                    <a href='{$o->leader_url}'>{$o->fname}</a>
+                    <a href='mailto:{$o->leader_email}'>
+                        ".(
+                            $o->leader_email 
+                            ? "({$o->leader_email})"
+                            : "n/a"
+                        )."</a>
+                  </li>
+                </ul>
               </div>
             </div>
         </div>
     </fieldset>
+    <div class='row-collapsed'>
+        <div class='columns'>
+            <ul class='large-block-grid-2 medium-block-grid-1 small-block-grid-1'>
+                <li>
+                    <span class='label radius'>Description</span> <br>
+                    <p>".nl2br($o->description)."</p>
+                </li><li>
+                    <span class='label radius'>Tech details</span> <br>
+                    <p>".nl2br($o->tech_details)."</p>
+                </li>
+            </ul>
+    </div>
+    </div>
+  </form>
+
+  <div class='row-collapsed'> <hr> </div>
+
+  <form action='/'>
+    <div class='row-collapsed'>
+      <div class='large-4 small-12 columns'>
+          <input type='text' placeholder='Nume complet'>
+          <input type='text' placeholder='Email'>
+          <select name=''>
+              <option value='Opțiune 1'>Opțiune 1</option>
+              <option value='Opțiune 2'>Opțiune 2</option>
+              <option value='Opțiune 3'>Opțiune 3</option>
+              <option value='Opțiune 4'>Opțiune 4</option>
+          </select>
+          <input type='submit' class='button tiny right' value='Trimite'>
+      </div>
+      <div class='large-6 small-12 columns'>
+          <p>Sit beatae laborum atque animi fugiat nihil, culpa facere,
+          consequatur! Sed voluptatem recusandae obcaecati expedita nemo
+          quae dolorem. Corporis beatae aliquam error vel asperiores
+          voluptas voluptate aperiam. Molestiae dicta voluptas nostrum nemo
+          rerum libero quia. Eius unde maxime a quam aperiam dolore ratione
+          nostrum nobis? Quae obcaecati magnam fugit possimus!
+          </p>
+      </div>
+    </div>
   </form>
 </div>
