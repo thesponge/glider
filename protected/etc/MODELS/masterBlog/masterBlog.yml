@@ -1,0 +1,4 @@
+---
+template_vars:
+  - current_modelBlog
+  - categoriesHTML

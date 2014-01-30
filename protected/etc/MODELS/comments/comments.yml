@@ -1,0 +1,49 @@
+---
+
+ # preluate din Cuser via Ccore-Module_config
+objREQ:
+  user: [uid, uname]
+
+
+
+# important sa se pastreze denumirile coloanelor din BD pt variabile
+
+comm_vars:
+  #____________________[ EDITABLE blogComments - table] ________________________________________
+  - comment
+  - userName
+
+
+#template_file: 'o.comments'
+
+#template_vars:
+
+  #____________________[ blogComments - table ]____________________________________________
+  # idExt
+  # idComm
+  # idP
+  # uidComm
+  # entryDate
+  # approved
+
+
+  #____________________[ MANs ]____________________________________________________________
+  # pagination
+  # comments
+  # uname
+
+  # admin
+  # LG
+  # ED
+  # addCommFeedback
+  # prior                 # false - true (nu) se poate adauga prioritate
+
+  #____________________[ presetate din Cblog pt Ccomments ]_________________________________
+  # callObj                           - pointer la blog, obiectul care a chemat comments
+  # comm_table                        - tabelul de commenturi
+  # comm_idExt_val                    - legatura externa
+  # comm_idExt_name                   - numele legaturii externerii externe
+  # commentsApprov
+  # commentsStat
+  # uidRec
+

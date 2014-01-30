@@ -1,0 +1,11 @@
+---
+
+# campurile in plus fata de un record standard din blog
+modelBlog_vars:
+  - country
+  - city
+
+# calea catre fisierul yaml care trebuie inclus la acesta se va adauga constanta INC_PATH
+include:
+  - 'etc/MODELS/blog/blog.yml'
+

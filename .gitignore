@@ -1,0 +1,8 @@
+protected/etc/config.development.php
+protected/etc/config.testing.php
+protected/etc/config.production.php
+protected/var/trees/
+protected/var/tmp/
+protected/var/ClassLoader.save.php
+*.kdev4
+tags

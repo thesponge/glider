@@ -1,0 +1,18 @@
+#template: superfishTbf
+
+menuSet1:
+  idMenu: 1
+  templateMethod: default
+  levels: 1
+  ulclass1: "mainNav"
+  items: []
+
+#menuSet1:
+#  idMenu: 1   #id-ul meniului
+#  templateMethod: 'default'  #postfixul pentru metoda apelata pentru crearea meniului => iterateMenu_templateMethod
+#  levels: 2                  # cate leveluri sa aibe meniul
+#  items: []                  # array-ul pentru elementele meniului
+  #ulclass1: ''               #ulclass$level
+  #ulclass2: ''
+  #ulclass3: ''
+

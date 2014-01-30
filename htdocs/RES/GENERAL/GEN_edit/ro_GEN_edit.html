@@ -1,0 +1,71 @@
+<div id='GE_allPages'>
+                           <div id='GE_allMenus'>
+        <ol class='sortable'>
+                       <li id='list_MenuFREE' >
+                           <div>Free Items</div>
+                           
+<ol  id='children_new'></ol>
+                       </li> 
+
+                                                                                                          
+                    
+ <li id='list_Menu1'>
+                            <div>Meniu_1 ivyMenu</div>
+                            
+<ol></ol>
+                        </li>
+                     
+
+</ol></div>
+                           <div id='GE_tools'>
+                                <div id='indicatiiGE'>
+                    <button id='Show_idicatiiGE' class='Tbar_but'>info</button>
+                    <div id='indicatii_GENedit'>
+                        <pre style='font-size: 11px; '>
+* Edit categorie   - click pe categorie - edit
+
+* Delete categorie - click pe categorie - delete
+                   - daca o categorie va fii deletata ,
+                     toate subcategoriile si produsele
+                     din ea  vor fii deasemenea deletate
+
+* Adauga categorie - scrie numele categoriei
+                   - click pe add
+                   - trage categoria la locul dorit din lista
+
+
+* ATENTIE - modificarile nu se vor salva decat dupa
+            ce s-a apasat pe save
+          - in cazul in care s-a comis vreo gresala se poate iesi
+            din General Edit fara ca acea gresala sa fie salvata
+                        </pre>
+                    </div>
+                </div><div class='block_addNew'>
+                            <input type='hidden' name='lastID' value='1' />
+
+                            <input type='text'   name='itemName'value='' placeholder='item name'>
+                            <input type='text'   name='typeNew' value='' placeholder='new type' />
+                            <span  class='types'>
+                                 <select name='type' class='Tbar_but'>
+                                    <option class='single'>single</option><option class='feed'>feed</option>
+                                    <option class='none'> none</option>
+                                 </select>
+                            </span>
+
+                            <input type='button' name='addNew' value='add' onclick='addNewITEM()' class='Tbar_but' />
+
+                            <form action='' method='post'>
+                                <input type='submit' name='SaveChanges' value='Apply changes'  class='Tbar_but'/>
+                            </form>
+                 </div>
+                                                                                                          
+                                 <div id='GE_pageCONF'>
+                                        <div id='GE_ctrlDET'>
+                                            <div id='GE_tabs'></div>
+                                            <div id='GE_buts'></div>
+                                        </div>
+                                      <div id='GE_contDET'></div>
+                                 </div>
+                           </div>
+
+                     </div>

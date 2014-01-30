@@ -1,0 +1,28 @@
+---
+# modelele care pot fii admistrabile
+# deci care au o clasa  in model / ADMIN / AC[model]
+adminMods:
+  TOOLbar: 1
+  GEN_edit: 1
+  EDITmode: 1
+  page: 1
+  single: 1
+  news: 1,
+  gallery: 1,
+  events: 1,
+  blog: 1,
+  blogSite: 1,
+  profile: 1
+
+# modele instantiate automat la logarea ca admin
+defaultAdmin_GENERAL:
+  - EDITmode
+  #- GEN_edit
+
+defaultAdmin_PLUGINS:
+  - TOOLbar
+
+defaultAdmin_MODELS: []
+defaultAdmin_LOCALS: []
+
+admin: true

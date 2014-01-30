@@ -1,0 +1,5 @@
+template: tribalFest
+
+# calea catre fisierul yaml care trebuie inclus la acesta se va adauga constanta INC_PATH
+#include:
+#  - 'etc/LOCALS/gallery/captions.yml'

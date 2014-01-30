@@ -1,0 +1,77 @@
+<div class='row'>
+  <form action='' method='post'>
+    <fieldset>
+      <legend>1. Detalii generale</legend>
+        <div class='row'>
+            <div class='large-5 columns'>
+              <div class='row'>
+                  <div class='small-12 columns'>
+                    <input type='text' name='title' placeholder='Titlul proiectului' value='{$o->title}'>
+                  </div>
+                  <div class='small-12 columns'>
+                      <input type='text' name='title' placeholder='URL proiect (opțional)' value='{$o->title}'>
+                  </div>
+              </div>
+            </div>
+            <div class='large-6 columns'>
+              <div class='row'>
+                  <div class='small-12 columns'>
+                    <input type='text' name='title' placeholder='Numele coordonatorului'>
+                  </div>
+                  <div class='small-12 columns'>
+                    <input type='text' name='title' placeholder='Email coordonator'>
+                  </div>
+                  <div class='small-12 columns'>
+                      <input type='text' name='title' placeholder='URL coordonator (opțional)'>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend>2. Specificații</legend>
+        <div class='row'>
+            <div class='large-3 small-12 columns'>
+                <h6>Descriere <small>(Markdown permis)</small></h6>
+            </div>
+            <div class='large-9 small-12 columns'>
+                <textarea placeholder='Descrierea proiectului'></textarea>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='large-6 small-12 columns'>
+                <h6>Descriere scurtă <small>(maxim 200 caractere)</small></h6>
+                <textarea placeholder='Această descriere va fi folosită la afișarea rezumatului proiectului în lista principală'></textarea>
+            </div>
+            <div class='large-6 small-12 columns'>
+                <h6>Seturi de date alese <small>(legături, descrieri, etc.)</small></h6>
+                <textarea placeholder='Seturi de date alese'></textarea>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class='row'>
+            <div class='large-9 small-12 columns'>
+                <h6>Alte detalii <small>(Observații, mențiuni – opțional)</small></h6>
+                <textarea placeholder=''></textarea>
+            </div>
+            <div class='large-3 small-12 columns'>
+                <img id='captcha' src='/assets/securimage-git/securimage_show.php' alt='CAPTCHA Image' />
+                <div class='row collapse'>
+                    <div class='small-10 columns'>
+		      <input type='text' name='captcha_code' size='10' maxlength='6' />
+                    </div>
+                    <div class='small-2 columns'>
+		      <a href='#' onclick=\"document.getElementById('captcha').src = '/assets/securimage-git/securimage_show.php?' + Math.random(); return false\" class='button postfix'>Reset</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='large-2 small-2 small-push-10 columns'>
+                <input type='submit' class='button' value='Trimite'>
+            </div>
+        </div>
+    </fieldset>
+  </form>
+</div>

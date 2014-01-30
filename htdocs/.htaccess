@@ -1,0 +1,78 @@
+# O incercare de a opri cachingul paginii pentru fisierele
+#   care se pot schimba relativ des
+#
+# Intai descriem fisierele tinta:
+<filesMatch "\.(html|htm|js|css)$">
+    FileETag None
+
+    # exista modulul headers?
+    <ifModule mod_headers.c>
+        Header unset ETag
+        # acum anuleaza cache pe cat posibil
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+    </ifModule>
+</filesMatch>
+
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|pdf)$">
+    FileETag None
+    <ifModule mod_headers.c>
+        Header set Cache-Control "max-age=2592000"
+    </ifModule>
+</FilesMatch>
+
+AddDefaultCharset UTF-8
+#Options -Indexes
+
+# -----------------------------------------------------------------------
+# Defining MIME types to ensure the web server actually knows about them.
+# -----------------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType application/javascript          js
+    AddType application/vnd.ms-fontobject   eot
+    AddType application/x-font-ttf          ttf ttc
+    AddType font/opentype                   otf
+    AddType application/x-font-woff         woff
+    AddType image/svg+xml                   svg svgz 
+    AddEncoding gzip                        svgz
+</Ifmodule>
+
+# -----------------------------------------------------------------------
+# Compressing output.
+# -----------------------------------------------------------------------
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+    AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+
+# NOTE: This is doomed to fail if mod_rewrite not installed and active
+# After rewrite module's installation, type as root:
+# a2enmod rewrite
+# service apache2 reload
+# English section over :-)
+
+# Activam citirea de URL-uri dubioase
+
+RewriteEngine On
+
+#RewriteBase /
+
+
+
+RewriteRule ^home$ / [L,NC,R=301]
+RewriteRule ^faq$ ?idT=2&idC=2 [L,NC]
+RewriteRule ^proiecte$ ?idT=3&idC=3&route=list [L,NC]
+RewriteRule ^program$ ?idT=4&idC=4 [L,NC]
+RewriteRule ^parteneri$ ?idT=5&idC=5 [L,NC]
+
+RewriteRule ^proiecte/nou$ ?idT=3&idC=3&route=add [L,NC]
+RewriteRule ^proiecte/proiect-([0-9]+)$ ?idT=3&idC=3&route=show&projectid=$1 [L,NC]
+
+
+# Rescriere pentru pagini simple (idT + idC)
+#RewriteRule ^/?([a-z]{2,2})/(.*)$   $2?lang=$1 [QSA]
+#RewriteRule ^([0-9]+)-([0-9]+) index.php?idT=$1&idC=$2 [L,NC]
+
+

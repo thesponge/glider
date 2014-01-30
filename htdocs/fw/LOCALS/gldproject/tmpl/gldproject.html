@@ -1,0 +1,78 @@
+   <div class='row' style='padding-top: 50px; min-height: 500px;'>
+        <div class='row'>
+          <div class='large-4 large-offset-1 columns'>
+              <p>Ai o idee de proiect? Completează formularul și participă 
+              la Open Data Hackathon!</p>
+          </div>
+          <div class='large-6 large-pull-1 columns'>
+            <form action='/proiecte/nou' method='post'>
+              <div class='row'>
+                  <div class='row collapse'>
+                    <div class='small-10 columns'>
+                      <input type='text' name='title' placeholder='Introdu un nume pentru noul proiect'>
+                    </div>
+                    <div class='small-2 columns'>
+                      <input type='submit' class='button postfix' value='Continuă' />
+                    </div>
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr>
+   <div class='row'>
+      <div class='large-12 columns'>
+          <p>Idei înscrise până în prezent:</p>
+      </div>
+      <div class='large-12 columns'>
+        <table> 
+            <thead> 
+                <tr> 
+                    <th width='30'>
+                        ID
+                    </th> 
+                    <th width='200'>
+                        Denumire
+                    </th> 
+                    <th width='150'>
+                        Coordonator
+                    </th> 
+                    <th width='100%'>
+                        Scurtă descriere
+                    </th> 
+                    <th width='150'>
+                        
+                    </th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+            " . $this->Render_items($o->projects, $o, '',
+                " <tr>
+                    <td>{~ao->project_id}</td>
+                    <td>{~ao->title}</td>
+                    <td>{~ao->fname}</td>
+                    <td>
+                        `.
+                            nl2br(~ao->short_description)
+                        .`
+                        <span data-tooltip class='has-tip' 
+                                title='`
+                                    .nl2br(~ao->description).
+                                `'>
+                            [...]
+                        </span>
+                    </td>
+                    <td>
+                        <a href='/proiecte/proiect-{~ao->project_id}' 
+                            class='success radius label'>
+                            Detalii și înscriere
+                        </a>
+                    </td> 
+                </tr> "
+            ) . "
+            </tbody> 
+        </table>
+       </div>
+   </div>
+   </div>
+

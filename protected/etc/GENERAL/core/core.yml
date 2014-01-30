@@ -1,0 +1,124 @@
+---
+
+#========================================
+# CONFIG MAIN template - template pentru instanta curenta de fw
+#========================================
+
+
+mainModel: glider
+mainTemplate: glider
+
+
+#========================================
+# tipuri de module existente
+#========================================
+modTypes: [PLUGINS, MODELS, GENERAL, LOCALS]
+
+
+MODELS: [single, feed]
+
+PLUGINS: [toolbar, ivyMenu, feedback, TOOLbar]
+
+GENERAL: [GEN_edit, EDITmode]
+
+LOCALS: [glider, gldproject]
+
+#========================================
+# modulele instantiate automat
+#========================================
+
+default_LOCALS: [glider]
+
+default_GENERAL: []
+  #- authManager
+  #- user
+
+default_MODELS: []
+#  - mainPOPup
+
+default_PLUGINS: [LANG, ivyMenu, feedback]
+
+
+#=========================================
+# module utilizate , retinute serializat in var/ tmp/ serUsedModules.txt
+mods: []
+#  modName:
+#    modType: ''
+#    admin: '1 / 0 - adminMods[modName]'
+#    default: '1 / 0 - default_modType'
+#    defaultAdmin: '1 / 0 defaultAdmin_modType'
+
+
+
+
+#=========================================
+# tree stuff
+#=========================================
+
+tree: []
+tempTree: []
+
+
+#id: 1
+idTree: 1
+idNode: 1
+
+#=========================================
+# current node data
+#=========================================
+
+# ar trebui culese din tree si nu in acest mod
+mgrName: single
+mgrType: MODELS
+
+
+#========================================
+# setting from modules
+#========================================
+
+cssInc: ''
+jsInc: ''
+# it is about scripts that written by the module
+# comunica js-ul aferent diverse setari in functie de php
+# ex: ivyMods.profileConf = {};
+jsTalk: ''
+
+toolbarBtts: []
+
+#========================================
+# other settings
+#========================================
+
+admin: false
+
+# DB: pointer la baza de date
+
+
+# numele modelelor pentru meniuri
+# exlicatii necesare
+# key = table.MENUS - col.idM
+menus:
+  1: ivyMenu
+
+
+
+#==========================================
+# language
+#==========================================
+lang: ro
+lang2: en
+langs:
+  - en
+
+
+#===========================================
+# other stuff
+#============================================
+history: []
+history_HREF: ''
+history_TITLE: ''
+history_TITLE_keywords: ''
+
+social:
+  facebook: 'http://facebook.com'
+  twitter:  'http://twitter.com'

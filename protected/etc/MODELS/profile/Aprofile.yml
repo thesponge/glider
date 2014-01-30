@@ -1,0 +1,30 @@
+
+post_profile:
+  uid:
+    postName: "BLOCK_id"
+    fbk: {type: "error", name: "Not yours", mess: "This is not your profile and you are not allowed to edit it!!"}
+  bio:
+    fbk: {type: "warning", name: "Biography", mess: "You should write something about you"}
+  photo: []
+  first_name:
+    fbk: {type: "error", name: "First Name", mess: "Please enter your name"}
+  last_name:
+    fbk: {type: "error", name: "First Name", mess: "Please enter your last name"}
+  title: []
+  site: []
+  phone: []
+  email: []
+
+post_adminProfile: [cid, uname ]
+post_adminActiveStat:
+  uid: "BLOCK_id"
+  activeStatus: ""
+
+post_adminDelete:
+  uid: "BLOCK_id"
+
+fbks:
+  noRights: {type: "error" , name: "Right violation", mess: "You do not have permission to change this kind of properties, so stop!!!"}
+  emptyUname: {type: "error" , name: "Empty user name", mess: "You must introduce a user name"}
+  takenUname: {type: "error" , name: "Taken user name", mess: "The user name is already taken"}
+  #fbk_noRights: {type: , name: '', mess:}

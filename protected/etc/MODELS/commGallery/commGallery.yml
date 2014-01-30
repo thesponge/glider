@@ -1,0 +1,5 @@
+modelComm_name: "commGallery"
+
+# calea catre fisierul yaml care trebuie inclus la acesta se va adauga constanta INC_PATH
+include:
+  - 'etc/MODELS/comments/comments.yml'

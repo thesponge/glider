@@ -1,0 +1,127 @@
+---
+
+# aceste declaratii nu au prea mult sens daca nu sunt implementate in queriuri ca
+# automatizare
+# aueryurile citesc tagurile si multiple users oricum...so...
+# daca exista facilitatea de tags
+status_recordTags: true
+
+# daca exista facilitatea de multiple authors
+multiple_authors: true
+
+
+#total_nrComments: "0"
+
+# ===========================[ usefull ]========================================
+#   array cu numele variabilelor dorite din CsetINI
+#   sau dintr-un anumit model ex model: nume variabila  sau model:[var1, var2]
+objREQ:
+  0: simpleHref_history
+  user: uid
+
+objProps_links:
+ blog_baseQuery: ["filters"]
+ blogHandler_home: ["baseQuery", "rowDb", "filters"]
+ blogHandler_blog: ["baseQuery", "rowDb", "filters"]
+ blogHandler_archive: ["baseQuery", "rowDb", "filters"]
+ blogHandler_record: ["baseQuery", "rowDb", "filters"]
+ blogHandler_profile: ["baseQuery", "rowDb", "filters"]
+
+#"/assets/fancybox/source/helpers/jquery.fancybox-thumbs.js"
+
+assetsInc:
+  js:
+    - "/assets/fancybox/source/jquery.fancybox.js"
+    - "/assets/garand-sticky/jquery.sticky.js"
+    - "/assets/galleria/galleria-1.2.9.min.js"
+
+  css:
+    - "/assets/fancybox/source/jquery.fancybox.css"
+    - "/assets/fancybox/source/helpers/jquery.fancybox-thumbs.css"
+
+
+assetsInc_home:
+    js:
+      - "/assets/hoverIntent/hoverIntent.minified.js"
+      - "/assets/addthis/addthis.js"
+
+
+assetsInc_blogRecord:
+    js:
+      - "/assets/addthis/addthis.js"
+
+assetsInc_blog:
+    js:
+      - "/assets/jQuery-exif/jquery.exif.js"
+
+assetsInc_archiveRecord:
+    js:
+      - "/assets/addthis/addthis.js"
+
+
+
+# nume de tipuri de recorduri existente
+# defapt mai mult un fel de record types- ar trebui un refactoring pe denumire
+# blogFormats ar trebui sa fie refactoringul...
+blogModels:
+  - story #text - 1
+  - photo #video -2
+  - multimedia #grafic -3
+
+tmplFiles:
+  home: home
+  blog: blog
+  archive: archive
+  record86: blogRecord
+  record88: archiveRecord
+
+  record: blogRecord
+  multimedia: blogRecord
+  story:  blogRecord
+  photo: blogRecord
+
+#sufixe pentru metode
+methodHandles:
+  85: home
+  86: blog
+  88: archive
+  idRec: record
+
+
+handlers:
+  85:
+    handler: home
+    tmplFile: home
+  86:
+    handler: blog
+    tmplFile: blog
+    idRec:
+      handler: record
+      tmplFile: blogRecord
+  88:
+    handler: archive
+    tmplFile: archive
+    idRec:
+      handler: record
+      tmplFile: archiveRecord
+
+#     tmplFile_photo: archiveRecordPhoto
+
+
+blogSections:
+  blog: 86
+  archive: 88
+
+filterName: category
+filterValue: ''
+
+template: bsea
+template_file: blogRecords
+
+assetsExtern_home:
+  css: >
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
+    <![endif]-->

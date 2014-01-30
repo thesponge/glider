@@ -1,0 +1,18 @@
+---
+
+#template_vars:
+#
+#  - Rating  # ratingul total
+#  - nrRates # numarul de persoane care au votat
+#  - stars   # vectorul cu stelute ex: stars[0,1..][empty] = -empty
+#  - totalRating
+#
+#
+#uRating_vars:
+#
+#  - ustars  # nota acordata de user
+#  - DB_table_postfix
+#  - DB_extKey_name
+#  - DB_extKey_value
+#  - uid
+
