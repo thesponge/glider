@@ -1,0 +1,23 @@
+
+<input type='button' name='account' value='account' onclick = \"fmw.toggle('.toolbar-account-form'); return false;\" >
+<form action='' method='post' class='toolbar-account-form' style='display: none'>
+
+    <input type='hidden' name='uid' value='{$o->uid}'>
+
+    <!--
+    <input type='hidden' name='methName' value='deleteAccount'>
+    <input type='hidden' name='modName' value='user'>
+
+    <input type='submit' name='deactivateAccount' value='deactivate me'>
+    -->
+
+    <input type='button' name='deactivateAccount' value='deactivate me'
+    onclick = \"ivyMods.user.popup('".FW_PUB_URL."','deactivate', 'Deactivate my account', '".$o->uid."'); return false;\">
+
+    <input type='button' name='changePassword' value='change password'
+    onclick = \"ivyMods.user.popup('".FW_PUB_URL."','changePass', 'Change Password', '".$o->uid."'); return false;\">
+
+    <input type='button' name='inviteUser' value='invite'
+           onclick = \"ivyMods.user.popup('".FW_PUB_URL."','inviteMember', 'Invite Member'); return false;\" >
+
+</form>
