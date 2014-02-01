@@ -2,6 +2,17 @@
 
 class Cgldproject
 {
+
+    /* Database manipulation callbacks */
+
+    public function add ()
+    {
+    }
+    public function update ()
+    {}
+    public function moderate ($status = true)
+    {}
+
     public function Db_getProject($project_id)
     {
         $query  = "SELECT *, concat( glider_people.first_name, ' ', glider_people.last_name) AS fname,
@@ -27,8 +38,6 @@ class Cgldproject
         $this->projects = $this->C->Handle_Db_fetch($this, $query);
     }
 
-    public function update($action)
-    {}
 
     public function route($queryString)
     {
