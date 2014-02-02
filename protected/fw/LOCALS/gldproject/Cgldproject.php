@@ -2,10 +2,24 @@
 
 class Cgldproject
 {
+
+    /* Database manipulation callbacks */
+
+    public function add ()
+    {
+    }
+    public function update ()
+    {}
+    public function moderate ($status = true)
+    {}
+
     public function Db_getProject($project_id)
     {
         $query  = "SELECT *, concat( glider_people.first_name, ' ', glider_people.last_name) AS fname,
-                    glider_projects.id AS project_id
+                    glider_people.url AS leader_url,
+                    glider_people.email AS leader_email,
+                    glider_projects.id AS project_id,
+                    glider_projects.url AS project_url
                     FROM glider_projects
                     JOIN glider_people
                     ON (glider_projects.leader = glider_people.id)
@@ -24,8 +38,6 @@ class Cgldproject
         $this->projects = $this->C->Handle_Db_fetch($this, $query);
     }
 
-    public function update($action)
-    {}
 
     public function route($queryString)
     {

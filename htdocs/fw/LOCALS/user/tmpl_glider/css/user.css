@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.toolbar-account-form {
+    /*width: 300px;*/
+    color: #9DA1AA !important;
+    display: none ;
+    background-color: rgb(57, 59, 71) !important;
+    margin-left: -5px !important;
+}
+.toolbar-account {
+    position: relative;
+}
+
+/*
+.acount-actions {
+    position: absolute;
+}*/
+
+#popUp #popUp-content #loginPopup{
+    margin: 15px 0px 0px 0px !important;
+
+}
+
+#popUp-header {
+    padding: 0px 15px !important;
+}
+#popUp-canvas {
+    margin: 0px !important;
+}
+
+div#popup-body {
+    padding: 0px 10px;
+    height: 100px;
+}
+
+div#popup-left {
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
+    float: left\9;
+    border-right: 1px solid gray;
+}
+    div#popup-left p {
+        text-align: left;
+    }
+
+div#popup-right {
+    width: 69%;
+    float: right\9;
+    display: inline-block;
+}
+
+    div#popup-right input {
+        padding: 4px 5px !important;
+        margin-bottom: 3px;
+    }
+
+    div#popup-right input.email {
+        width: 80% !important;
+    }
+
+div#popup-footer {
+    margin-top: 40px;
+    width: 100%;
+    height: 36px;
+    border-radius: 0px 0px 5px 5px;
+    background-color: #333333;
+}
+    div#popup-footer p {
+        color: #dddddd;
+        padding: 10px;
+        font-size: .8em;
+        text-align: center;
+    }
+
+    div#popup-footer p a,
+    div#popup-footer p a:hover,
+    div#popup-footer p a:visited,
+    div#popup-footer p a:link
+    {
+        color: #ffffff;
+    }
