@@ -111,13 +111,47 @@
           </div>
       </div>
       <div class='large-6 small-12 columns'>
-          <p>Sit beatae laborum atque animi fugiat nihil, culpa facere,
-          consequatur! Sed voluptatem recusandae obcaecati expedita nemo
-          quae dolorem. Corporis beatae aliquam error vel asperiores
-          voluptas voluptate aperiam. Molestiae dicta voluptas nostrum nemo
-          rerum libero quia. Eius unde maxime a quam aperiam dolore ratione
-          nostrum nobis? Quae obcaecati magnam fugit possimus!
-          </p>
+          <p class='label'>Membri înscriși</p>
+        <table> 
+            <thead> 
+                <tr> 
+                    <th width='200'>
+                        Nume
+                    </th> 
+                    <th width='200'>
+                        Prenume
+                    </th> 
+                    <th width='100'>
+                        Rol
+                    </th> 
+                </tr> 
+            </thead> 
+            <tbody> "
+            . $this->Render_items($o->members, $o, '',
+                " <tr>
+                    <td>{~ao->first_name}</td>
+                    <td>{~ao->last_name}</td>
+                    <td>{~ao->role}</td>
+                </tr> "
+            ) .
+            "
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
       </div>
     </div>
   </form>

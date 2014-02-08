@@ -69,7 +69,7 @@ class Cgldproject
 
     public function Db_getProject($project_id)
     {
-        $query  = "SELECT *, concat( glider_people.first_name, ' ', glider_people.last_name) AS fname,
+        $project_query  = "SELECT *, concat( glider_people.first_name, ' ', glider_people.last_name) AS fname,
                     glider_people.url AS leader_url,
                     glider_people.email AS leader_email,
                     glider_projects.id AS project_id,
@@ -79,7 +79,14 @@ class Cgldproject
                     ON (glider_projects.leader = glider_people.id)
                     WHERE glider_projects.id = $project_id
                 ";
-        $this->project = $this->C->Handle_Db_fetch($this, $query);
+        $members_query = "SELECT glider_people.* FROM glider_people
+            JOIN glider_people_projects_map AS map
+                ON (glider_people.id = map.person)
+            WHERE map.project = '$project_id';
+        ";
+
+        $this->project = $this->C->Handle_Db_fetch($this, $project_query);
+        $this->members = $this->C->Handle_Db_fetch($this, $members_query);
     }
 
     public function Db_getProjects($status = 1)
@@ -103,7 +110,11 @@ class Cgldproject
         {
         default:
         case "list":
-            $this->Db_getProjects(0);
+            if ($this->C->admin == true) {
+                $this->Db_getProjects(0);
+            } else {
+                $this->Db_getProjects(1);
+            }
             break;
         case "toggleStatus":
             $status = $_REQUEST['status'];
