@@ -33,5 +33,6 @@ define('RES_URL', PUBLIC_URL.'RES/');
 define('FW_RES_TREE', VAR_PATH.'trees/');
 
 
+define('FAV_ICON', FW_PUB_URL . 'LOCALS/glider/tmpl_glider/css/img/glider_icon.png');
 
 

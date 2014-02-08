@@ -1,0 +1,41 @@
+dbPrefix: 'glider'
+peopleTable: 'people'
+projectsTable: 'projects'
+
+personFields:
+    first_name : 'person_firstname'
+    last_name  : 'person_lastname'
+    email      : 'person_email'
+    url        : 'person_url'
+    #bio        : 'person_bio'
+    #misc       : 'person_misc'
+
+projectFields:
+    title             : 'project_title'
+    url               : 'project_url'
+    description       : 'project_desc'
+    short_description : 'project_shortdesc'
+    tech_details      : 'project_techdetails'
+    status            : 'project_status'
+    misc              : 'project_misc'
+
+
+objProps_links:
+    projectModel: ["dbPrefix", "peopleTable", "projectsTable"]
+
+
+envelopeData:
+    name:
+        0: 'name, 3, 60'
+        1: 'Numele complet (între 3 și 60 de caractere)'
+    email:
+        0: 'email'
+        1: 'O adresă de email validă'
+    subject:
+        0: 'text, 5, 30'
+        1: 'Subiectul (minim 5 caractere)'
+    message:
+        0: 'text, 10, n'
+        1: 'Mesajul (minim 10 caractere)'
+
+destinationEmail: 'victor@debian.org.ro'

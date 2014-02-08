@@ -37,10 +37,14 @@
             <ul class='large-block-grid-2 medium-block-grid-1 small-block-grid-1'>
                 <li>
                     <span class='label radius'>Description</span> <br>
-                    <p>".nl2br($o->description)."</p>
+                    <p>".
+                    Markdown::defaultTransform($o->description)
+                    ."</p>
                 </li><li style='border-left: 1px solid #cccccc;'>
                     <span class='label radius'>Tech details</span> <br>
-                    <p>".nl2br($o->tech_details)."</p>
+                    <p>".
+                    Markdown::defaultTransform($o->tech_details)
+                    ."</p>
                 </li>
             </ul>
     </div>
@@ -49,7 +53,9 @@
 
   <div class='row collapse'> <hr> </div>
 
-  <form action='/'>
+  <form action='".Toolbox::curURL()."' method='post'>
+      <input type='hidden' name='modName'  value='gldproject'>
+      <input type='hidden' name='methName' value='addMember'>
     <div class='row collapse'>
       <div class='large-4 small-12 columns'>
           <div class='row collapse'>
@@ -81,11 +87,11 @@
                 <span class='prefix'>Rol</span>
               </div>
               <div class='small-8 large-8 columns'>
-                  <select name=''>
-                      <option value='Opțiune 1'>Programator</option>
-                      <option value='Opțiune 2'>Activist</option>
-                      <option value='Opțiune 3'>Jurnalist</option>
-                      <option value='Opțiune 4'>Altul</option>
+                  <select name='person_role'>
+                      <option value='Programator'>Programator</option>
+                      <option value='Activist'>Activist</option>
+                      <option value='Jurnalist'>Jurnalist</option>
+                      <option value='Altul'>Altul</option>
                   </select>
               </div>
           <div class='row collapse'>

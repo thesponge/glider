@@ -69,6 +69,9 @@ RewriteRule ^parteneri$ ?idT=5&idC=5 [L,NC]
 
 RewriteRule ^proiecte/nou$ ?idT=3&idC=3&route=add [L,NC]
 RewriteRule ^proiecte/proiect-([0-9]+)$ ?idT=3&idC=3&route=show&projectid=$1 [L,NC]
+RewriteRule ^proiecte/edit/proiect-([0-9]+)$ ?idT=3&idC=3&route=edit&projectid=$1 [L,NC]
+RewriteRule ^proiecte/proiect-([0-9]+)/activare ?idT=3&idC=3&route=toggleStatus&projectid=$1&status=1 [L,NC]
+RewriteRule ^proiecte/proiect-([0-9]+)/deactivare ?idT=3&idC=3&route=toggleStatus&projectid=$1&status=0 [L,NC]
 
 
 # Rescriere pentru pagini simple (idT + idC)

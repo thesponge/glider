@@ -1,3 +1,15 @@
-p{
-word-wrap: break-word !important;
+p {
+    word-wrap: break-word !important;
+}
+
+textarea.mw95 {
+    max-width: 95% !important;
+    min-width: 95% !important;
+    min-height: 100px !important;
+}
+
+textarea.mw100 {
+    max-width: 100% !important;
+    min-width: 100% !important;
+    min-height: 100px !important;
 }

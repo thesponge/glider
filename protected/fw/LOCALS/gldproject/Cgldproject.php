@@ -3,15 +3,69 @@
 class Cgldproject
 {
 
+    private $_gldproject;
+    public  $personFields,
+            $projectFields,
+            $dbPrefix,
+            $peopleTable,
+            $projectsTable;
+
     /* Database manipulation callbacks */
+
+    public function _hook_addMember ()
+    {
+        $this->_gldproject = $this->C->Module_Build_objProp($this, 'projectModel');
+
+        return $this->_gldproject->_hook_addMember();
+    }
+
+    public function addMember ()
+    {
+        $this->_gldproject->addMember();
+    }
+
+    public function _hook_add ()
+    {
+        $this->_gldproject = $this->C->Module_Build_objProp($this, 'projectModel');
+
+        return $this->_gldproject->_hook_addMember();
+    }
 
     public function add ()
     {
+        $this->_gldproject->add();
     }
+
+    public function _hook_update ()
+    {
+        $this->_gldproject = $this->C->Module_Build_objProp($this, 'projectModel');
+
+        return $this->_gldproject->_hook_update();
+    }
+
     public function update ()
-    {}
-    public function moderate ($status = true)
-    {}
+    {
+        $this->_gldproject->update();
+    }
+
+    public function updateStatus ($id, $status = 1)
+    {
+        $id = $_REQUEST['projectid'];
+
+        if ($this->C->admin != true) {
+            return false;
+        }
+
+        $q = Toolbox::trim_all(
+            "UPDATE
+            {$this->dbPrefix}_{$this->projectsTable}
+            SET status = $status
+            WHERE id = $id;"
+        );
+        $this->DB->query($q);
+        //var_dump($q);
+        Toolbox::relocate('/proiecte');
+    }
 
     public function Db_getProject($project_id)
     {
@@ -28,13 +82,14 @@ class Cgldproject
         $this->project = $this->C->Handle_Db_fetch($this, $query);
     }
 
-    public function Db_getProjects()
+    public function Db_getProjects($status = 1)
     {
         $query  = "SELECT *, concat( glider_people.first_name, ' ', glider_people.last_name) AS fname,
                     glider_projects.id AS project_id
                     FROM glider_projects
                     JOIN glider_people
-                    ON (glider_projects.leader = glider_people.id)";
+                    ON (glider_projects.leader = glider_people.id)
+                    WHERE glider_projects.status >= $status";
         $this->projects = $this->C->Handle_Db_fetch($this, $query);
     }
 
@@ -48,7 +103,21 @@ class Cgldproject
         {
         default:
         case "list":
-            $this->Db_getProjects();
+            $this->Db_getProjects(0);
+            break;
+        case "toggleStatus":
+            $status = $_REQUEST['status'];
+            $this->updateStatus($_REQUEST['project_id'], $status);
+            break;
+        case "edit":
+            // Fetch the project id
+            $this->project_id =& $_REQUEST['projectid'];
+            // Populate the project properties
+            $this->Db_getProject($this->project_id);
+
+            // Employ the "add" form to insert new stuff
+            $this->template_file = "editform";
+            // do stuff
             break;
         case "add":
             // Fetch the title, if any
@@ -70,6 +139,7 @@ class Cgldproject
             break;
         }
     }
+
 
     function _init_()
     {

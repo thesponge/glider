@@ -40,7 +40,8 @@
         month_day_year : /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/,
 
         // #FFF or #FFFFFF
-        color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+        color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/,
+        min200: /^.{5,}$/
       }
     },
 
@@ -123,7 +124,7 @@
       } else if (pattern.length > 0) {
         return [el, new RegExp(pattern), required];
       }
-      
+
       if (this.settings.patterns.hasOwnProperty(type)) {
         return [el, this.settings.patterns[type], required];
       }
