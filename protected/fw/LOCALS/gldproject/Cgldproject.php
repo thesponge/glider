@@ -35,10 +35,10 @@ class Cgldproject
     {
         require_once PUBLIC_PATH . 'assets/securimage-git/securimage.php';
         $securimage = new Securimage();
-        var_dump($securimage);
+        //var_dump($securimage);
         if ($securimage->check($_POST['captcha_code']) == false) {
             //$this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
-            //var_dump($_POST['captcha_code']);
+            echo $_POST['captcha_code'] . ' is ' . print_r($securimage->check($_POST['captcha_code']), true);
             return false;
         } else {
             //var_dump($_POST['captcha_code']);
