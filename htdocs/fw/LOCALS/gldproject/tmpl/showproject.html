@@ -53,7 +53,7 @@
 
   <div class='row collapse'> <hr> </div>
 
-  <form action='".Toolbox::curURL()."' method='post'>
+  <form action='".Toolbox::curURL()."' method='post' data-abide>
       <input type='hidden' name='modName'  value='gldproject'>
       <input type='hidden' name='methName' value='addMember'>
     <div class='row collapse'>
@@ -63,7 +63,8 @@
                 <span class='prefix'>Prenume</span>
               </div>
               <div class='small-8 large-8 columns'>
-                  <input type='text' name='person_firstname' placeholder='e.g. George'>
+                  <input type='text' required pattern='alpha' name='person_firstname' placeholder='e.g. George'>
+                  <small class='error'>Introduceți cel puțin un prenume</small>
               </div>
           </div>
           <div class='row collapse'>
@@ -71,7 +72,8 @@
                 <span class='prefix'>Nume</span>
               </div>
               <div class='small-8 large-8 columns'>
-                  <input type='text' name='person_lastname' placeholder='e.g. Ionescu'>
+                  <input type='text' required pattern='alpha' name='person_lastname' placeholder='e.g. Ionescu'>
+                  <small class='error'>Introduceți un nume</small>
               </div>
           </div>
           <div class='row collapse'>
@@ -79,7 +81,8 @@
                   <span class='prefix'>Email</span>
               </div>
               <div class='small-8 large-8 columns'>
-                  <input type='text' name='person_email' placeholder='e.g. george@ionescu.ro'>
+                  <input type='text' required pattern='email' name='person_email' placeholder='e.g. george@ionescu.ro'>
+                  <small class='error'>Introduceți o adresă de mail validă</small>
               </div>
           </div>
           <div class='row collapse'>
@@ -99,7 +102,8 @@
                 <img id='captcha' src='/assets/securimage-git/securimage_show.php' alt='CAPTCHA Image' />
               </div>
               <div class='small-5 large-6 columns'>
-                <input type='text' name='captcha_code' size='10' maxlength='6' />
+                <input type='text' required name='captcha_code' size='10' maxlength='6' />
+                <small class='error'>Introduceți CAPTCHA</small>
               </div>
               <div class='small-3 large-2 columns'>
                 <a class='postfix' href='#' onclick=\"document.getElementById('captcha').src = '/assets/securimage-git/securimage_show.php?' + Math.random(); return false\" class='button postfix'>Reset</a>

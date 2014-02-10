@@ -9,11 +9,13 @@
               <div class='row collapse'>
                   <div class='small-12 columns'>
                       <label class='label' for='project_title'>O denumire scurtă și descriptivă a proiectului</label>
-                    <input required pattern='alpha' type='text' name='project_title' placeholder='Titlul proiectului' value='{$o->title}'>
+                    <input required pattern='alpha' type='text' name='project_title' placeholder='Titlul proiectului' 
+                        value='".($o->title ?: $_REQUEST['project_title'])."'>
                     <small class='error'>Titlul proiectului este obligatoriu (alfanumeric)</small>
                   </div>
                   <div class='small-12 columns'>
-                      <input pattern='url' type='text' name='project_url' placeholder='URL proiect (opțional)' value=''>
+                      <input pattern='url' type='text' name='project_url' placeholder='URL proiect (opțional)' 
+                          value='".($_REQUEST['project_url'] ?: '')."'>
                       <small class='error'>Introduceți un URL valid</small>
                   </div>
               </div>
@@ -22,20 +24,24 @@
               <div class='row collapse'>
                   <div class='small-6 columns'>
                       <label class='label' for='person_firstname'>Prenume</label>
-                    <input required  pattern='alpha' type='text' name='person_firstname' placeholder='Prenumele coordonatorului'>
+                    <input required  pattern='alpha' type='text' name='person_firstname' placeholder='Prenumele coordonatorului'
+                        value='".($_REQUEST['person_firstname'] ?: '')."'>
                     <small class='error'>Introduceți prenumele</small>
                   </div>
                   <div class='small-6 columns'>
                       <label class='label' for='person_lastname'>Nume</label>
-                    <input required pattern='alpha' type='text' name='person_lastname' placeholder='Numele coordonatorului'>
+                    <input required pattern='alpha' type='text' name='person_lastname' placeholder='Numele coordonatorului'
+                        value='".($_REQUEST['person_lastname'] ?: '')."'>
                     <small class='error'>Introduceți numele</small>
                   </div>
                   <div class='small-12 columns'>
-                    <input required pattern='email' type='text' name='person_email' placeholder='Email coordonator'>
+                    <input required pattern='email' type='text' name='person_email' placeholder='Email coordonator'
+                        value='".($_REQUEST['person_email'] ?: '')."'>
                       <small class='error'>Introduceți o adresă validă de email</small>
                   </div>
                   <div class='small-12 columns'>
-                      <input  pattern='url' type='text' name='person_url' placeholder='URL coordonator (opțional)'>
+                      <input  pattern='url' type='text' name='person_url' placeholder='URL coordonator (opțional)'
+                        value='".($_REQUEST['person_url'] ?: '')."'>
                       <small class='error'>Introduceți un URL valid</small>
                   </div>
               </div>
@@ -43,24 +49,26 @@
         </div>
     </fieldset>
     <fieldset>
-    <legend>2. Specificații</legend>
+        <legend>2. Specificații <small>(Markdown permis) – <a href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet' target='_blank'>Indicații sintaxă</a></small></legend>
         <div class='row collapse'>
             <div class='large-3 small-12 columns'>
-                <h6>Descriere <small>(Markdown permis)</small></h6>
+                <h6>Descriere</h6>
             </div>
             <div class='large-9 small-12 columns'>
-                <textarea required class='mw100' name='project_desc' placeholder='Descrierea proiectului'></textarea>
-                <small class='error'>Introduceți o descriere de minim 200 caractere</small>
+                <textarea required class='mw100' name='project_desc' placeholder='Descrierea proiectului'>".($_REQUEST['project_desc'] ?: '')."</textarea>
+                <small class='error'>Introduceți o descriere</small>
             </div>
         </div>
         <div class='row collapse'>
             <div class='large-6 small-12 columns'>
                 <h6>Descriere scurtă <small>(maxim 200 caractere)</small></h6>
-                <textarea required class='mw95' name='project_shortdesc' placeholder='Această descriere va fi folosită la afișarea rezumatului proiectului în lista principală'></textarea>
+                <textarea required class='mw95' name='project_shortdesc' placeholder='Această descriere va fi folosită la afișarea rezumatului proiectului în lista principală'>".($_REQUEST['project_shortdesc'] ?: '')."</textarea>
+                <small class='error'>Introduceți o descriere pe scurt</small>
             </div>
             <div class='large-6 small-12 columns'>
                 <h6>Seturi de date alese <small>(legături, descrieri, etc.)</small></h6>
-                <textarea required class='mw100' name='project_techdetails' placeholder='Seturi de date alese'></textarea>
+                <textarea required class='mw100' name='project_techdetails' placeholder='Seturi de date alese'>".($_REQUEST['project_techdetails'] ?: '')."</textarea>
+                <small class='error'>Specificați cel puțin un set de date ales</small>
             </div>
         </div>
     </fieldset>
@@ -68,7 +76,7 @@
         <div class='row collapse'>
             <div class='large-8 small-12 columns'>
                 <h6>Alte detalii <small>(Observații, mențiuni – opțional)</small></h6>
-                <textarea class='mw100' name='project_misc' placeholder=''></textarea>
+                <textarea class='mw100' name='project_misc' placeholder=''>".($_REQUEST['project_misc'] ?: '')."</textarea>
             </div>
             <div class='large-3 small-12 columns'>
                 <h6>Cod CAPTCHA</h6>
@@ -76,6 +84,7 @@
                 <div class='row collapse'>
                     <div class='small-8 columns'>
                       <input required type='text' name='captcha_code' size='10' maxlength='6' />
+                      <small class='error'>Introduceți codul</small>
                     </div>
                     <div class='small-4 columns'>
                       <a href='#' onclick=\"document.getElementById('captcha').src = '/assets/securimage-git/securimage_show.php?' + Math.random(); return false\" class='button postfix'>Reset</a>

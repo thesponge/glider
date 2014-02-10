@@ -14,6 +14,13 @@ class Cgldproject
 
     public function _hook_addMember ()
     {
+        require_once PUBLIC_PATH . 'assets/securimage-git/securimage.php';
+        $securimage = new Securimage();
+        if ($securimage->check($_POST['captcha_code']) == false) {
+            $this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
+            return false;
+        }
+
         $this->_gldproject = $this->C->Module_Build_objProp($this, 'projectModel');
 
         return $this->_gldproject->_hook_addMember();
@@ -26,6 +33,13 @@ class Cgldproject
 
     public function _hook_add ()
     {
+        require_once PUBLIC_PATH . 'assets/securimage-git/securimage.php';
+        $securimage = new Securimage();
+        if ($securimage->check($_POST['captcha_code']) == false) {
+            $this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
+            return false;
+        }
+
         $this->_gldproject = $this->C->Module_Build_objProp($this, 'projectModel');
 
         return $this->_gldproject->_hook_addMember();
