@@ -70,8 +70,11 @@ class projectModel
              "
         );
 
-        var_dump($projectQ);
-        return $this->DB->query($projectQ);
+        //var_dump($projectQ);
+        $this->DB->query($projectQ);
+
+        $this->C->jsTalk .= "alert('Proiectul a fost adăugat și a ajuns în faza de moderare.'); window.location='/proiecte';";
+
     }
     public function updateProject ($id)
     {
@@ -219,7 +222,8 @@ class projectModel
                 SET $personValues
                 WHERE id = '$leader'"
             );
-            var_dump($personQ);
+            //var_dump($personQ);
+            $this->DB->query($personQ);
         }
 
         $this->addProject();

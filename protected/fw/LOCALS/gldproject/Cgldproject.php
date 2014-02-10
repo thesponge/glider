@@ -17,7 +17,8 @@ class Cgldproject
         require_once PUBLIC_PATH . 'assets/securimage-git/securimage.php';
         $securimage = new Securimage();
         if ($securimage->check($_POST['captcha_code']) == false) {
-            $this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
+            //$this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
+            $this->C->jsTalk .= "alert('Cod CAPTCHA incorect!');";
             return false;
         }
 
@@ -35,10 +36,11 @@ class Cgldproject
     {
         require_once PUBLIC_PATH . 'assets/securimage-git/securimage.php';
         $securimage = new Securimage();
-        //var_dump($securimage);
+        //var_dump($_POST);
         if ($securimage->check($_POST['captcha_code']) == false) {
             //$this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
-            echo $_POST['captcha_code'] . ' is ' . var_dump($securimage->check($_POST['captcha_code']));
+            $this->C->jsTalk .= "alert('Cod CAPTCHA incorect!');";
+            //echo $_POST['captcha_code'] . ' is ' . var_dump($securimage->check($_POST['captcha_code']));
             return false;
         } else {
             //var_dump($_POST['captcha_code']);
@@ -48,7 +50,7 @@ class Cgldproject
         $this->_gldproject = $this->C->Module_Build_objProp($this, 'projectModel');
 
 
-        return $this->_gldproject->_hook_addMember();
+        return $this->_gldproject->_hook_add();
     }
 
     public function add ()
