@@ -23,7 +23,6 @@ projectFields:
 objProps_links:
     projectModel: ["dbPrefix", "peopleTable", "projectsTable"]
 
-
 envelopeData:
     name:
         0: 'name, 3, 60'

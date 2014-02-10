@@ -35,12 +35,18 @@ class Cgldproject
     {
         require_once PUBLIC_PATH . 'assets/securimage-git/securimage.php';
         $securimage = new Securimage();
+        var_dump($securimage);
         if ($securimage->check($_POST['captcha_code']) == false) {
-            $this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
+            //$this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
+            //var_dump($_POST['captcha_code']);
             return false;
+        } else {
+            //var_dump($_POST['captcha_code']);
+            unset($_SESSION['feedback']);
         }
 
         $this->_gldproject = $this->C->Module_Build_objProp($this, 'projectModel');
+
 
         return $this->_gldproject->_hook_addMember();
     }
