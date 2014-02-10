@@ -38,7 +38,7 @@ class Cgldproject
         //var_dump($securimage);
         if ($securimage->check($_POST['captcha_code']) == false) {
             //$this->C->feedback->Set_mess('error', 'CAPTCHA', 'Cod CAPTCHA incorect!');
-            echo $_POST['captcha_code'] . ' is ' . var_dump($securimage->check($_POST['captcha_code']), true);
+            echo $_POST['captcha_code'] . ' is ' . var_dump($securimage->check($_POST['captcha_code']));
             return false;
         } else {
             //var_dump($_POST['captcha_code']);
