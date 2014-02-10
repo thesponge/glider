@@ -1,0 +1,6 @@
+[submodule "ivy/framework"]
+	path = ivy/framework
+	url = https://github.com/serenitym/ivy-framework.git
+[submodule "ivy/modules"]
+	path = ivy/modules
+	url = https://github.com/serenitym/ivy-modules.git
