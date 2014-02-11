@@ -19,13 +19,19 @@
                   <li>
                     <span class='label'>Coordonator</span>
                   <br>
-                    <a href='{$o->leader_url}'>{$o->fname}</a>
+                    <a ".($o->leader_url 
+                        ? "href='{$o->leader_url}' "
+                        : "")."'>{$o->fname}</a>
+                    ". ($this->admin == true
+                    ? "
                     <a href='mailto:{$o->leader_email}'>
                         ".(
                             $o->leader_email 
                             ? "({$o->leader_email})"
                             : "n/a"
-                        )."</a>
+                        )."</a>"
+                    : ""
+                    ) . "
                   </li>
                 </ul>
               </div>
