@@ -71,7 +71,7 @@
                             ?
                                 (~ao->status == 0
                                 ? 
-                                `<a href='/proiecte/proiect-{~ao->id}/activare'  title='Click pentru a modifica starea proiectului'
+                                `<a href='/proiecte/proiect-{~ao->project_id}/activare'  title='Click pentru a modifica starea proiectului'
                                     onclick='return confirm(&quot;Această acțiune va modifica starea proiectului în: APROBAT. Confirmi?&quot;)'>
                                     <img src='/fw/LOCALS/gldproject/css/img/on_icon.png'>
                                 </a>
@@ -79,7 +79,7 @@
                                     <img src='/fw/LOCALS/gldproject/css/img/edit_icon.png'>
                                 </a>`
                                 : 
-                                `<a href='/proiecte/proiect-{~ao->id}/deactivare'  title='Click pentru a modifica starea proiectului'
+                                `<a href='/proiecte/proiect-{~ao->project_id}/deactivare'  title='Click pentru a modifica starea proiectului'
                                     onclick='return confirm(&quot;Această acțiune va modifica starea proiectului în: NEAPROBAT. Confirmi?&quot;)'>
                                     <img src='/fw/LOCALS/gldproject/css/img/off_icon.png'>
                                 </a>
