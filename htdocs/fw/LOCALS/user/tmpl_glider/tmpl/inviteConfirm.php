@@ -16,10 +16,6 @@
                 <br>
                 <input name='loginName' placeholder='Username' type='text'
                     style="width: 95px;" class='ivy-light'  />
-                <select name="title" style="width: 106px;">
-                    <option value="journalist">Journalist</option>
-                    <option value="coder">Coder</option>
-                </select>
                 <br>
                 <input name='password' placeholder='Password' type='password'
                     style="width: 95px;" class='ivy-light'  />
