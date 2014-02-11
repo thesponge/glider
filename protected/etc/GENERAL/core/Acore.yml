@@ -3,7 +3,7 @@
 # deci care au o clasa  in model / ADMIN / AC[model]
 adminMods:
   TOOLbar: 1
-  GEN_edit: 1
+  GEN_edit: 0
   EDITmode: 1
   page: 1
   single: 1
