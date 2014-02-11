@@ -1,11 +1,11 @@
 ivyMods.user = {
     templates: {
-        deactivate      : "GENERAL/user/tmpl/deactivateAccount.php",
-        recoverPassword : "GENERAL/user/tmpl/recoverPassword.php?id="+fmw.getData['id']+"&token="+fmw.getData['token'],
-        loginForm       : "GENERAL/user/tmpl/loginform.html",
-        changePass      : "GENERAL/user/tmpl/changePassword.php",
-        inviteMember    : "GENERAL/user/tmpl/inviteMember.php?sid="+$.cookie('PHPSESSID'),
-        inviteConfirm   : "GENERAL/user/tmpl/inviteConfirm.php"
+        deactivate      : "tmpl/deactivateAccount.php",
+        recoverPassword : "tmpl/recoverPassword.php?id="+fmw.getData['id']+"&token="+fmw.getData['token'],
+        loginForm       : "tmpl/loginform.html",
+        changePass      : "tmpl/changePassword.php",
+        inviteMember    : "tmpl/inviteMember.php?sid="+$.cookie('PHPSESSID'),
+        inviteConfirm   : "tmpl/inviteConfirm.php"
     },
     popupwidth: {
         deactivate: '350',
