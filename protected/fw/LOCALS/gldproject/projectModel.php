@@ -93,7 +93,7 @@ class projectModel
         $this->DB->query($projectQ);
     }
 
-    public function _hook_addMember ($project, $person)
+    public function _hook_addMember ($project = null, $person = null)
     {
         $this->gldproject->personFields['role'] = 'person_role';
 
@@ -108,20 +108,32 @@ class projectModel
     public function addMember ()
     {
         $project = $_REQUEST['projectid'];
+        $map_table = "{$this->dbPrefix}_{$this->peopleTable}_{$this->projectsTable}_map";
 
         $person_id = $this->checkPerson($this->_personPost->email);
+        $qqq = "SELECT project FROM $map_table WHERE person = '$person_id';";
+        $subscribed = $this->DB->query($qqq)->fetch_object()->person;
         if($person_id > 0) {
             $this->updatePerson($person_id);
             $this->_personPost->id = $person_id;
 
-            $mapQ = Toolbox::trim_all(
-                "UPDATE
-                {$this->dbPrefix}_{$this->peopleTable}_{$this->projectsTable}_map
-                SET
-                 project = '$project'
-                 WHERE person  = '$person_id'
-                 "
-            );
+            if ($subscribed == null) {
+                $mapQ = Toolbox::trim_all(
+                    "INSERT INTO $map_table
+                    SET
+                     project = '$project',
+                     person  = '$person_id'
+                    "
+                );
+            } else {
+                $mapQ = Toolbox::trim_all(
+                    "UPDATE $map_table
+                    SET
+                     project = '$project'
+                     WHERE person  = '$person_id'
+                     "
+                );
+            }
         } else {
             $person  =& $this->_personPost->id;
             $this->_personPost->id = Toolbox::Db_getMax(
@@ -131,16 +143,17 @@ class projectModel
             $this->addPerson();
 
             $mapQ = Toolbox::trim_all(
-                "INSERT INTO
-                {$this->dbPrefix}_{$this->peopleTable}_{$this->projectsTable}_map
+                "INSERT INTO $map_table
                 SET
                  project = '$project',
                  person  = '$person'
                 "
-        );
+            );
         }
         // Populate the people-project map
 
+        //var_dump($qqq);
+        //var_dump($subscribed);
         //var_dump($mapQ);
         $this->DB->query($mapQ);
         Toolbox::relocate(Toolbox::curURL());
