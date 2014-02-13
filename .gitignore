@@ -6,3 +6,4 @@ protected/var/tmp/
 protected/var/ClassLoader.save.php
 *.kdev4
 tags
+RES/
