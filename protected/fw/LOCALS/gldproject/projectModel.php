@@ -112,7 +112,7 @@ class projectModel
 
         $person_id = $this->checkPerson($this->_personPost->email);
         $qqq = "SELECT project FROM $map_table WHERE person = '$person_id';";
-        $subscribed = $this->DB->query($qqq)->fetch_object()->person;
+        $subscribed = $this->DB->query($qqq)->fetch_object()->project;
         if($person_id > 0) {
             $this->updatePerson($person_id);
             $this->_personPost->id = $person_id;
