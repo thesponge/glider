@@ -1,0 +1,106 @@
+<dl class='tabs' data-tab>
+    <dd>
+        <a href='#panel2-1'>Proiecte</a>
+    </dd>
+    <dd>
+        <a href='#panel2-2'>Coordonatori</a>
+    </dd>
+    <dd class='active'>
+        <a href='#panel2-3'>Participanți (total)</a>
+    </dd>
+</dl>
+<div class='tabs-content'>
+    <div class='content' id='panel2-1'>
+        <table> 
+            <tbody> 
+                " . $this->Render_items($o->stats->projects, $o, '',
+                    " <tr>
+                        <td>
+                            <a href='/proiecte/proiect-{~ao->id}'>
+                                {~ao->title}
+                            </a>
+                        </td>
+                        <td>{~ao->added}</td>
+                        <td>{~ao->first_name} {~ao->last_name}</td>
+                        <td>{~ao->email}</td>
+                        <td>{~ao->role}</td>
+                    </tr> "
+                ) . "
+            </tbody> 
+        </table> 
+    </div>
+    <div class='content' id='panel2-2'>
+        <table> 
+            <tbody> 
+                " . $this->Render_items($o->stats->leaders, $o, '',
+                    " <tr>
+                        <td>{~ao->first_name} {~ao->last_name}</td>
+                        <td>{~ao->email}</td>
+                        <td>{~ao->role}</td>
+                    </tr> "
+                ) . "
+            </tbody> 
+        </table> 
+    </div>
+    <div class='content active' id='panel2-3'>
+        <p class='label'>Coordonatori</p>
+        <table> 
+            <thead> 
+                <tr> 
+                    <th width='30'>
+                        ID
+                    </th> 
+                    <th width='250'>
+                        Nume complet
+                    </th> 
+                    <th width='250'>
+                        Email
+                    </th> 
+                    <th width='150'>
+                        Rol
+                    </th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+                " . $this->Render_items($o->stats->leaders, $o, '',
+                    " <tr>
+                        <td>{~ao->id}</td>
+                        <td><b>{~ao->first_name} {~ao->last_name}</b></td>
+                        <td>{~ao->email}</td>
+                        <td>{~ao->role}</td>
+                    </tr> "
+                ) . "
+            </tbody> 
+        </table> 
+        <p class='label'>Participanți</p>
+        <table> 
+            <thead> 
+                <tr> 
+                    <th width='30'>
+                        ID
+                    </th> 
+                    <th width='250'>
+                        Nume complet
+                    </th> 
+                    <th width='250'>
+                        Email
+                    </th> 
+                    <th width='150'>
+                        Rol
+                    </th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+                " . $this->Render_items($o->stats->participants, $o, '',
+                    " <tr>
+                        <td>{~ao->pid}</td>
+                        <td>{~ao->first_name} {~ao->last_name}</td>
+                        <td>{~ao->email}</td>
+                        <td>{~ao->role}</td>
+                    </tr> "
+                ) . "
+            </tbody> 
+        </table> 
+    </div>
+</div>
+

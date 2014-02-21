@@ -122,6 +122,12 @@ class Cgldproject
         $this->projects = $this->C->Handle_Db_fetch($this, $query);
     }
 
+    public function showStats()
+    {
+        $this->stats = $this->C->Module_Build_objProp($this, 'gldStats');
+        $this->stats->render();
+    }
+
 
     public function route($queryString)
     {
@@ -169,6 +175,15 @@ class Cgldproject
             // Employ the "show" form to view/update the project
             $this->template_file = "showproject";
             // do stuff
+            break;
+        case "stats":
+            if ($this->C->admin == true) {
+                $this->template_file = "stats";
+                $this->showStats();
+            } else {
+                $this->C->jsTalk .= "alert('You must be authorized in order to access the stats.');";
+                $this->C->jsTalk .= "window.location = '/proiecte';";
+            }
             break;
         }
     }
