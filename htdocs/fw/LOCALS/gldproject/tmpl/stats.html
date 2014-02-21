@@ -48,10 +48,7 @@
             <thead> 
                 <tr> 
                     <th width='30'>
-                        #
-                    </th> 
-                    <th width='30'>
-                        ID
+                        P
                     </th> 
                     <th width='250'>
                         Nume complet
@@ -67,7 +64,6 @@
             <tbody> 
                 " . $this->Render_items($o->stats->leaders, $o, '',
                     " <tr>
-                        <td>{~ao->counter}</td>
                         <td>{~ao->id}</td>
                         <td><b>{~ao->first_name} {~ao->last_name}</b></td>
                         <td>{~ao->email}</td>
