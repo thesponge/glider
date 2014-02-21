@@ -125,7 +125,6 @@ class Cgldproject
     public function showStats()
     {
         $this->stats = $this->C->Module_Build_objProp($this, 'gldStats');
-        $this->stats->render();
     }
 
 

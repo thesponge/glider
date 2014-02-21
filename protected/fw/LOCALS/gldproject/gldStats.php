@@ -34,13 +34,15 @@ class gldStats
     public function getLeaders()
     {
         $q = "SELECT
+                @rownum:=@rownum+1 'counter',
                 projects.id, projects.title, projects.added,
                 people.first_name, people.last_name,
                 people.email, people.role
             FROM
                 glider_projects AS projects
             JOIN glider_people AS people
-                ON (projects.leader = people.id)
+                ON (projects.leader = people.id),
+            (SELECT @rownum:=0) r
             WHERE
                 projects.status = '1'
             GROUP BY people.id;
@@ -51,6 +53,7 @@ class gldStats
     public function getParticipants()
     {
         $q = "SELECT
+                @rownum:=@rownum+1 'counter',
                 projects.id AS pid, projects.title, projects.added,
                 people.first_name, people.last_name,
                 people.role, people.email
@@ -59,16 +62,16 @@ class gldStats
             JOIN glider_people_projects_map AS map
                 ON (projects.id = map.project)
             JOIN glider_people AS people
-                ON (people.id = map.person)
+                ON (people.id = map.person),
+            (SELECT @rownum:=0) r
             WHERE people.id
                 NOT IN
                 (SELECT leader FROM glider_projects)
         ";
-        return $this->participants = $this->C->Handle_Db_fetch($this, $q);
+        $this->participants = $this->C->Handle_Db_fetch($this, $q);
+
+        return $this->participants;
     }
 
-    public function render()
-    {
-    }
 
 }
