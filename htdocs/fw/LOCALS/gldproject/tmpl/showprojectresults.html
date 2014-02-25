@@ -38,6 +38,34 @@
             </div>
         </div>
     </fieldset>
+    <fieldset style='border-color: #6E0B14;'>
+        <legend>Rezultate</legend>
+        <div class='row-collapsed'>
+            <div class='large-12 columns'>
+                <span class='label success'>URL demo:</span>
+                ".(
+                    $o->project[0]['demo'] 
+                    ? '<a href=\'' . filter_var($o->project[0]['demo'], FILTER_SANITIZE_URL) . '\'>' . $o->project[0]['demo'] . '</a>'
+                    : "n/a"
+                )."
+                <br><br>
+                <span class='label success'>URL cod sursă:</span>
+                ".(
+                    $o->project[0]['source'] 
+                    ? '<a href=\'' . filter_var($o->project[0]['source'], FILTER_SANITIZE_URL) . '\'>' . $o->project[0]['source'] . '</a>'
+                    : "n/a"
+                )."
+                <br><br>
+                <span class='label success'>Concluzii / rezultate</span>
+                <br><br>
+                ".(
+                    $o->project[0]['conclusion'] 
+                    ? Markdown::defaultTransform($o->project[0]['conclusion'])
+                    : "n/a"
+                )."
+            </div>
+        </div>
+    </fieldset>
     <div class='row-collapsed'>
         <div class='columns'>
             <ul class='large-block-grid-2 medium-block-grid-1 small-block-grid-1'>
