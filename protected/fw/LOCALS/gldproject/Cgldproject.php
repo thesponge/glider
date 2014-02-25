@@ -109,6 +109,7 @@ class Cgldproject
 
         $this->project = $this->C->Handle_Db_fetch($this, $project_query);
         $this->members = $this->C->Handle_Db_fetch($this, $members_query);
+
     }
 
     public function Db_getProjects($status = 1)
@@ -153,9 +154,13 @@ class Cgldproject
             // Populate the project properties
             $this->Db_getProject($this->project_id);
 
-            // Employ the "add" form to insert new stuff
-            $this->template_file = "editform";
-            // do stuff
+            if ((strtotime($this->subscriptionEnd) > strtotime(date('Y-m-d')))) {
+                // Employ the "add" form to insert new stuff
+                $this->template_file = "editform";
+            } else {
+                // Employ the "edit results" template
+                $this->template_file = "editformresults";
+            }
             break;
         case "add":
             // Fetch the title, if any
@@ -171,9 +176,14 @@ class Cgldproject
             // Populate the project properties
             $this->Db_getProject($this->project_id);
 
-            // Employ the "show" form to view/update the project
-            $this->template_file = "showproject";
-            // do stuff
+            // Check if subscription period is over
+            if ((strtotime($this->subscriptionEnd) > strtotime(date('Y-m-d')))) {
+                // Employ the "show" form to view/update the project
+                $this->template_file = "showproject";
+            } else {
+                // Employ the "show results" template to view the project
+                $this->template_file = "showprojectresults";
+            }
             break;
         case "stats":
             if ($this->C->admin == true) {

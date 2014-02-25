@@ -1,3 +1,5 @@
+subscriptionEnd: '2012-02-22'
+
 dbPrefix: 'glider'
 peopleTable: 'people'
 projectsTable: 'projects'
@@ -18,6 +20,9 @@ projectFields:
     tech_details      : 'project_techdetails'
     status            : 'project_status'
     misc              : 'project_misc'
+    demo              : 'project_demo'
+    source            : 'project_source'
+    conclusion        : 'project_conclusion'
 
 
 objProps_links:

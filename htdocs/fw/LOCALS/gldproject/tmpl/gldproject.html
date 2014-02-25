@@ -64,7 +64,10 @@
                     <td>
                         <a href='/proiecte/proiect-{~ao->project_id}' 
                             class='radius label'>
-                            Detalii și înscriere
+                            `.(strtotime(~this->subscriptionEnd) < strtotime(date('Y-m-d'))
+                            ? `Detalii și rezultate`
+                            : `Detalii și înscriere`
+                            ).`
                         </a>
                         `.(
                             ~this->admin==true

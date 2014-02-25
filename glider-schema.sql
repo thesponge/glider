@@ -465,3 +465,7 @@ ALTER TABLE `glider_people_projects_map`
 --
 ALTER TABLE `glider_projects`
   ADD CONSTRAINT `fk_project-people` FOREIGN KEY (`leader`) REFERENCES `glider_people` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+ALTER TABLE `glider_projects` ADD `demo` TEXT NULL DEFAULT NULL ,
+ADD `source` TEXT NULL DEFAULT NULL ,
+ADD `conclusion` TEXT NULL DEFAULT NULL ;

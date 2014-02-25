@@ -1,0 +1,141 @@
+<div class='row'>
+  <form action='/' method='post'>
+    <fieldset>
+        <legend>Proiect #".$o->project_id.": ".$o->title."</legend>
+        <div class='row-collapsed'>
+            <div class='large-5 columns'>
+              <div class='row-collapsed'>
+                  <div class='small-12 columns'>
+                    <h4>{$o->title}</h4>
+                  </div>
+                  <div class='small-12 columns'>
+                      <a href='{$o->project_url}'>{$o->project_url}</a>
+                  </div>
+              </div>
+            </div>
+            <div class='large-6 columns'>
+              <div class='row-collapsed'>
+                <ul class='large-block-grid-1'>
+                  <li>
+                    <span class='label'>Coordonator</span>
+                  <br>
+                    <a ".($o->leader_url 
+                        ? "href='{$o->leader_url}' "
+                        : "")."'>{$o->fname}</a>
+                    ". ($this->admin == true
+                    ? "
+                    <a href='mailto:{$o->leader_email}'>
+                        ".(
+                            $o->leader_email 
+                            ? "({$o->leader_email})"
+                            : "n/a"
+                        )."</a>"
+                    : ""
+                    ) . "
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class='row-collapsed'>
+        <div class='columns'>
+            <ul class='large-block-grid-2 medium-block-grid-1 small-block-grid-1'>
+                <li>
+                    <span class='label radius'>Description</span> <br>
+                    <p>".
+                    Markdown::defaultTransform($o->description)
+                    ."</p>
+                </li><li style='border-left: 1px solid #cccccc;'>
+                    <span class='label radius'>Tech details</span> <br>
+                    <p>".
+                    Markdown::defaultTransform($o->tech_details)
+                    ."</p>
+                </li>
+            </ul>
+    </div>
+    </div>
+  </form>
+
+  <div class='row collapse'> <hr> </div>
+
+    <div class='row collapse'>
+    <div class='large-4 small-12 columns'>
+        <table>
+            <tr>
+                <td>Demo</td>
+                <td>
+                ".(
+                    $o->project[0]['demo'] 
+                    ? '<a href=\'' . filter_var($o->project[0]['demo'], FILTER_SANITIZE_URL) . '\'>' . $o->project[0]['demo'] . '</a>'
+                    : "n/a"
+                )."
+                </td>
+            </tr>
+            <tr>
+                <td>Sursa</td>
+                <td>
+                ".(
+                    $o->project[0]['source'] 
+                    ? '<a href=\'' . filter_var($o->project[0]['source'], FILTER_SANITIZE_URL) . '\'>' . $o->project[0]['source'] . '</a>'
+                    : "n/a"
+                )."
+                </td>
+            </tr>
+            <tr>
+                <td>Concluzii</td>
+                <td>
+                ".(
+                    $o->project[0]['conclusion'] 
+                    ? $o->project[0]['conclusion'] 
+                    : "n/a"
+                )."
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class='large-6 small-12 columns'>
+      <p class='label'>Membri înscriși</p>
+        <table> 
+            <thead> 
+                <tr> 
+                    <th width='200'>
+                        Nume
+                    </th> 
+                    <th width='200'>
+                        Prenume
+                    </th> 
+                    <th width='100'>
+                        Rol
+                    </th> 
+                </tr> 
+            </thead> 
+            <tbody> "
+            . $this->Render_items($o->members, $o, '',
+                " <tr>
+                    <td>{~ao->first_name}</td>
+                    <td>{~ao->last_name}</td>
+                    <td>{~ao->role}</td>
+                </tr> "
+            ) .
+            "
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
