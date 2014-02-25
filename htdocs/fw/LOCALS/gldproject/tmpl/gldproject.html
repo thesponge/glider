@@ -1,4 +1,6 @@
    <div class='row' style='padding-top: 50px; min-height: 500px;'>
+        ".(strtotime($this->subscriptionEnd) > strtotime(date('Y-m-d'))
+        ? "
         <div class='row'>
           <div class='large-4 large-offset-1 columns'>
               <p>Ai o idee de proiect? Completează formularul și participă 
@@ -19,10 +21,19 @@
             </form>
           </div>
         </div>
+          "
+        : "
+        <div class='row'>
+          <div class='large-12 columns'>
+              Te invităm să urmărești rezultatele, accesând pagina fiecărui proiect în parte.
+          </div>
+        </div>
+        "
+        )."
         <hr>
    <div class='row'>
       <div class='large-12 columns'>
-          <p>Idei înscrise până în prezent:</p>
+          <p>Idei înscrise:</p>
       </div>
       <div class='large-12 columns'>
         <table> 
