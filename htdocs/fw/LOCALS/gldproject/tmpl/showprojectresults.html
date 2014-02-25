@@ -75,7 +75,7 @@
                     Markdown::defaultTransform($o->description)
                     ."</p>
                 </li><li style='border-left: 1px solid #cccccc;'>
-                    <span class='label radius'>Tech details</span> <br>
+                    <span class='label radius'>Seturi de date alese</span> <br>
                     <p>".
                     Markdown::defaultTransform($o->tech_details)
                     ."</p>
@@ -88,41 +88,7 @@
   <div class='row collapse'> <hr> </div>
 
     <div class='row collapse'>
-    <div class='large-4 small-12 columns'>
-        <table>
-            <tr>
-                <td>Demo</td>
-                <td>
-                ".(
-                    $o->project[0]['demo'] 
-                    ? '<a href=\'' . filter_var($o->project[0]['demo'], FILTER_SANITIZE_URL) . '\'>' . $o->project[0]['demo'] . '</a>'
-                    : "n/a"
-                )."
-                </td>
-            </tr>
-            <tr>
-                <td>Sursa</td>
-                <td>
-                ".(
-                    $o->project[0]['source'] 
-                    ? '<a href=\'' . filter_var($o->project[0]['source'], FILTER_SANITIZE_URL) . '\'>' . $o->project[0]['source'] . '</a>'
-                    : "n/a"
-                )."
-                </td>
-            </tr>
-            <tr>
-                <td>Concluzii</td>
-                <td>
-                ".(
-                    $o->project[0]['conclusion'] 
-                    ? $o->project[0]['conclusion'] 
-                    : "n/a"
-                )."
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class='large-6 small-12 columns'>
+    <div class='large-12 small-12 columns'>
       <p class='label'>Membri înscriși</p>
         <table> 
             <thead> 
