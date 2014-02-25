@@ -79,6 +79,7 @@ class projectModel
     public function updateProject ($id)
     {
         // Create the assignment query out of $_POST values
+        unset($this->_projectPost->status);
         $projectValues = $this->C->Db_setFromAssoc($this->_projectPost);
 
         // Build the final query
