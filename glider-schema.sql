@@ -279,8 +279,7 @@ CREATE TABLE IF NOT EXISTS `glider_people` (
 CREATE TABLE IF NOT EXISTS `glider_people_projects_map` (
   `project` int(5) NOT NULL,
   `person` int(5) NOT NULL,
-  UNIQUE KEY `person` (`person`),
-  UNIQUE KEY `project` (`project`)
+  UNIQUE KEY `person` (`person`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
