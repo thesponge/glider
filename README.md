@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/thesponge/glider.png?label=ready&title=Ready)](https://waffle.io/thesponge/glider)
 ## Installation
 
 First, clone the repository and be sure to do it recursively, so all the
