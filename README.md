@@ -31,3 +31,17 @@ hack the way in for new users, like this:
 * password is stored in plain MD5 for the moment
 * login using <BASE_URL>/?login
 
+
+## REQUIREMENTS
+
+* Apache web server (can be easily tweaked for nginx)
+* PHP 5.3+
+* MariaDB / MySQL 5.5+
+* tested on GNU/Linux only!
+
+
+## HOW TO CONTRIBUTE
+
+First, clone the repository. Please create a feature branch for anything you 
+might want to modify, add or remove. Finally, open a pull request, and I'll be 
+happily review / merge it ;-)
