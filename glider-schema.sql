@@ -468,3 +468,21 @@ ALTER TABLE `glider_projects`
 ALTER TABLE `glider_projects` ADD `demo` TEXT NULL DEFAULT NULL ,
 ADD `source` TEXT NULL DEFAULT NULL ,
 ADD `conclusion` TEXT NULL DEFAULT NULL ;
+
+
+--
+-- Insert a default 'admin/admin' user
+--
+INSERT INTO `oddhack`.`auth_users` (`uid`, `cid`, `name`, `active`, `email`, `password`, `token`)
+VALUES ('1', '1', 'admin', '1', 'admin@example.com', '21232f297a57a5a743894a0e4a801fc3', 'd673574f806dfde89a188e7c1d90dd9e');
+
+INSERT INTO `oddhack`.`auth_user_details`
+(`uid`, `first_name`, `last_name`,
+    `language`, `country`, `city`,
+    `title`, `bio`, `photo`, `phone`, `site`,
+    `last_ip`, `creation`, `last_login`)
+VALUES ('1', 'System', 'Admin', 'en_US', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL);
+
+INSERT INTO `oddhack`.`auth_user_stats`
+(`uid`, `age`, `failed_logins`, `comments_count`, `articles_count`, `warn_count`, `permissions`)
+VALUES ('1', NULL, NULL, NULL, NULL, NULL, NULL);
