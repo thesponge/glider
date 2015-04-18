@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+div#children_display{
+
+
+    min-height:260px;
+   /* float: left;*/
+    width: 226px;
+    display: inline-block;
+    padding:0px 0px;
+    margin-right: 40px;
+
+    background-image: url('img/b_15.png');
+    background-position: right;
+    background-repeat: no-repeat;
+
+
+}
+div#children_display > ul{padding: 0px; list-style-type:none;}
+div#children_display > ul > li > a{
+
+    display: block;
+    padding: 6px 35px;
+    background-image: url('img/Logo1.png');
+    background-position: center left;
+    background-repeat: no-repeat;
+
+}
+
+
+div#children_display > ul > li > a:hover{
+
+     font-weight: bold;
+     background-image: url('img/Logo2.png')
+
+}
+
+div#children_display > ul > li > a.current{
+
+     font-weight: bold;
+     background-image: url('img/Logo2.png')
+
+}

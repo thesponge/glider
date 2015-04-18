@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/*=================[profile.html]===================*/
+.ELMcontent .bio{ min-height: 220px;}
+
+.ELMcontent .first_name,
+.ELMcontent .last_name,
+.ELMcontent .site,
+.ELMcontent .email,
+.ELMcontent .phone,
+.ELMcontent .title
+{width: 250px; text-transform: none;}
+

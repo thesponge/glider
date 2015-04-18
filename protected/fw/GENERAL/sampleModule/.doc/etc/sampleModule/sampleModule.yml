@@ -1,0 +1,65 @@
+---
+
+# ATENTIUNI SPECIALE
+# daca modulul are deja setate variabile din acest yml => vor fii inlocuite
+# daca modul are setate array-uri existente in acest yml=>  se va face merge
+# be sure to edit this config properly, and dont let any dead code behind
+
+
+#   array cu numele variabilelor dorite din CsetINI
+#   sau dintr-un anumit model ex model: nume variabila  sau model:[var1, var2]
+#
+#objREQ:
+#  0: propName
+#  user: propName
+
+# calea catre fisierul yaml care trebuie inclus la acesta se va adauga constanta INC_PATH
+#
+#include:
+#  - 'path/modelName.yml'
+
+
+#numele templateului
+#template: ""
+
+#numele fisierului de template , default = numele modulului ex: sampleModule.html
+#template_file: ""
+
+
+# scripturi de inclus in hard mode
+#
+#assetsInc:
+#  js:
+#    -"/assets/..js"
+#    -"/assets/..js"
+
+#  css:
+#    - "/assets/...css"
+#    - "/assets/...css"
+
+# scripuri de inclus pentru un anumit template file
+#assetsInc_tmplFileName:
+#    js:
+#       -"/assets/..js"
+#       -"/assets/..js"
+
+#    css:
+#       - "/assets/...css"
+#       - "/assets/...css"
+
+# scripturi externe de inclus pentru un modul
+# sau pentru un template anume
+
+#assetsExtern:
+#  js: >
+#    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+#  css: >
+#    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+#    <!--[if lte IE 8]>
+#       <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
+#    <![endif]-->
+
+#assetsExtern_tmplFileName:
+#  js: ''
+#  css: ''
+

@@ -1,0 +1,145 @@
+
+
+<!-- Folosirea variabilelor si metodelor din cadrul obiectului curent
+    La care ne referim cu $o->varName
+-->
+<div>
+
+    <p>{$o->var1}</p>
+    <p>{$o->var2}</p>
+    <p>{$o->var3}</p>
+
+    <!--$this = obiectul principal core -->
+    <p>{$this->var4}</p>
+    <!--The same with-->
+    <p>{$o->C->var4}</p>
+
+    <!--Apelarea metodelor-->
+    <p>".$o->methName()."</p>
+    <p>".$this->methName()."</p>
+
+
+</div>
+
+<!--Iterarea prin array-uri  - multidemsionale (ex: recorduri provenite din BD)
+    ex: $o->news = recordurile news-urilor
+                 = array(0 =>[title=>'', lead=> '' , pictureUrl=> '' ] )
+
+    » preluate cu Handle_Db_fetch
+    =====================================================================
+     Render_items ($items, &$mod=', $tmplType='', $tmpl)
+
+     $items = arra
+-->
+
+<div>
+    ".$this->Render_items($o->news, $o, ''
+        "
+            <div>
+                <p>Title : {~ao->title}</p>
+                <p>Lead : {~ao->lead}</p>
+                <!--Conditionare concatenata-->
+                `.(
+                    ~ao->pictureUrl
+                    ? `<p>Picture : <img src='{~ao->pictureUrl}'> </p>`
+                    : `There is no picture`
+                ).`
+
+            </div>
+        "
+    )."
+
+</div>
+
+<!-- Iterarea prin array-uri unidensionale
+
+     Render_array($items, &$mod='', $tmplType='', $tmpl='')
+
+        - logica este idem cu cea a arra-urile muldimensionale doar
+        ca ne referim la itemul curent cu ~i sau $i pentru tmplStr / tmplPath
+
+ -->
+<div>
+    ".$this->Render_array( $this->someItems, '', 'str',
+        "<p>{~i}</p>"
+    )."
+</div>
+
+
+
+<!-- Integrarea de templateuri ale altui obiect / sau ale aceluiasi obiect
+
+    renderDisplay_frommod(&$mod, $tmplStr='', $tmplPath='')
+            - ase folosii parametrul de tmplPath al metodei
+-->
+
+ <div>
+     ".$this->Render_object(
+        $this->modName, '',
+        $this->modName->modType.'/'
+            .$this->modName->modName.'/'.
+            .'tmpl/templateFile.html'
+     )."
+
+ </div>
+
+
+<div>
+
+    ".( !$this->admin ? '' :
+         $this->Render_object(
+             $o,
+             '',
+            'MODELS/modName/tmpl/templateFile.html')
+
+    )."
+</div>
+
+ <!--==========================[ FOLOSIREA EDITmode]=====================================-->
+ <!--ENTS-->
+<div class='allENTS allNews' id='allNews_{$o->LG}'>
+    ".$this->Render_items($o->news, $o ,''
+        "
+            <div class='ENT news' id='news_{~ao->idNews}_{~o->lang}'>
+                <p>Title :
+                    <a href='index.php?idC={~o->idNode}&idT={~o->idTree}&idNews={~ao->idNews}'>
+                        <span class='EDtxt titleNews'>{~ao->title}</span>
+                    </a>
+                </p>
+                <p>Lead :  <span class='EDtxa leadNews'>{~ao->lead}</span></p>
+                <!--Conditionare concatenata-->
+                `.(
+                    ~ao->pictureUrl
+                    ? `<p>Picture :
+                            <a href='{~ao->newsHref}'>
+                                <img src='{~ao->pictureUrl}'>
+                            </a>
+                       </p>`
+                    : `There is no picture`
+                ).`
+
+            </div>
+        "
+    )."
+
+</div>
+
+<!--SING-->
+<div class='SING sgNews' id='news_0_{$o->lang}'>
+
+    <p>
+        <span class='ATmpl'> title</span>
+        <span class='EDtxt newsTitle'> {$o->title}</span>
+    </p>
+
+    <p>
+        <span class='ATmpl'> lead</span>
+        <span class='EDtxa newsLead'> {$o->lead}</span>
+    </p>
+
+    <div>
+        <span class='ATmpl'> Content </span>
+        <div class='EDeditor newsContent'>{$o->content}</div>
+    </div>
+
+</div>

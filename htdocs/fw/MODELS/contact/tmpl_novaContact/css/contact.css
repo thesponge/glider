@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.contact        { margin-left: 30px;  float:right;}
+
+.cke_skin_kama  { width:350px;}
+.ContactDdetails{ width:350px; height: 370px; }
+
+form#form_comp  { width:350px; float:left; margin-left: 10px;}
+
+
+form#form_comp span               { width:110px; float: left; }
+form#form_comp input[type='text'] { width:215px; border: 1px solid #bbb; display: block;margin-top:5px;}
+form#form_comp textarea           { width:215px; height: 70px; border: 1px solid #bbb;
+                                    display: block;margin-top:5px; overflow: auto;}
+
+form#form_comp input[type='submit'],
+form#form_comp input[type='reset']{ margin-right: 10px;}
+
+#feedback
+{
+    clear: both;
+    font-size: 11px;
+    color: #8b0000;
+}
+
+

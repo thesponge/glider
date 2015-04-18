@@ -1,0 +1,59 @@
+<div class='block overflow'>
+	<div class='textColumnBig right space'>
+        <div class='SING aboutDesc'  id='aboutDesc_about_en'>
+            <div class='EDeditor textDesc desc' data-iedit-cketoolbar='webmaster'>
+                ".$this->Render_ModulefromRes($this->blogSite, 'aboutDescription')."
+            </div>
+        </div>
+    </div>
+
+	<div class='LeftColumnSmall space'>
+			<div class='blogsHead'>Mission</div>
+			<div class='contactInfo'>
+                Bucharest, Romania<br>
+			    contact@theblacksea.eu<br>
+			    <a href='#sponsors' class='blue border-0'>Sponsors</a><br>
+			    <a href='#awards' class='blue border-0'>Awards</a><br>
+			</div>
+	</div>
+</div>
+
+<div class='block space'>
+    ".$this->Render_itemsFromStr(array_merge($o->profiles, $o->editors), '', "
+        <div class='imageColumn space'>
+            <div class='mainFeaturedImg-profilePhoto'>
+                <a href='{~ao->hrefProfile}' class=' about-photo-containter'>
+                `.(~ao->photo
+                    ? `<img style='width:100%' src='{~ao->photo}' class='uclass{~ao->cid}' />`
+                    : `<img style='width:100%' src='RES/uploads/foto/default_avatar.png'  class='uclass{~ao->cid}'/>`
+                ).`
+                </a>
+            </div>
+            <div class='imageColumnMeta'>
+                <div class='imageColumnHead fullwidth'>
+                    <a href='{~ao->hrefProfile}' class='uactive{~ao->active} uclass{~ao->cid}'>
+                        {~ao->fullName}
+                    </a>
+                </div>
+                <div class='imageColumnLocation blue'>
+                    `.( ~ao->title ? ~ao->title : 'Title'  ).`
+                </div>
+            </div>
+        </div>
+    ")."
+
+    <div class='clearfix'></div>
+    <div class='SING sponsorsDesc'  id='sponsorsDesc_sponsors_en'>
+        <a name='sponsors'></a>
+        <div class='EDeditor textDesc desc'  data-iedit-cketoolbar='webmaster'>
+            ".$this->Render_ModulefromRes($this->blogSite, 'sponsorsDescription')."
+        </div>
+    </div>
+
+    <div class='SING awardsDesc'  id='awardsDesc_awards_en'>
+        <a name='awards'></a>
+        <div class='EDeditor textDesc desc'  data-iedit-cketoolbar='webmaster'>
+            ".$this->Render_ModulefromRes($this->blogSite, 'awardsDescription')."
+        </div>
+    </div>
+</div>

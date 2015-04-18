@@ -1,0 +1,46 @@
+<div class='{$o->profile->editStatus}SING block  sgProfile' id='sgProfile_{$o->profile->uid}_en'>
+    ".(!$this->admin ? '' :
+         $this->Render_object($o,'',
+            "MODELS/profile/tmpl_about/ADMIN/tmpl/adminSettings.html")
+    )."
+	<div class='textColumnBig right space '>
+        <div class='EDeditor bio'>{$o->profile->bio}</div>
+	    <p></p>
+        <!--list articles-->
+        ". $this->Render_object($o,'',
+                    "MODELS/profile/tmpl_about/tmpl/listArticles.html")."
+    </div>
+
+    <div class='LeftColumnSmall space'>
+
+	    <div class='mainFeaturedImg-profilePhoto space .photo-containter'>
+            ".($o->profile->photo
+                   ? "<img class='EDpic photo' style='width:100%' src='{$o->profile->photo}'/>"
+                   : "<img class='EDpic photo'  style='width:100%' src='RES/uploads/foto/default.jpg'/>"
+            )."
+        </div>
+	    <div class='fullwidth'>
+            <div class='Name'>
+                <span class='ATmpl req'>Firstname/ LastName</span>
+                <span class='EDtxt first_name'>{$o->profile->first_name}</span>
+                <span class='EDtxt last_name'>{$o->profile->last_name}</span>
+
+            </div>
+        </div>
+        <span class='ATmpl req'>Title</span>
+	    <div class='EDtxt imageColumnLocation blue title'>
+            {$o->profile->title}
+        </div>
+	    <div class='fullwidth space'></div>
+	    <div class='imageColumnHead'>
+            <span class='ATmpl'>site</span>
+            <a href='http://" . str_replace('http://','',$o->profile->site) . "' 
+                class='EDtxt site' target='_blank'>{$o->profile->site}</a><br>
+            <span class='ATmpl'>email</span>
+            <span class='EDtxt email'>{$o->profile->email}</span><br>
+            <span class='ATmpl'>phone</span>
+            <span class='EDtxt phone'>{$o->profile->phone}</span>
+	    </div>
+    </div>
+    <div class='clearfix'></div>
+</div>

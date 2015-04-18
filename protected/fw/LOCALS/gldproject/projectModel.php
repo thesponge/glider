@@ -73,7 +73,7 @@ class projectModel
         //var_dump($projectQ);
         $this->DB->query($projectQ);
 
-        $this->C->jsTalk .= "alert('Proiectul a fost adăugat și a ajuns în faza de moderare.'); window.location='/proiecte';";
+        $this->C->jsTalk .= "alert('Proiectul a fost adăugat și a ajuns în faza de moderare.'); window.location='/cluj/proiecte';";
 
     }
     public function updateProject ($id)

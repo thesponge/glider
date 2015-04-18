@@ -1,0 +1,155 @@
+
+$this->menuSet1
+    ->idMenu
+    ->template
+    ->levels
+    ->items
+        [0]
+           'name'
+           'idC'
+           'idT'
+           'href'
+           'items'
+                [0]
+                   'name'
+                    'idC'
+                    'idT'
+                    'href'
+
+
+
+
+problema de a avea mai multe meniuri
+putem avea idea de seturi ca in trecut
+insa deobicei seturile erau chemate de alte obiecte
+putem sa setam inainte
+idMenu = cu ce
+
+initial o sa fie 1
+la un alt apel va fii 2
+iar clasele ...hmm..
+se va schimba templateul cu care vor fii generate ..
+mi se pare cel mai logic
+totusi
+
+
+
+la momentul automatizarii css-ului pentru meniuri nu imi va lua
+ambele css-uri
+de aia trebe bagate intr-unul singur
+aici e o mica belea
+pentru ca nu pare scalabil...
+deci hai sa scriem problemele
+
+1.Probleme
+
+- trebuie sa pot avea mai multe meniuri
+- fiecare dintre ele trebuia sa poata avea propriul ei template
+    => fiecare trebuie sa poata avea propriul css , js si fisiere .html
+
+ o solutie ar fii sa se ceara preferential
+ daca un al doilea meniu intra in scena...atunci vom cere
+ css si js pentru acesta
+
+ - problema de levels
+
+ - orice meniu trebuie sa ii se seteze
+    id-ul
+    templateul / tema
+    nr de levels
+
+  *** propun aceste setari ca un array de setari (exemplu fiind javaSCript)
+
+
+ acum problema intervine problema de templatinguri
+ chiar daca se pun la dispozitie aceste seturi ....cu se poate scrie un
+ templating recursiv???
+ hmm...poate ca un template poate face referire la el insusi si prin asta
+ devine recursiv
+
+
+ 2.Developing pasii
+
+
+ 1 - sa creeam intain un meniu simplu
+ 2 - sa il generalizam si sa cream datele pentru templating
+ 3 - sa apelam prin varianta generalizata
+ 4 - sa cream css-ul
+ 5 - sa cream js-ul pentru meniul nostru personalizat
+ 6 - review general
+
+
+
+
+<ul id="sample-menu-4" class="sf-menu sf-navbar">
+					<li>
+						<a class="sf-with-ul" href="#">long menu item<span class="sf-sub-indicator"> &#187;</span></a>
+						<ul>
+							<li><a href="#">subitem 1a</a></li>
+							<li><a href="#">subitem 1b</a></li>
+							<li><a href="#">subitem 1c</a></li>
+							<li><a href="#">subitem 1d</a></li>
+						</ul>
+					</li>
+					<li class="current">
+						<a class="sf-with-ul" href="#">menu item<span class="sf-sub-indicator"> &#187;</span></a>
+						<ul>
+							<li>
+								<a class="sf-with-ul" href="#">subitem 2a<span class="sf-sub-indicator"> &#187;</span></a>
+								<ul>
+									<li><a href="#">menu item</a></li>
+									<li><a href="#aba">menu item</a></li>
+									<li><a href="#abb">menu item</a></li>
+									<li><a href="#abc">menu item</a></li>
+									<li><a href="#abd">menu item</a></li>
+								</ul>
+							</li>
+							<li class="current">
+								<a class="sf-with-ul" href="#">path to current<span class="sf-sub-indicator"> &#187;</span></a>
+								<ul>
+									<li><a href="#">menu item</a></li>
+									<li><a href="#aba">menu item</a></li>
+									<li><a href="#abb">menu item</a></li>
+									<li class="current"><a href="#abc">current page</a></li>
+									<li><a href="#abd">menu item</a></li>
+								</ul>
+							</li>
+							<li>
+								<a class="sf-with-ul" href="#">subitem 2c<span class="sf-sub-indicator"> &#187;</span></a>
+								<ul>
+									<li><a href="#">menu item</a></li>
+									<li><a href="#aba">menu item</a></li>
+									<li><a href="#abb">menu item</a></li>
+									<li><a href="#abc">menu item</a></li>
+									<li><a href="#abd">menu item</a></li>
+								</ul>
+							</li>
+							<li><a href="#">subitem 2d</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="sf-with-ul" href="#">menu item<span class="sf-sub-indicator"> &#187;</span></a>
+						<ul>
+							<li><a href="#">if no subitems, duplicate parent item href and use this as descriptive label</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="sf-with-ul" href="#">menu item<span class="sf-sub-indicator"> &#187;</span></a>
+						<ul>
+							<li><a href="#">subitem 4a</a></li>
+							<li><a href="#">subitem 4b</a></li>
+							<li><a href="#">subitem 4c</a></li>
+							<li><a href="#">subitem 4d</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="sf-with-ul" href="#">menu item<span class="sf-sub-indicator"> &#187;</span></a>
+						<ul>
+							<li><a href="#">subitem 5a</a></li>
+							<li><a href="#">subitem 5b</a></li>
+							<li><a href="#">subitem 5c</a></li>
+							<li><a href="#">subitem 5d</a></li>
+						</ul>
+					</li>
+				</ul>
+

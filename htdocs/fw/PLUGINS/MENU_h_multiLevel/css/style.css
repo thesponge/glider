@@ -1,0 +1,151 @@
+@charset "UTF-8";
+#menuH {
+    position:relative;
+    z-index:200;
+    top: 20px;
+    text-align: left;
+
+}
+#menuH ul {    list-style:none outside none;}
+
+    #menuH ul li a,
+    #menuH ul li span{
+
+      color:#000;
+      cursor:default;
+      display:block;
+      font:11px Tahoma,Arial;
+
+      text-decoration:none;
+      position:relative;
+
+    }
+
+/*_____________________________[Submenil Orizontal]__________________________________________*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+#menuH ul.h {
+
+  background-color:#B8D1F8;
+  border:1px solid #000C80;
+  height:30px;
+  display:block;
+  margin:0;
+  padding:0px 1px;
+
+}
+        #menuH ul.h li {
+
+         /* display: inline-block;*/
+          float:left;
+          margin-right:1px;
+          position:relative;
+        }
+/*____________________________________________________________________________________________*/
+                #menuH ul.h li > span { background:url("img/u.gif") no-repeat scroll 90% center transparent;}
+                #menuH ul.h li > a,
+                #menuH ul.h li > span {
+
+                  padding:7px 18px 7px 3px;
+                  background-color:#B8D1F8;
+                  border:1px solid #B8D1F8;
+                }
+
+
+                #menuH ul.h li:hover > a,
+                #menuH ul.h li:hover > span {
+
+                  background-color:white;
+                  border:1px solid #000C80;
+                }
+
+
+
+/*_____________________________[Submeniurile Verticale]__________________________________________*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+#menuH ul[class^='v']{
+    height:auto;
+    position:absolute;
+    width:168px;
+
+    display:none;
+    padding:0;
+    /*border:1px solid #8A867A;*/
+
+    background-color:red;
+    min-height: 40px;
+}
+
+#menuH ul.v1 { left:0;     top:30px; padding:0;}
+#menuH ul.v2 { left:165px; top:-1px; padding:0;}
+
+
+        #menuH ul[class^='v']>li {
+
+          float:none;
+          margin-right:0;
+          padding:1px 4px;
+          margin: 0px 2px;
+          background-color:white;
+
+
+
+        }
+/*_____________________________________________________________________________________________*/
+
+                #menuH ul[class^='v'] li span{  background:url("img/s.gif") no-repeat scroll 97% center transparent;}
+                #menuH ul[class^='v'] li a,
+                #menuH ul[class^='v'] li span {
+
+                  background-color: #faebd7;
+                  border:1px solid transparent;
+                  padding:3px 3px 5px 2px;
+                }
+                #menuH ul[class^='v'] li:hover > a,
+                #menuH ul[class^='v'] li:hover > span {
+
+                  background-color:#FFF2C8;
+                  border:1px solid #000C80;
+                }
+
+/*__________________________________[ The Magic ]__________________*/
+/*#menuH ul li span:focus + ul,
+#menuH ul li ul:hover,
+#menuH ul:hover + img.close {
+
+  display:block;
+
+}*/
+
+#menuH ul li:hover > span + ul,
+#menuH ul li ul:hover
+{
+  display:block;
+}
+
+
+
+
+
+/*
+#menuH ul ul li a img,#menuH ul ul li span img {
+
+  border-width:0;
+  float:left;
+  margin-right:5px;
+  vertical-align:middle;
+
+}*/
+
+
+
+/*#menuH img.close {
+
+  display:none;
+  height:100%;
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:-1;
+
+}*/

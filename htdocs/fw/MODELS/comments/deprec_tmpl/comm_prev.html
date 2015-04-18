@@ -1,0 +1,51 @@
+".(
+     $this->admin
+     ?      "<div class='addTOOLSbtn'>".
+                 ( $commentsApprov
+                        ? ($approved
+                            ?  "<input type='submit'  class='ATmpl' name='ANapprove' value='an approve' />"
+
+                            :  "<input type='submit'  class='ATmpl' name='approve' value='approve' />"
+                        ): ""
+                 ).
+                 ($approved || !$commentsApprov
+                    ?   ( $prior
+                            ? "<input type='submit'  class='ATmpl' name='addPriority' value='Add Priority' />"
+                            : "<input type='submit'  class='ATmpl' name='delPriority' value='Delete Priority' />"
+                        )
+                    : ''
+
+                  )
+             ."</div>"
+     :  ""
+ )."
+ <div class='{$ED}ENT comment' id='comment_{$idComm}_{$LG}' >
+ 
+     &nbsp;&nbsp;&nbsp;
+ 
+ 
+     <div class='comment'>
+ 
+         ".( isset($this->admin)
+             ? ($approved == 0 && $commentsApprov
+                 ? " <span class='label label-mini label-warning pull-right'>not approved</span>"
+                 : ""
+               )
+             : ''
+ 
+         )."
+         {$comment}
+     </div>
+     <small class='muted'>
+ 
+         <span class='userName r5'>{$userName} </span>
+         <span class='entryDate'>  {$entryDate} </span>
+         ".$this->get_renderDISPLAY('thumbs','SET_thComm'.$idComm)."
+
+         ".$this->Render_object (
+                   $this->rating->{'SET_Comm'.$uidComm},'',
+                  'PLUGINS/rating/tmpl/o.ratingUser.html')."
+
+     </small>
+ </div>
+

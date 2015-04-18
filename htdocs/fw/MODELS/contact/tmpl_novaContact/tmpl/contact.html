@@ -1,0 +1,32 @@
+
+<form action='' method='post' id='form_comp' >
+   {$feedback_GOOD}
+    <input type='hidden' name='action' value='contact' />
+
+    <!--[if IE]> <![endif]-->
+
+     <!--[if IE]> <span>{$sp_fullname}</span> <![endif]-->  <input type='text' name='name'     id='name'    value='{$name}'     placeholder='{$sp_fullname}' />
+     <!--[if IE]> <span>{$sp_address}</span>  <![endif]--> <input type='text' name='address'   id='address' value='{$address}' placeholder='{$sp_address}' />
+     <!--[if IE]> <span>{$sp_email}</span>    <![endif]--> <input type='text' name='email'     id='email'   value='{$email}'    placeholder='{$sp_email}'  />
+     <!--[if IE]> <span>{$sp_telephone}</span><![endif]--> <input type='text' name='phone'     id='phone'   value='{$phone}'     placeholder='{$sp_telephone}' />
+     <br/>
+      <!--[if IE]><span>{$sp_subject}</span><![endif]-->   <input type='text' name='subject'   id='subject'  value='{$subject}'  placeholder='{$sp_subject}'/>
+      <!--[if IE]><span>{$sp_message}</span><![endif]-->   <textarea name='message'            id='message'  placeholder='{$sp_message}'>{$message}</textarea>
+    <br/>
+    <span></span>
+    <img id='captcha' src='fw/PLUGINS/securimage/securimage_show.php' alt='CAPTCHA Image' /><br />
+    <input type='text' name='captcha_code' size='10' maxlength='6' tabindex='4' />
+    <a href='#'
+            onclick=\"document.getElementById('captcha').src = 'fw/PLUGINS/securimage/securimage_show.php?' + Math.random(); return false\">
+            [ Reload ]
+     </a>
+     <input type='submit' name='Submit' value='{$sp_submit}' /> &nbsp;&nbsp;&nbsp;
+     <input type='reset' name='Reset' value='{$sp_reset}' />
+ </form>
+<div class='SING contact' id='contact_{$idC}_{$LG}'>
+   <div class='EDeditor ContactDdetails' >
+
+       {$content}
+   </div>
+</div>
+<div id='feedback'>{$feedback}</div>

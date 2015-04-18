@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.contact        { width: 500px; height: 550px; display: inline-block;}
+
+.cke_skin_kama  { width:500px;}
+.ContactDdetails{ width:500px; height: 370px; }
+
+form#form_comp  {
+    width: 244px;
+    margin-left: 10px;
+    display: inline-block;
+    float: right;
+}
+
+
+form#form_comp span               { width:110px; float: left; }
+form#form_comp input[type='text'] { width:215px; /*border: 1px solid #bbb;*/ display: block;margin-top:15px;}
+form#form_comp textarea           { width:215px; height: 70px; /*border: 1px solid #bbb;*/
+                                    display: block;margin-top:15px; overflow: auto;}
+
+form#form_comp input[name='captcha_code']  {width: 100px; display: inline-block;}
+
+form#form_comp input[type='submit'],
+form#form_comp input[type='reset']
+{
+    margin-right: 5px;
+    margin-top: 40px;
+    padding: 5px 37px;
+    font-weight: bold;
+}
+
+#feedback
+{
+    font-size: 14px;
+    text-align: center;
+    clear: both;
+    font-size: 11px;
+    color: #8E5F1F;
+    margin: 40px auto;
+}
+
+

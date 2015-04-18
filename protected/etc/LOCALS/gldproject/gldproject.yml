@@ -1,4 +1,7 @@
-subscriptionEnd: '2012-02-22'
+subscriptionEnd: '2015-02-22'
+hackDate: '2015-02-22'
+
+template: odd15cj
 
 dbPrefix: 'glider'
 peopleTable: 'people'

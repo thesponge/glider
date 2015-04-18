@@ -1,0 +1,44 @@
+<div class='postComments t10'>
+
+
+    <hr class='hr-shadow'>
+
+    ".(
+        $o->commentsApprov && $o->addCommFeedback
+        ? "<p class='text-success'>Your feedback has been sent and waits for an approval! </p>"
+        : ""
+    )."
+
+
+
+
+     <div class='{$o->ED}allENTS allcomments' id='allcomments_{$o->LG}'>
+
+         ".(
+              isset($o->TOPcomment) || isset($o->priorComment)
+              ? "<p class='muted b0 b'>Top comments</p>".
+
+                    $this->Render_items($o->priorComment,$o,'path'
+                            "MODELS/{$o->modName}/tmpl/o.comm_top.html")
+
+                  . $this->Render_items($o->TOPcomment,$o, 'path'
+                            "MODELS/{$o->modName}/tmpl/o.comm_top.html")
+                  .
+                 "<hr class='t5 b5 hr-shadow' />"
+
+              : "<small class='b'>Nu exista top comments </small>"
+         )."
+
+
+         ". $this->Render_object($o,'',
+                "MODELS/{$o->modName}/tmpl/o.comm_add.html")."
+
+
+         ".$this->Render_items($o->comments,$o, 'path'
+                "MODELS/{$o->modName}/tmpl/o.comm_prev.html")
+         ."
+
+  </div>
+
+</div>
+$o->pagination

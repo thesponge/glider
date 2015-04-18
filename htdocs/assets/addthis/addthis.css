@@ -1,0 +1,98 @@
+.addthis_32x32_style .at15t_reddit {
+    background-position: 0 -608px!important;
+}
+
+.at300bs:hover {
+    background-image: url(widget013_32x32_top_hover.png) !important;
+}
+
+.at15t_facebook {
+    background-position: 0 -1648px;
+}
+
+.addthis_32x32_style .at15t_facebook {
+    background-position: 0 -160px!important;
+}
+
+.addthis_32x32_style .at15t_diaspora {
+    background-position: 0 -800px!important;
+}
+
+#followpanel-buttons>.addthis_32x32_style>.at15t_diaspora {
+    background-position: 2 -800px!important;
+}
+
+.at15t_twitter {
+    background-position: 0 -5472px;
+}
+
+.addthis_32x32_style .at15t_twitter {
+    background-position: 0 -704px!important;
+}
+
+.addthis_32x32_style .dummy .at300bs,.addthis_32x32_style .at300bs,.addthis_32x32_style .at15t {
+    background: url(/assets/addthis/widget013_32x32_top.png) no-repeat left;
+    overflow: hidden;
+    display: block;
+    height: 32px!important;
+    width: 32px!important;
+    line-height: 32px!important;
+}
+
+.at_a11y {
+    position: absolute!important;
+    top: auto!important;
+    width: 1px!important;
+    height: 1px!important;
+    overflow: hidden!important;
+}
+
+.addthis_toolbox.addthis_32x32_style span {
+    line-height: 32px;
+    *height: 32px;
+}
+
+.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m {
+    /*padding: 0 2px;*/
+    padding: 0px;
+}
+
+.at300b,.at300bo,.at300m,.at300bs {
+    cursor: pointer;
+}
+
+.at300bs {
+    background: url(widget056.gif) no-repeat left;
+    overflow: hidden;
+    display: block;
+    background-position: 0 0;
+    height: 16px;
+    width: 16px;
+    line-height: 16px!important;
+}
+
+.at15t_vk {
+    background-position: 0 -5648px;
+}
+
+.addthis_default_style .addthis_separator,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m,.addthis_default_style .at300bs {
+    float: left;
+    border-bottom: 0px solid black !important;
+}
+
+.addthis_32x32_style .dummy .at300bs,.addthis_32x32_style .at300bs,.addthis_32x32_style .at15t {
+    background: url(/assets/addthis/widget013_32x32_top.png) no-repeat left;
+    overflow: hidden;
+    display: block;
+    height: 32px!important;
+    width: 32px!important;
+    line-height: 32px!important;
+}
+
+.addthis_32x32_style .at15t_vk {
+    background-position: 0 -736px!important;
+}
+
+.addthis_toolbox span.addthis_follow_label {
+    display: none;
+}

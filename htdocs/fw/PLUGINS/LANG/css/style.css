@@ -1,0 +1,10 @@
+.lang_separator {
+    width: 10px !important;
+    height: 10px;
+    /*background: #000;*/
+    display: inline-block;
+}
+
+.lang_separator:after {
+    content: '»';
+}

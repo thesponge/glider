@@ -1,0 +1,391 @@
+@charset "UTF-8";
+
+/*Butonul de pe toolbar pentru stop/start live-edit*/
+.iedit-toolbarBtt{
+    color: #9DA1AA !important;
+    background-color: rgb(57, 59, 71) !important;
+
+
+}
+
+.ELMcontent {padding-top: 0px !important;}
+
+
+.addTOOLSbtn {display: none;}
+
+/*TREBUIE SA REDENUMESC */
+.SING, .ENT, .allENTS,
+.addForm, form[id^="EDITform"]
+    {  position: relative; }
+
+.SING, .ENT
+    {outline: 1px rgba(255, 255, 255, 0) solid;}
+
+.SING:hover, .ENT:hover
+    {
+    outline: 1px solid  rgba(255, 255, 255, 0.3);
+
+}
+
+@-moz-document url-prefix() {
+ .SING:hover, .ENT:hover { outline: 0px solid  rgba(255, 255, 255, 0.3); }
+
+}
+
+form[id^="EDITform"]
+   {/*outline: 1px solid #eee;*/}
+
+.SING:hover, .ENT:hover, form[id^="EDITform"]
+{
+    border-radius: 3px;
+    background-color: rgba(200,200,200,0.13);
+}
+
+/*
+
+.SING:hover > .TOOLSem,
+.ENT:hover > .TOOLSem,
+form[id^="EDITform"]:hover > .TOOLSem,
+.addForm:hover > .TOOLSem {
+    visibility: visible;
+}
+*/
+
+
+/*
+
+iedit-tools
+iedit-tools-edit
+iedit-tools-add
+
+*/
+
+/*.TOOLSem {float: right; text-align: right;}*/
+.TOOLSem {
+    position: absolute;
+    top:0px;
+    right: 0px;
+    padding-left: 20px;
+    height: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.7);
+    background-color:   rgba(200,200,200,0.8);
+    box-shadow: -1px 1px 3px rgba(100,100,100,0.2);
+    border-radius: 0px 0px 0px 4px;
+    z-index: 99;
+}
+
+ form .TOOLSem,
+ .iedit-tools-edit
+ {
+     top: -23px;
+     height: 21px;
+     border-radius: 0px ;
+     width: 100%;
+     padding: 0px;
+     background-color: #ABBAC4;
+     border-top: 1px solid rgba(0, 0, 0, 0.2);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   /*  box-shadow: 1px -2px 3px rgba(100,100,100,0.3);*/
+ }
+
+
+
+/*===================================================*/
+
+        .TOOLSem > .TOOLSbtn{
+            /*padding-top: 1px;*/
+           margin-top: -2px;
+           position: relative;
+           left: -10px;
+           float: right; }
+
+.allENTS > .TOOLSem ,
+.iedit-tools-add
+{
+         height: 18px;
+         padding-top: 3px;
+        /* height: 30px;*/
+         position: relative;
+         margin-bottom: 1px;
+        /* background-color: #E8EDF0;*/
+         background: rgba(100,100,100,0.2);
+         box-shadow: none;
+         border-radius: 4px;
+        visibility: hidden;
+        }
+
+
+
+.allENTS:hover > .TOOLSem { visibility: visible;}
+
+
+/*________________________________________________________________________________*/
+    .TOOLSem input[type='button'],
+     .TOOLSem input[type=submit],
+        /*  .TOOLSem .iedit-btt{*/
+          .TOOLSem .iedit-btt{
+
+              color: rgba(0, 0, 0, 0.65);
+              line-height: 11px;
+              border: 1px inset #DDD;
+              font-size: 9px;
+              margin: 0px 0px 0px 5px;
+              padding: 0px 7px 0px 7px;
+              border-radius: 3px;
+              min-width: 15px
+
+         }
+
+
+ .TOOLSem input[type='button']:hover,
+ .TOOLSem input[type=submit]:hover{ cursor: pointer; }
+
+ .TOOLSem input.iedit-btt{ background: #e7e8f1 ;}
+ .TOOLSem input.iedit-btt:hover{ background:  #F4F5FA ;}
+
+/*________________________[edit button]________________________________________*/
+ .TOOLSem .editM-edit{ background: #b6fff5 !important; margin-top: 3px;/*nu stiu de ce e nevoie de asta*/}
+ .TOOLSem .editM-edit:hover{ background:  #00ffff !important;}
+
+/*_______________________[ save edit]__________________________________________*/
+ .TOOLSem .editM-save{ background: #b5ff83 !important;}
+ .TOOLSem .editM-save:hover{ background:  #93ff23 !important;}
+
+/*_______________________[ exit edit]__________________________________________*/
+ .TOOLSem .editM-exit{ background: #ffbf64 !important;}
+ .TOOLSem .editM-exit:hover{ background:  #ff9b00 !important;}
+
+
+
+
+
+
+/*  Deci aici ne referim defapt la addNew*/
+/*
+.allENTS > .TOOLSem > .TOOLSbtn    {left: 100%;
+                                    margin-left: -20px;
+                                    margin-bottom: 10px;
+                                    */
+/*margin-top: -20px;*//*
+
+                                    position: relative; }
+.SING >.TOOLSem   > .TOOLSbtn       {left: 100%;  margin-left: -15px;}
+
+.ENT + form[id^="EDITform"] > .TOOLSem > .TOOLSbtn   {width: 80px; left: 100%; margin-left: -70px;}
+.SING + form[id^="EDITform"] > .TOOLSem > .TOOLSbtn  {width: 50px; left: 100%; margin-left: -50px;}
+.addForm > .TOOLSem      {position: relative;}
+*/
+
+
+
+
+
+form.addForm input[type="text"],
+form[id^="EDITform"] input[type="text"],
+
+form.addForm select,
+form[id^="EDITform"] select,
+
+form.addForm textarea,
+form[id^="EDITform"] textarea
+{
+    /*padding: 0px;*/
+ /*   outline-offset: 0px;
+    border: 0px !important;
+    outline: 1px inset #ddd;*/
+
+    margin: 0px;
+    padding: 0px 2px;
+    background-color:rgba(255,255,255,0.5);
+}
+
+form[id^="EDITform"] textarea{
+    overflow: hidden !important;
+    resize: none !important;
+}
+
+/*===============[ testing - TWICKS] =======================*/
+form.addForm  input[type="text"],
+form[id^="EDITform"] input[type="text"]{
+
+    border: 0px !important;
+    outline: 1px solid #ccc;
+}
+
+form.addForm textarea,
+form[id^="EDITform"] textarea
+{
+    border: 0px !important;
+    outline: 1px solid #ccc;
+}
+
+form.addForm input[type="text"]:hover,
+form.addForm input[type="text"]:focus,
+
+form[id^="EDITform"] input[type="text"]:hover,
+form[id^="EDITform"] input[type="text"]:focus
+{
+
+    outline: 1px solid rgb(255, 211, 132);;
+    box-shadow: 1px 1px 3px #ffe5b8  ;
+}
+
+form.addForm textarea:hover,
+form.addForm textarea:focus,
+
+form[id^="EDITform"] textarea:hover,
+form[id^="EDITform"] textarea:focus
+{
+    outline: 1px solid rgb(255, 211, 132);;
+    box-shadow: 1px 1px 3px #ffe5b8  ;
+}
+/*===========================================================*/
+
+/*___________________________________________________________________________*/
+.hotTitle {font-size: 15pt; font-weight: bold;}
+
+table.cke_editor tr:last-child {display: none;}
+span.cke_skin_kama {padding: 0px !important;}
+.cke_skin_kama .cke_wrapper {padding: 1px !important;}
+
+
+
+
+/*________________________[TOOL TIP]________________________________________*/
+.TOOLSem span {position: relative;}
+
+.TOOLSem span i {
+    box-shadow: 2px -1px 4px 0px #BBB;
+    line-height: 14px;
+    text-align: center;
+    visibility: hidden;
+    border: 1px outset #f5f5f5;
+    bottom: 60px;
+    left: 50%;
+    margin-left: -25px;
+    opacity: 0;
+    padding: 4px 10px;
+    position: absolute;
+    width: 30px;
+    z-index: 99;
+
+
+    background-color: #fff;
+
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    border-radius:5px;
+
+    -webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out;
+    -ms-transition:all 0.3s ease-in-out;
+    transition:all 0.3s ease-in-out;
+}
+
+.TOOLSem span input[name='EDIT']+i {
+    margin-left: -45px;
+    width: 70px;
+}
+.TOOLSem span input[name^='delete']+i {
+    margin-left: -29px;
+    width: 40px;
+}
+
+.TOOLSem input[type='submit']:hover + i,
+.TOOLSem input[type='button']:hover + i{
+    bottom:27px;
+    opacity:0.95;
+    visibility:visible;
+}
+
+.TOOLSem i::before, .TOOLSem  i::after {
+    border-bottom: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #444;
+    bottom: -7px;
+    content: "";
+    left: 50%;
+    margin-left: -6px;
+    position: absolute;
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+/*============================================ [EXTRAS] =============================================== */
+
+#EXTRAS_display
+{
+    position: absolute;
+    top: 490px;
+    left: 33%;
+    width: 600px;
+    min-height: 300px;
+    background: white;
+    border: 1px inset white;
+    border-radius: 7px;
+    box-shadow: 0px 4px 10px 2px rgba(100, 100, 100, 0.5);
+}
+    #EXTRAS_display > p {
+        height: 35px;
+        box-shadow: 0px 1px 7px #DDD,inset 0px -2px 2px white, inset 0px -2px 2px #CCC;
+        border-bottom: 1px solid #DDD;
+        text-align: right;
+        margin: 0px;
+        /*margin-right:-10px; */}
+
+    #EXTRAS_display input[name='closeEXTRAS']
+    {
+        margin: 4px 4px;
+        height: 25px;
+        width: 25px;
+        background: #EEE;
+        border: 1px outset #DDD;
+        border-radius: 0px 6px 0px 6px;
+
+        cursor: pointer;
+    }
+
+
+/*===================================== [ EDpic formular ] ===================================================*/
+#formUPL
+{
+    width: 200px;
+    margin-top: -20px;
+    height: 18px;
+    padding: 0px;
+    position: absolute;
+    margin-left: 6px;
+    top: 100%;
+    left: 0%;
+  }
+
+ #formUPL > input {
+     margin-right: 4px;
+     border: 1px outset #CCC;
+     border-radius: 4px;
+     padding: 3px 2px;
+     font-size: 10px;
+ }
+#formUPL > input[type='file']
+{
+    background: white;
+    padding: 0px;
+}
+/*
+ .content{position: relative;}*/
+
+
+/*===============================[custom]=====================================*/
+input[type='button'][name='exitEditMODE'] {display: none !important;}

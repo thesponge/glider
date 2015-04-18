@@ -1,0 +1,28 @@
+".(
+     !isset($commentsStat) || $commentsStat ?
+    "
+        <form  method='post' action='' class='addComments_form t10'>
+              <button class='showHidden pull-right btn btn-mini'> add Feedback</button>
+              <button class='hiddeHidden pull-right close r5'>&times;</button>
+              <div class='hidden well p5 pt5' >
+
+                    <textarea name='comment' rows='10' cols='50' placeholder='YourFeedback'></textarea>
+                    <div>
+                        <input type='text' name='userName' placeholder='Name' value='".(isset($uname) ? $uname : "" )."'/>
+                        <input type='submit' name='addComment' value='submit Feedback' class='btn btn-mini' />
+                    </div>
+
+                  ".(
+                    $commentsApprov
+                    ? "<p class='text-warning'>Your comment must be approved by a moderator before appearing! </p>"
+                    : ""
+                  )."
+                  <p></p>
+
+              </div>
+              <a id='addCommAnc'></a>
+        </form>
+    "
+    : " <b>Feedback time is over! </b>"
+
+)."

@@ -1,0 +1,19 @@
+<div class='ATmpl  block'>
+    <div class='hidden admin-extras'>
+        <div class='admin-extra'>
+            <span>User Class</span>
+            <select name='cid'>
+                ".$this->Render_ItemsFromStr($o->classes,$o,"
+                        <option value='{~ao->cid}' `.(~ao->cid != ~o->profile->cid ? '' : 'selected' ).`  >
+                            {~ao->uclass}
+                        </option>
+                ")."
+            </select>
+        </div>
+        <div class='admin-extra'>
+            <span>User Name</span>
+            <input type='text' name='uname' value='{$o->profile->uname}' class='ivy'>
+        </div>
+
+    </div>
+</div>

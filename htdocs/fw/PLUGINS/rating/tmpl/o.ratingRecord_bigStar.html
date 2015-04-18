@@ -1,0 +1,47 @@
+
+    <div id='ratings' class='span' style='width:150px;'>
+
+        <span id='Rating'>
+             <span class='muted' style=' font-size: 85%; text-align: right;'>
+                 ".(isset($mod->nrRates) && $mod->nrRates!=0
+                      ?   " from  <span id='nrRates' >{$mod->nrRates}</span> users"
+                      :   " not yet voted  "
+                     )
+                 ."
+             </span>
+
+            <span id='totalRating' style='display: none;'>
+                {$mod->totalRating}
+            </span>
+
+
+        </span>
+
+        <br>
+
+        ".( is_array($mod->ustars)
+            ? "
+
+                <span id='uRating_{$mod->uid}' title='{$mod->DB_table_postfix}_{$mod->DB_extKey_name}_{$mod->DB_extKey_value}'>
+                     <span class='muted' style='font-size: 85%;'>Your vote</span>
+                     <i title='star1' class='icon-blue icon-star{$mod->ustars[0]}'></i>
+                     <i title='star2' class='icon-blue icon-star{$mod->ustars[1]}'></i>
+                     <i title='star3' class='icon-blue icon-star{$mod->ustars[2]}'></i>
+                     <i title='star4' class='icon-blue icon-star{$mod->ustars[3]}'></i>
+                     <i title='star5' class='icon-blue icon-star{$mod->ustars[4]}'></i>
+
+                </span>
+             "
+            : "$mod->totalRating no ustars"
+        )."
+    </div>
+    ".(isset($mod->nrRates) && $mod->nrRates!=0
+         ?   " <div class='iconBig iconBig-star pull-right' style='margin-top: -15px;'>
+                 <p>{$mod->Rating}</p>
+               </div>
+               "
+         :   " <div class='iconBig iconBig-star-none pull-right' style='margin-top: -15px;'></div>"
+        )
+    ."
+
+

@@ -1,0 +1,44 @@
+<div class='uploaded_pics well hidden  container-fluid p10'
+       id='".$this->picManager->DB_extKey_name."_".$this->picManager->DB_extKey_value."'>
+   <button class='btn btn-mini' id='callKCFinder' >Browse</button>
+   <button class='close r5' onclick='toggle_pic(); return false; '>&times;</button>
+    <hr class='t10 b10' />
+    <div class='image_carousel'>
+       <div id='kcfinder_div_selPic' class='carousel-content'>
+           ".$this->getDisplay_Items($ITEMS_managerPics,
+            "<span class='thumbPic-manager' id='pic_{~idPic}'>
+                <img src='{~picUrl}'  />
+                <small class='muted' style='position: absolute;'> idPic = {~idPic}</small>
+             </span>
+            ")."
+       </div>
+       <div class='clearfix'></div>
+       <a class='prev disabled' id='cars_prev' href=''><span>prev</span></a>
+       <a class='next' id='cars_next' href=''><span>next</span></a>
+       <!--<div class='pagination' id='foo2_pag'></div>        -->
+    </div>
+
+    <hr class='t10 b10' />
+
+    <div class='allENTS pics-Details ' id='pics_details_en'>
+        ".$this->getDisplay_Items($ITEMS_managerPics,
+            "<div class='ENT comm-pic-full' id='comm-pic-full_{~idPic}_en'>
+
+                        <input type='hidden' name='idRecord' value='".$this->picManager->DB_extKey_value."'>
+                        <div class='big-picture'>
+                            <img src='{~picUrl}'  />
+                        </div>
+
+                        <small><b>Title </b><span class='EDtxt picTitle'>{~picTitle}</span></small>
+                        <br>
+                        <small><b>Description </b><span class='EDtxa picDescr'>{~picDescr}</span></small>
+                        <br>
+                        <p class='muted t10 pic-specs'>
+                            <small class='r10' ><b>Author</b> <span class='EDtxt picAuth'>{~picAuth}</span></small>
+                            <small class='r10' ><b>Location</b> <span class='EDtxt picLoc'>{~picLoc}</span></small>
+                            <small class='r10' ><b>Date</b> <span class='EDdate picDate'>{~picDate}</span></small>
+                        </p>
+            </div>
+            ")."
+    </div>
+</div>

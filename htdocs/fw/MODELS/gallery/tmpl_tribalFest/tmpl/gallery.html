@@ -1,0 +1,34 @@
+".($this->admin
+   ? $this->Render_object($o, '', "{$o->modType}/gallery/tmpl_pro/ADMIN/tmpl/Agallery.html")
+   : "orice"
+)."
+
+<div class='container'>
+
+	<div id='featured'> 
+
+
+       ".$this->Render_array($o->urlImages,'','',
+            "<img src='~i' data-caption='#htmlCaption{~key}' /> ")."
+    </div>
+
+    ".(!$o->captions ? ""
+         : $this->Render_array(
+                $o->urlImages, $o, '',
+                "
+                   `.( isset(~o->captions[~key]) && ~o->captions[~key][`title_{~o->lang}`]
+                       ? ` <span class='orbit-caption' id='htmlCaption{~key}'>
+                               <a href='`.~o->captions[~key]['link'].`'>
+                                  `.~o->captions[~key][`title_{~o->lang}`]. `
+                               </a>
+                          </span>`
+                       : ``
+                   ).`
+                "
+         )
+    )."
+
+
+
+
+</div>

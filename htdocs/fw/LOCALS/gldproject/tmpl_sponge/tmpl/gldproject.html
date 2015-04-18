@@ -1,0 +1,118 @@
+   <div class='row' style='padding-top: 50px; min-height: 500px;'>
+        ".(strtotime($this->gldproject->subscriptionEnd) > strtotime(date('Y-m-d'))
+        ? "
+        <div class='row'>
+          <div class='large-4 large-offset-1 columns'>
+              <p>Have an idea? Fill the form and get ready for the Sponge Hack Days!</p>
+          </div>
+          <div class='large-6 large-pull-1 columns'>
+            <form action='/projects/new' method='post'>
+              <div class='row'>
+                  <div class='row collapse'>
+                    <div class='small-10 columns'>
+                      <input type='text' name='title' placeholder='Submit your project here' style='color:darkred;'>
+                    </div>
+                    <div class='small-2 columns'>
+                      <input type='submit' class='button alert postfix' value='Submit' />
+                    </div>
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+          "
+        : "
+        <div class='row'>
+          <div class='large-12 columns'>
+		".(strtotime($this->gldproject->hackDate) > strtotime(date('Y-m-d')) 
+			? "Ideas subscription is over, now you can join one of the following teams:" 
+			: "Now you can check each teams' results by accessing the project details.")
+		."
+          </div>
+        </div>
+        "
+        )."
+        <hr>
+   <div class='row'>
+      <div class='large-12 columns'>
+		".(strtotime($this->gldproject->hackDate) > strtotime(date('Y-m-d')) 
+			? "<p></p>"
+			: "<p>Submitted so far:</p>"
+		)."
+      </div>
+      <div class='large-12 columns'>
+        <table> 
+            <thead> 
+                <tr> 
+                    <th width='30'>
+                        ID
+                    </th> 
+                    <th width='200'>
+                        Name
+                    </th> 
+                    <th width='150'>
+                        Coordinator
+                    </th> 
+                    <th width='100%'>
+                        Short description
+                    </th> 
+                    <th width='150'>
+                    </th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+            " . $this->Render_items($o->projects, $o, '',
+                " <tr>
+                    <td>{~ao->project_id}</td>
+                    <td>{~ao->title}</td>
+                    <td>{~ao->fname}</td>
+                    <td>
+                        `.
+                            nl2br(~ao->short_description)
+                        .`
+                        <span data-tooltip class='has-tip' 
+                                title='`
+                                    .nl2br(~ao->description).
+                                `'>
+                            [...]
+                        </span>
+                    </td>
+                    <td>
+                        <a href='/projects/project-{~ao->project_id}' 
+                            class='radius label'>
+                            `.(strtotime(~this->gldproject->subscriptionEnd) < strtotime(date('Y-m-d'))
+                            ? `Details and results`
+                            : `Details / Join the team`
+                            ).`
+                        </a>
+                        `.(
+                            ~this->admin==true
+                            ?
+                                (~ao->status == 0
+                                ? 
+                                `<a href='/projects/project-{~ao->project_id}/activate'  title='Click pentru a modifica starea proiectului'
+                                    onclick='return confirm(&quot;Această acțiune va modifica starea proiectului în: APROBAT. Confirmi?&quot;)'>
+                                    <img src='/fw/LOCALS/gldproject/css/img/on_icon.png'>
+                                </a>
+                                <a href='/projects/edit/project-{~ao->project_id}' >
+                                    <img src='/fw/LOCALS/gldproject/css/img/edit_icon.png'>
+                                </a>`
+                                : 
+                                `<a href='/projects/project-{~ao->project_id}/deactivate'  title='Click pentru a modifica starea proiectului'
+                                    onclick='return confirm(&quot;Această acțiune va modifica starea proiectului în: NEAPROBAT. Confirmi?&quot;)'>
+                                    <img src='/fw/LOCALS/gldproject/css/img/off_icon.png'>
+                                </a>
+                                <a href='/projects/edit/project-{~ao->project_id}' >
+                                    <img src='/fw/LOCALS/gldproject/css/img/edit_icon.png'>
+                                </a>`)
+                            : ``
+                        ).`
+                    </td> 
+                </tr> "
+            ) . "
+            </tbody> 
+        </table>
+       </div>
+   </div>
+   </div>
+

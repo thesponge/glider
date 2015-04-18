@@ -1,0 +1,22 @@
+.timer { display: none !important; }
+div.caption {
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    zoom: 1;
+}
+
+#mainPage{
+
+    margin-top: 0px !important;
+}
+
+
+/*--------------- CSS hacks for proper displaying the gallery ---------------*/
+
+footer.container_12 {
+    width: 100% !important;
+}
+
+#mainPage {
+    padding: 0px !important;
+}

@@ -1,0 +1,44 @@
+
+    <span id='ratings'>
+        <span id='Rating'  class='pull-right'>
+            ".
+                (isset($obj->nrRates)
+                 ?   "
+                       <span class='muted'>
+                            votes
+                           <span id='nrRates' style=' font-size: 85%;'>{$obj->nrRates}</span>
+                       </span>"
+                 :   ""
+                )
+            ."
+            <i class='icon-star{$obj->stars[0]}'></i>
+            <i class='icon-star{$obj->stars[1]}'></i>
+            <i class='icon-star{$obj->stars[2]}'></i>
+            <i class='icon-star{$obj->stars[3]}'></i>
+            <i class='icon-star{$obj->stars[4]}'></i>
+
+
+            <span id='totalRating' style='display: none;'>
+                {$obj->totalRating}
+            </span>
+
+
+        </span>
+        <br>
+
+        ".( isset($obj->ustars)
+            ? "
+
+                <span id='uRating_{$obj->uid}' title='{$obj->DB_table_postfix}_{$obj->DB_extKey_name}_{$obj->DB_extKey_value}'>
+                     <span class='muted' style='font-size: 85%;'>Your vote</span>
+                     <i title='star1' class='icon-blue icon-star{$obj->ustars[0]}'></i>
+                     <i title='star2' class='icon-blue icon-star{$obj->ustars[1]}'></i>
+                     <i title='star3' class='icon-blue icon-star{$obj->ustars[2]}'></i>
+                     <i title='star4' class='icon-blue icon-star{$obj->ustars[3]}'></i>
+                     <i title='star5' class='icon-blue icon-star{$obj->ustars[4]}'></i>
+
+                </span>
+             "
+            :""
+        )."
+    </span>

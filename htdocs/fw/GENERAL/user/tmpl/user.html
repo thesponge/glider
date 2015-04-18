@@ -1,0 +1,16 @@
+    <div class='btn-group pull-right'>
+    <a class='btn btn-mini dropdown-toggle' data-toggle='dropdown'>
+       <!-- <img src='".
+        $this->user->get_avatar($email,36)
+        ."' alt='John Does avatar' />-->
+        <small><b>{$o->uname} ({$o->uclass}) [ {$o->uid} ]</b></small>
+        <span class='caret caret-profile'></span>
+    </a>
+    <ul class='dropdown-menu'>
+        <li><a href='/myProfile'>Profile</a></li>
+        <li><a href='/Home'>Home</a></li>
+        <li><a href='#'>Other stuff</a></li>
+        <li class='divider'></li>
+        <li><a href='/?logOUT'>Log out</a></li>
+    </ul>
+    </div>

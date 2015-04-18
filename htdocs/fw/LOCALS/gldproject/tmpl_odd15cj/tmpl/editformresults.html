@@ -1,0 +1,105 @@
+". $this->admin == true
+? "
+<div class='row'>
+    <form action='".Toolbox::curURL()."' method='post' data-abide>
+      <input type='hidden' name='modName'  value='gldproject'>
+      <input type='hidden' name='methName' value='update'>
+      <input type='hidden' name='project_id' value='{$o->project_id}'>
+    <fieldset>
+      <legend>0. Rezultate</legend>
+        <div class='row collapse'>
+            <div class='large-12 columns'>
+                <label class='label' for='project_demo'>URL demo</label>
+                <input pattern='url' type='text' name='project_demo' placeholder='Demo URL' value='{$o->project[0]['demo']}'>
+            </div>
+            <div class='large-12 columns'>
+                <label class='label' for='project_source'>URL cod sursă</label>
+                <input pattern='url' type='text' name='project_source' placeholder='Source code URL' value='{$o->project[0]['source']}'>
+            </div>
+            <div class='large-12 columns'>
+                <label class='label' for='project_demo'>Concluzii, rezultate etc.</label>
+                <textarea id='project_demo' name='project_conclusion' class='mw100'>{$o->project[0]['conclusion']}</textarea>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+      <legend>1. Detalii generale</legend>
+        <div class='row collapse'>
+            <div class='large-5 columns'>
+              <div class='row collapse'>
+                  <div class='small-12 columns'>
+                      <label class='label' for='project_title'>O denumire scurtă și descriptivă a proiectului</label>
+                    <input required pattern='alpha' type='text' name='project_title' placeholder='Titlul proiectului' value='{$o->title}'>
+                    <small class='error'>Titlul proiectului este obligatoriu (alfanumeric)</small>
+                  </div>
+                  <div class='small-12 columns'>
+                      <input pattern='url' type='text' name='project_url' placeholder='URL proiect (opțional)' value='{$o->project_url}'>
+                      <small class='error'>Introduceți un URL valid</small>
+                  </div>
+              </div>
+            </div>
+            <div class='large-6 columns'>
+              <div class='row collapse'>
+                  <div class='small-6 columns'>
+                      <label class='label' for='person_firstname'>Prenume</label>
+                    <input required  pattern='alpha' type='text' name='person_firstname' placeholder='Prenumele coordonatorului' value='{$o->first_name}'>
+                    <small class='error'>Introduceți prenumele</small>
+                  </div>
+                  <div class='small-6 columns'>
+                      <label class='label' for='person_lastname'>Nume</label>
+                    <input required pattern='alpha' type='text' name='person_lastname' placeholder='Numele coordonatorului' value='{$o->last_name}'>
+                    <small class='error'>Introduceți numele</small>
+                  </div>
+                  <div class='small-12 columns'>
+                      <input disabled type='text' name='person_email' placeholder='Email coordonator' value='{$o->leader_email}'>
+                      <input type='hidden' name='person_email' value='{$o->leader_email}'>
+                  </div>
+                  <div class='small-12 columns'>
+                      <input  pattern='url' type='text' name='person_url' placeholder='URL coordonator (opțional)' value='{$o->leader_url}'>
+                      <small class='error'>Introduceți un URL valid</small>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend>2. Specificații</legend>
+        <div class='row collapse'>
+            <div class='large-3 small-12 columns'>
+                <h6>Descriere <small>(Markdown permis) – <a href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet' target='_blank'>Indicații sintaxă</a></small></small></h6>
+            </div>
+            <div class='large-9 small-12 columns'>
+                <textarea required class='mw100' name='project_desc' placeholder='Descrierea proiectului'>{$o->description}</textarea>
+                <small class='error'>Introduceți o descriere de minim 200 caractere</small>
+            </div>
+        </div>
+        <div class='row collapse'>
+            <div class='large-6 small-12 columns'>
+                <h6>Descriere scurtă <small>(maxim 200 caractere)</small></h6>
+                <textarea required class='mw95' name='project_shortdesc' placeholder='Această descriere va fi folosită la afișarea rezumatului proiectului în lista principală'>{$o->short_description}</textarea>
+            </div>
+            <div class='large-6 small-12 columns'>
+                <h6>Seturi de date alese <small>(legături, descrieri, etc.)</small></h6>
+                <textarea required class='mw100' name='project_techdetails' placeholder='Seturi de date alese'>". ($o->tech_details ?: '') ."</textarea>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class='row collapse'>
+            <div class='large-8 small-12 columns'>
+                <h6>Alte detalii <small>(Observații, mențiuni – opțional)</small></h6>
+                <textarea class='mw100' name='project_misc' placeholder=''>". ($o->misc ?: '') ."</textarea>
+            </div>
+            <div class='large-3 small-12 columns'>
+                <p class='text-center'>
+                <br> <br>
+                    <input type='submit' class='radius button' value='Trimite'>
+                </p>
+            </div>
+        </div>
+    </fieldset>
+  </form>
+</div>
+"
+: 'You are not allowed here.'
+."

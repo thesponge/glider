@@ -1,0 +1,78 @@
+/**/
+/*** adding the class sf-navbar in addition to sf-menu creates an all-horizontal nav-bar menu ***/
+.sf-navbar {
+    /*background: #BDD2FF;*/
+    position: relative;
+   /* margin-bottom: 5em;*/
+}
+/* provide background colour for submenu strip */
+/* you should just set the menu's container bg colour rather than use pseudo-elements */
+.sf-navbar:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    /*background-color: #BDD2FF;*/
+    height: 200%;
+    width: 100%;
+}
+.sf-navbar ul {
+    box-shadow: none;
+}
+.sf-navbar li {
+    /*background: #AABDE6;*/
+    position: static;
+}
+.sf-navbar > li > a,
+.sf-navbar > li > ul > li > a {
+    border: none;
+}
+.sf-navbar > li > ul {
+    /*min-width: 36em; /* set this to whatever suits your design */
+    width: 960px;
+    text-align: right;
+}
+.sf-navbar ul li {
+    /*background: #BDD2FF;*/
+    position: relative;
+}
+.sf-navbar ul ul {
+    left: 0;
+    top: 100%;
+}
+.sf-navbar ul ul li {
+    width: 100%;
+}
+.sf-navbar > li > ul > li {
+    display: inline-block;
+}
+.sf-navbar li.current {
+    background: gray;
+}
+.sf-navbar li:hover > a,
+.sf-navbar li.sfHover > a,
+.sf-navbar ul li.current > a{
+    color: #ccc;
+}
+.sf-navbar ul li:hover > a,
+.sf-navbar ul li.sfHover > a,
+.sf-navbar ul ul li > a {
+    color: #ccc;
+}
+.sf-navbar ul ul li:hover > a,
+.sf-navbar ul ul li.sfHover > a,
+.sf-navbar ul ul li.current > a{
+    color: #ccc;
+}
+
+.sf-navbar ul li.current > a {
+    font-weight: bold;
+    color: red;
+}
+
+/*** point all arrows down ***/
+.sf-navbar ul a .sf-sub-indicator { background-position: 0 -100px; }
+.sf-navbar ul li:hover > a .sf-sub-indicator,
+.sf-navbar ul li.sfHover > a .sf-sub-indicator {
+    background-position: -10px -100px;
+}

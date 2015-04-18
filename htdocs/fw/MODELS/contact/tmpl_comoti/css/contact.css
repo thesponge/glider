@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.contact        { }
+
+.cke_skin_kama  { }
+.ContactDdetails{ }
+
+form#contact_form  { width: 70%; margin: 0px auto; }
+
+
+form#contact_form select             { width: 100%; }
+form#contact_form span               { width: 100%; }
+form#contact_form input[type='text'] { width: 100%; }
+form#contact_form textarea           { width: 100%; }
+
+form#contact_form input[type='submit'],
+form#contact_form input[type='reset'] { }
+
+#feedback
+{
+    clear: both;
+    font-size: 11px;
+    color: #8b0000;
+}

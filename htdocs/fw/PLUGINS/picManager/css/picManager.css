@@ -1,0 +1,122 @@
+@charset "UTF-8";
+.thumbPic-manager{
+    display: inline-block;
+    overflow: hidden;
+    width: 130px;
+    vertical-align: top;
+    margin-right: 20px;
+    margin-top: 10px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.thumbPic-manager:hover{
+    border-color: #08C ;
+
+}
+
+
+       .thumbPic-manager > img {
+           height: initial !important;
+           width: initial !important;
+           max-height: 130px !important;
+           max-width: none !important;
+           margin: 0px !important;
+       }
+
+.image_carousel {
+    height: 150px;
+    padding: 0px 33px;
+	position: relative;
+}
+    .carousel-content > *{display: none;}
+    .carousel-content > .showPic {display: inline-block;}
+
+    #kcfinder_div_selPic{
+        overflow: hidden;
+        width: 700px;
+        height: 150px;
+    }
+.image_carousel  a.prev, .image_carousel  a.next {
+	background: url(img/miscellaneous_sprite.png) no-repeat transparent;
+	width: 45px;
+	height: 50px;
+	display: block;
+	position: absolute;
+	top: 85px;
+}
+.image_carousel a.prev {			left: -22px;
+					                background-position: 0 0; }
+.image_carousel a.prev:hover {		background-position: 0 -50px; }
+.image_carousel a.prev.disabled {	background-position: 0 -100px !important;  }
+.image_carousel a.next {			right: -22px;
+					                background-position: -50px 0; }
+.image_carousel a.next:hover {		background-position: -50px -50px; }
+.image_carousel a.next.disabled {	background-position: -50px -100px !important;  }
+.image_carousel a.prev.disabled,
+.image_carousel a.next.disabled {
+	cursor: default;
+}
+
+.image_carousel a.prev span,
+.image_carousel a.next span {
+	display: none;
+}
+.image_carousel .pagination {
+	text-align: center;
+}
+.image_carousel .pagination a {
+	background: url(img/miscellaneous_sprite.png) 0 -300px no-repeat transparent;
+	width: 15px;
+	height: 15px;
+	margin: 0 5px 0 0;
+	display: inline-block;
+}
+.image_carousel .pagination a.selected {
+	background-position: -25px -300px;
+	cursor: default;
+}
+.image_carousel .pagination a span {
+	display: none;
+}
+.image_carousel  .clearfix {
+	float: none;
+	clear: both;
+}
+
+/*==================================[ picture Details ]==========================================*/
+.pics-Details{
+   /* height: 530px;
+    overflow: hidden;*/
+}
+
+.pic-full {margin: 0px; display: none;}
+
+    .pic-full .big-picture {
+        background: rgba(50, 50, 50, 0.9);
+        padding: 20px 0px;
+        height: 350px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 10px;
+        border-radius: 2px;
+    }
+        .pic-full .big-picture img{
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+
+            display: block;
+            margin: 0px auto;
+            max-height: 340px;
+            max-width: 660px;
+        }
+
+    /*========= [ editable content ]============================*/
+    .pic-full .picTitle { width:  640px;}
+    .pic-full .picDescr { width:  600px; vertical-align: top;}
+
+        form[id^="EDITform"] .pic-specs .picAuth {width: 200px;}
+        form[id^="EDITform"] .pic-specs .picLoc {width: 195px;}
+        form[id^="EDITform"] .pic-specs .picDate {width: 100px;}
+
+

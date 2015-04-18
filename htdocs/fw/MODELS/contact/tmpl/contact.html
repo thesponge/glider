@@ -1,0 +1,33 @@
+
+<form action='' method='post' id='form_comp' >
+   {$o->feedback_GOOD}
+    <input type='hidden' name='action' value='contact' />
+
+    <!--[if IE]> <![endif]-->
+
+     <!--[if IE]> <span>{$o->sp_fullname}</span> <![endif]-->  <input type='text' name='name'     id='name'    value='{$o->name}'     placeholder='{$o->sp_fullname}' />
+     <!--[if IE]> <span>{$o->sp_address}</span>  <![endif]--> <input type='text' name='address'   id='address' value='{$o->address}' placeholder='{$o->sp_address}' />
+     <!--[if IE]> <span>{$o->sp_email}</span>    <![endif]--> <input type='text' name='email'     id='email'   value='{$o->email}'    placeholder='{$o->sp_email}'  />
+     <!--[if IE]> <span>{$o->sp_telephone}</span><![endif]--> <input type='text' name='phone'     id='phone'   value='{$o->phone}'     placeholder='{$o->sp_telephone}' />
+     <br/>
+      <!--[if IE]><span>{$o->sp_subject}</span><![endif]-->   <input type='text' name='subject'   id='subject'  value='{$o->subject}'  placeholder='{$o->sp_subject}'/>
+      <!--[if IE]><span>{$o->sp_message}</span><![endif]-->   <textarea name='message'            id='message'  placeholder='{$o->sp_message}'>{$o->message}</textarea>
+    <br/>
+    <span></span>
+    <img id='captcha' src='fw/PLUGINS/securimage/securimage_show.php' alt='CAPTCHA Image' /><br />
+    <input type='text' name='captcha_code' size='10' maxlength='6' tabindex='4' />
+    <a href='#'
+            onclick=\"document.getElementById('captcha').src = 'fw/PLUGINS/securimage/securimage_show.php?' + Math.random(); return false\">
+            [ Reload ]
+     </a>
+     <input type='submit' name='Submit' value='{$o->sp_submit}' /> &nbsp;&nbsp;&nbsp;
+     <input type='reset' name='Reset' value='{$o->sp_reset}' />
+ </form>
+<div class='SING contact' id='contact_{$o->idNode}_{$o->LG}'>
+   <div class='EDeditor ContactDdetails' >
+
+       ".$this->Render_ModulefromRes($o)."
+   </div>
+</div>
+<div id='feedback'>{$o->feedback}</div>
+<h1>DEFAULT!</h1>

@@ -1,0 +1,47 @@
+---
+
+# moduri de a declara posturile asteptate
+# array complex - post_profile = [ propName : [postName: ''] , ....]
+#
+#post_profile:
+#  uid:
+#    postName: "BLOCK_id"
+#  bio:
+#    fbk: {type: "warning", name: "Biography", mess: "You should write something about you"}
+#  photo: []
+#  first_name:
+#    fbk: {type: "error", name: "First Name", mess: "Please enter your name"}
+#  last_name:
+#    fbk: {type: "error", name: "First Name", mess: "Please enter your last name"}
+#  title: []
+#  site: []
+#  phone: []
+#  email: []
+
+# array asociative - post_profile = [ propName : postName, ....]
+#
+#expectedPosts:
+#  uid: "BLOCK_id"
+#  bio: ""
+#  photo: ""
+#  first_name: ""
+#  last_name: ""
+#  title: ""
+#  site: ""
+#  phone: ""
+#  email: ""
+
+# array numeric - post_profile = [ propName=postName, ....]
+#
+#post_profile:
+#  - uid
+#  - bio
+#  - photo
+#  - first_name
+#  - last_name
+#  - title
+#  - site
+#  - phone
+#  - email
+
+

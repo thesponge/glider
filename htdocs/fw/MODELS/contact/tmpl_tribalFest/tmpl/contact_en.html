@@ -1,0 +1,43 @@
+<div class='cont-mainPage'>
+
+
+    {$o->feedback_GOOD}
+    <div id='feedback' class='clearfix'>{$o->feedback}</div>
+
+    <div class='SING contact' id='contact_{$o->idNode}_{$o->lang}'>
+        <div class='EDeditor ContactDdetails' >
+
+            ".$this->Render_ModulefromRes($o)."
+        </div>
+    </div>
+
+    <form action='' method='post' id='form_comp' >
+
+        <input type='hidden' name='action' value='contact' />
+
+        <!--[if IE]> <![endif]-->
+
+        <!--[if IE]> <span>Name</span> <![endif]-->  <input type='text' name='name'     id='name'    value='{$o->name}'     placeholder='Name' />
+        <!--[if IE]> <span>Adress</span>  <![endif]--> <input type='text' name='address'   id='address' value='{$o->address}' placeholder='Adress' />
+        <!--[if IE]> <span>Email</span>    <![endif]--> <input type='text' name='email'     id='email'   value='{$o->email}'    placeholder='Email'  />
+        <!--[if IE]> <span>Phone</span><![endif]--> <input type='text' name='phone'     id='phone'   value='{$o->phone}'     placeholder='Phone' />
+        <br/>
+        <!--[if IE]><span>Subject</span><![endif]-->   <input type='text' name='subject'   id='subject'  value='{$o->subject}'  placeholder='Subject'/>
+        <!--[if IE]><span>Message</span><![endif]-->   <textarea name='message'            id='message'  placeholder='Message'>{$o->message}</textarea>
+        <br/>
+        <span></span>
+        <img id='captcha' src='assets/securimage/securimage_show.php' alt='CAPTCHA Image' /><br />
+        <input type='text' name='captcha_code' size='10' maxlength='6' tabindex='4' />
+        &nbsp;&nbsp;
+        <a href='#'
+           onclick=\"document.getElementById('captcha').src = 'assets/securimage/securimage_show.php?' + Math.random(); return false\">
+        [ Regenerate ]
+        </a>
+        <br />
+        <input type='submit' name='Submit' value='Send' class='ivy' /> &nbsp;
+        <input type='reset' name='Reset' value='Reset' class='ivy' />
+    </form>
+
+
+<div class='clearfix'></div>
+</div>

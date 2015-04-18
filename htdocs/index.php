@@ -11,14 +11,22 @@ error_log(" "."                                                 ");
 
     //error_reporting(E_ERROR);
 
-    require_once '../protected/etc/config.base.php';
+    if (file_exists('../../protected/cluj/etc/config.base.php')) {
+        require_once '../../protected/cluj/etc/config.base.php';
+    } else {
+        die("Config files not found!");
+    }
 
     if (defined(ENV) && ENV == 'production') {
         error_reporting(0);
         @ini_set('display_errors', 0);
     }
 
-    require_once FW_INC_PATH.'GENERAL/core/scripts/ivyStart.php';
+    if (file_exists(FW_INC_PATH.'GENERAL/core/scripts/ivyStart.php')) {
+        require_once FW_INC_PATH.'GENERAL/core/scripts/ivyStart.php';
+    } else {
+        die("Init not found!");
+    }
     //$profiler = new PhpQuickProfiler(PhpQuickProfiler::getMicroTime());
 
 

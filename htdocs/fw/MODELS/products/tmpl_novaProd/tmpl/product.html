@@ -1,0 +1,84 @@
+<div id='back'>
+    <span id='history'>{$historyHREF}</span>
+     {$back}
+    <input type='hidden' name='IDpr' value='{$IDpr}'>
+     <div class='SING DTproduct' id='SGproduct_{$IDpr}_{$LG}' >
+
+             <table>
+                 <tr>
+                     <td class='col1'>
+
+                             <div class='EDtxt DTname'> $name </div>
+                             <div class='EDeditor DTdesc'> $desc </div>
+                             <!--<div> </div>-->
+
+
+                             <div id='cumpara' class='{$statusPROMO}'>
+                                 <div class='col11'>
+                                         <div class='DIVprice'>{$priceSTR} <div class='EDtxt DTprice'>$price</div>&nbsp;lei</div>
+                                         <div class='DTpromo'>
+                                            {$promo}
+                                         </div>
+                                 </div>
+                                 <div class='col22'>
+                                  <form action='' method='post' id='buy'>
+                                      {$piecesSTR}&nbsp;<input type='text' name='cantitate' value='{$nrITEMS}' />
+
+                                     <input type='submit' name='Buy' value='{$buySTR}' />
+                                   </form>
+                                 </div>
+                             </div>
+
+                     </td>
+                     <td class='col2'>
+                         <div class='DIVpic kkIE'>
+                              <div class='EDpic DTpic' > <img src='{$img_big}'  alt='imagine produs'/> </div>
+                         </div>
+                         <div  id='messONLINE'>
+                              <a href='ymsgr:sendIM?elatiamat'>
+                                  <img style='border:0px solid;' alt='Y!M' src='http://opi.yahoo.com/online?u=elatiamat&amp;m=g&amp;t=2' />
+                              </a>
+                         </div>
+
+                     </td>
+
+                 </tr>
+             </table>
+
+
+     </div>
+    ".(
+        $home ?
+            "<div id='similarPROD'>
+             <span>Produse similare</span>".
+
+             $this->getDisplay_Items($similarPROD,"
+                     <div class='{~ED}ENT product' id='product_{~id}_{~LG}' >
+                           <div class='{~new}'><div>{~new}</div></div>
+                           <div class='PRDpic'>
+                               <a href='{~href}'>
+                                       <img src='{~img_small}'  alt='imagine produs'/>
+                                </a>
+                           </div>
+
+                            <div class='EDtxt name_prod' > {~name} </div>
+                            <div class='EDtxt smallDESC'>  {~small_desc}  </div>
+                             <div class='allPRICE{~statusPROMO}'>
+                                 <div class='DIVprice'>
+                                     {~priceSTR}
+                                     <span class='EDtxt price'> {~price}</span>
+                                     lei
+                                 </div>
+                                 <div class='DIVdetails'>
+                                    <a href='{~href}'> {~detailsSTR} </a>
+                                 </div>
+                                 <div class='DIVpromo'> {~promo} </div>
+                            </div>
+                     </div>
+             ").
+            "</div>"
+
+            :''
+    )."
+    <!--[if lte IE 8]> <div class='product'></div> <![endif]-->
+ </div>

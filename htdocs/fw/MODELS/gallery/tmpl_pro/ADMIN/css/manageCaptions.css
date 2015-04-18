@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+#formCaption{
+    width: 750px;
+    margin: 0px auto;
+    text-align: right;
+}
+
+#formCaption textarea {
+    height: 100%;
+    white-space: normal;
+    line-height: 60px;
+}
+    #formCaption textarea#cap-title{ width: 190px;}
+    #formCaption textarea#cap-link{ width: 400px;}
+
+#formCaption #picContainer{
+
+    height: 370px;
+    width: 750px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 30px;
+}
+
+#popUp-manCaptions th {
+
+    font-weight: bold;
+    text-align: right;
+    padding: 5px 0px;
+    background: #eee;
+}
+
+
+#popUp-manCaptions td,
+#popUp-manCaptions th{
+    padding-right: 10px;
+}
+
+#popUp-manCaptions .img-container{
+    height: 50px;
+    width: 100px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    margin-bottom: 4px;
+
+}
+    #popUp-manCaptions img{
+        width: 100px;
+
+    }
+
+

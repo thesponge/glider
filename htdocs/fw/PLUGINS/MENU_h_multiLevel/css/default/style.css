@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+#menu ul {    list-style:none outside none;}
+
+    #menu ul li a,
+    #menu ul li span{
+
+      color:#000;
+      cursor:default;
+      display:block;
+      font:11px Tahoma,Arial;
+
+      text-decoration:none;
+      position:relative;
+
+    }
+
+/*_____________________________[Submenil Orizontal]__________________________________________*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+#menu ul.h {
+
+  background-color:#B8D1F8;
+  border:1px solid #000C80;
+  height:24px;
+  display:block;
+  margin:0;
+  padding:1px;
+
+}
+        #menu ul.h li {
+
+          float:left;
+          margin-right:1px;
+          position:relative;
+        }
+/*____________________________________________________________________________________________*/
+                #menu ul.h li > span { background:url("img/u.gif") no-repeat scroll 90% center transparent;}
+                #menu ul.h li > a,
+                #menu ul.h li > span {
+
+                  padding:3px 14px 4px 3px;
+                  background-color:#B8D1F8;
+                  border:1px solid #B8D1F8;
+                }
+
+                #menu ul.h li:hover > a,
+                #menu ul.h li:hover > span {
+
+                  background-color:white;
+                  border:1px solid #000C80;
+                }
+
+
+/*_____________________________[Submeniurile Verticale]__________________________________________*/
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+#menu ul[class^='v']{
+    height:auto;
+    position:absolute;
+    width:168px;
+
+    display:none;
+    padding:0;
+    border:1px solid #8A867A;
+    background-color:#faebd7;
+}
+
+#menu ul.v1 { left:0;     top:25px;}
+#menu ul.v2 { left:168px; top:-1px;}
+
+
+        #menu ul[class^='v'] li {
+
+          float:none;
+          margin-right:0;
+          padding:1px;
+          text-indent:10px;
+        }
+/*_____________________________________________________________________________________________*/
+
+                #menu ul[class^='v'] li span{  background:url("img/s.gif") no-repeat scroll 97% center transparent;}
+                #menu ul[class^='v'] li a,
+                #menu ul[class^='v'] li span {
+
+                  background-color: #faebd7;
+                  border:1px solid transparent;
+                  padding:3px 3px 5px 2px;
+                }
+                #menu ul[class^='v'] li:hover > a,
+                #menu ul[class^='v'] li:hover > span {
+
+                  background-color:#FFF2C8;
+                  border:1px solid #000C80;
+                }
+
+/*__________________________________[ The Magic ]__________________*/
+#menu ul li span:focus + ul,
+#menu ul li ul:hover,
+#menu ul:hover + img.close {
+
+  display:block;
+
+}
+
+
+/*
+#menu ul ul li a img,#menu ul ul li span img {
+
+  border-width:0;
+  float:left;
+  margin-right:5px;
+  vertical-align:middle;
+
+}*/
+
+
+
+/*#menu img.close {
+
+  display:none;
+  height:100%;
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:-1;
+
+}*/

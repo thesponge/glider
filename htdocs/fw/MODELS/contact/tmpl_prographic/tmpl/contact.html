@@ -1,0 +1,74 @@
+
+ <div class='SING grid_5 alpha contact' id='contact_{$o->idNode}_{$o->LG}'>
+   <div class='EDeditor ContactDdetails' >
+
+       ".$this->Render_ModulefromRes($o)."
+   </div>
+</div>
+
+<div class='grid_5 push_2 omega'>
+<form action='' method='post' id='form_comp' enctype='multipart/form-data'>
+    <div id='feedback'>{$o->feedback}</div>
+    <input type='hidden' name='action' value='contact' />
+
+    <table id='contact_form_table'>
+        <tr>
+            <td colspan='2'>
+                "._('Nume, prenume')."
+                <input type='text' name='name' id='name' value='{$o->name}' />
+			</td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                "._('Email')."
+                <input type='text' name='email' id='email' value='{$o->email}' />
+			</td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                "._('Subiect')."
+                <input type='text' name='subject' id='subject' value='{$o->subject}' />
+			</td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                "._('Mesaj')."
+                <textarea name='message' id='message'>{$o->message}</textarea>
+			</td>
+        </tr>
+        <tr>
+            <td>
+                "._('Codul din imagine')."
+                <input type='text' name='captcha_code' size='10' maxlength='6' tabindex='4' />
+                <br />
+                <a href='#' title=' "._('Regenerează codul')."' id='captcha_reset'
+                    onclick=\"document.getElementById('captcha').src = 'assets/securimage/securimage_show.php?sid=' + Math.random(); this.blur(); return false\">
+                    "._('Regenerează codul')."
+                </a>
+                <!--<a href='#' id='captcha_reset'-->
+                   <!--onclick='document.getElementById(\'captcha\').src = \'/assets/securimage/securimage_show.php?\' + Math.random(); return false'>-->
+                    <!--"._('Regenerează codul')."-->
+                 <!--</a>-->
+            </td>
+            <td>
+                <img id='captcha' src='assets/securimage/securimage_show.php'
+                     alt='CAPTCHA Image' />
+			</td>
+        </tr>
+        <tr>
+            <td>
+                 <input type='submit' id='submit' name='Submit' value='"._('Trimite')."' />
+            </td>
+            <td>
+                ".($_GET['idC'] == 7
+                ? _('Atașează fișier')."<input name='upload' type='file' />"
+                : '')."
+            </td>
+        </tr>
+    </table>
+
+ </form>
+
+</div>
+
+

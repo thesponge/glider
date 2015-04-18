@@ -1,0 +1,122 @@
+@charset "UTF-8";
+body {margin-top: 31px !important;}
+
+#admin_TOOLbar
+{
+    position: absolute;
+    margin: 0px !important;
+    border: 0px solid black !important;
+    border-radius: 0px !important;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 30px;
+
+    padding: 0px 0px !important;
+
+    background-color: #2d303a;
+}
+
+#admin_TOOLbar > span {position: relative; display:inline-block; margin-top: 5px;}
+
+
+#admin_TOOLbar > span >*
+{
+    line-height: 15px;
+    padding: 2px 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    background-color: #20222c;
+    color:#697490;
+    border: none;
+    border-bottom:  1px solid #5d6580;
+
+    font-size: 8pt;
+
+}
+#admin_TOOLbar form {display: inline-block;}
+
+#admin_TOOLbar form input{
+    background: none;
+    color: inherit;
+    border: none;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px 8px;
+}
+#admin_TOOLbar form input:hover{
+    color: orange;
+}
+#admin_TOOLbar  input:hover,
+#admin_TOOLbar  a:hover
+{
+    color:orange;
+    cursor: pointer;
+}
+#admin_POPUP
+{
+    display: none;
+    z-index: 999;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+
+
+    width: 100%;
+    min-height:300px;
+    background-color: #f5f5f5;
+    border: 1px solid #808080;
+
+    box-shadow: 0px 3px 9px rgba(0,0,0,0.3);
+
+}
+
+#CLOSE_admin_POPUP {text-align: right;}
+#admin_POPUP_content {margin: 0px 30px;}
+
+#admin_POPUP_content input[type=text],
+#admin_POPUP_content input[type=text]:focus
+{
+
+    border: 1px inset #ccc;
+    padding: 0px 2px;
+    border-radius: 3px;
+    outline: 0px;
+
+    color: #333;
+}
+
+#admin_POPUP_content input.Tbar_but,
+#admin_POPUP_content select.Tbar_but,
+#admin_POPUP_content button.Tbar_but
+{
+
+    border: 1px solid #ccc;
+    border-top: 1px solid #bbb;
+    padding: 1px 9px;
+    border-radius: 5px;
+
+    color: #333;
+    cursor: pointer;
+
+    background: #f5f5f5;
+    box-shadow: 0px -1px 2px 0px #ddd, 0px 2px 1px 0px #fff;
+}
+#admin_POPUP_content select.Tbar_but{
+    padding: 0px 2px;
+}
+
+
+#admin_POPUP_content input.Tbar_but:hover,
+#admin_POPUP_content select.Tbar_but:hover,
+#admin_POPUP_content button.Tbar_but:hover,
+#admin_POPUP_content select.Tbar_but:focus
+{
+    outline: 0px;
+    border: 1px solid #aaa;
+    background:  #87cefa;
+    color: #20222c;
+   /* text-shadow :1px 1px 1px #ddd;*/
+
+}

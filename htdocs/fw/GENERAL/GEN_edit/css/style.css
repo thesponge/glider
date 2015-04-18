@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+#GE_allPages > * {display: inline-block;}
+    #GE_allPages input #GE_allPages select{height: 23px;}
+#GE_allMenus {
+
+    width: 380px;
+    border-radius: 7px;
+    margin-right: 15px;
+    background: white;
+
+}
+#GE_tools {  vertical-align: top; }
+    #GE_tools input ,#GE_tools select{height: 23px;}
+
+    #GE_tools .block_addNew input[type="text"],
+    #GE_tools .block_addNew select{ margin-top: 10px;}
+
+    #GE_pageCONF {
+        padding: 10px;
+        border-radius: 7px;
+        margin-top: 15px;
+        margin-bottom: 35px;
+        height: 100%;
+        width: 650px;
+        background: white;
+    }
+        #GE_ctrlDET {
+            border-radius: 5px;
+            margin-bottom: 20px;
+            height: 30px;
+            background: whiteSmoke;
+            padding: 5px;
+        }
+            #GE_ctrlDET > *{display: inline-block;}
+                #GE_buts {float: right;}
+                #GE_tabs {font-weight: bold; vertical-align: text-top;}
+
+/*=================================================================================*/
+#GE_allMenus ol>li>div { min-height: 0px !important; }
+ /* ATENTIE !!! pentru ca clasele se suprapun   si se creaza diferente*/
+/*=================================================================================*/
+
+.block_addNew{
+
+    border-radius: 7px;
+    padding: 7px;
+    background: white;
+    width: 660px;
+   /* margin-left: 430px;*/
+}
+/*=================================================================================*/
+ol.sortable >li
+{
+    width: 100%;
+}
+ol.sortable  li
+            {
+              padding: 2px 0px;
+              border-left: 1px dotted #666;
+              list-style-type: none;
+
+              font-family:  sans,arial, ubuntu;
+              font-size: 9pt;
+              color: #333 !important;
+
+            }
+ol>li:last-child{ border-left: 0px dotted #666;}
+ol>li:last-child>div>span.li-liniuta{ border-left: 1px dotted #666; }
+
+span.li-liniuta {
+               width: 10px;
+               height: 10px;
+               display: inline-block;
+               border-bottom: 1px dotted #666;
+               margin-bottom: 4px;
+
+              }
+/*=================================================================================*/
+.unfold, .fold {
+               /* height: 11px;*/
+                min-width: 11px;
+                box-shadow: 0px 0px 0px white!important;
+                padding:  1px !important;
+                margin-top: 5px;
+
+                border-width: 0px !important;
+                border-radius: 2px !important;
+                line-height: 8pt;
+
+                background: #87cefa !important;
+
+            }
+.unfold{padding-right: 3px;}
+
+
+
+/*=================================================================================*/
+
+span.li-cont { padding: 6px 5px; cursor: pointer; /*height: 10px;*/}
+span.li-cont:hover {  background-color: white; color:#000; }
+span.li-cont:active { background-color: #fff;}
+
+.li-cont-blue { background-color: #fff;}
+
+.editMode
+{
+    padding-top: 0px;
+    margin-top: 0px;
+    display: inline-block;
+    background-color: white;
+    vertical-align: top;
+}
+
+    .itemSEO {
+        padding: 7px 0px;
+        color: #999 !important;
+        font-size: 11px;
+    }
+        .itemSEO > p#descr-SEO
+        {
+            font-size:12px;
+            color: #666;
+            margin-bottom: 5px;
+            margin-top: 7px;
+            font-weight:bold;
+        }
+        .itemSEO > input
+        {
+            font-size: 11px;
+            color: #666 !important;
+            width: 300px;
+            padding: 1px 6px !important;
+        }
+
+
+
+
+
+/*============================================================================================*/
+
+.TOOLS
+{
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 15px;
+}
+    .TOOLS > input[type=button]
+    {
+        margin: 0px 0px 0px 6px !important;
+        box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 1px 0px white,0px 2px 8px rgba(0, 0, 0, 0.1);
+        min-height: 11px;
+        min-width: 11px;
+        font-size: 11px;
+        padding: 3px 8px !important;
+        border-width: 0px !important;
+        border-radius: 3px !important;
+        line-height: 8pt;
+        background: whiteSmoke;
+        cursor: pointer;
+        color: #545963;
+
+    }
+    .TOOLS input.editITEM:hover,
+    .TOOLS input.save_editITEM:hover {background:#90ee90;}
+    .TOOLS input.seo_editITEM:hover {background:orange;}
+    .TOOLS input.deleteITEM:hover {background:#ff9688;}
+    .TOOLS input.exit_editITEM:hover {background:#87cefa;}
+
+
+.li-cont > input[type=text]
+    {
+        height: 17px;
+       /* border: none !important;*/
+
+        border: 1px inset #ccc !important;
+        padding: 0px 2px;
+        font-size: 8pt;
+    }
+.li-cont > input[type=text]:focus
+{
+    height: 17px;outline: 1px inset #ccc;
+    padding: 0px 2px;
+}
+
+/**************************************************/
+/*
+li[id^=list_Menu]
+{
+    display: inline-block;
+    vertical-align: top;
+}*/
+
+#admin_POPUP form {display: inline-block;}
+/*=========================[ indicatii] ========================================================*/
+#indicatiiGE{
+    position: absolute;
+    top: 64px;
+    left: 1050px;
+
+}
+#indicatii_GENedit{
+    box-shadow: inset -2px -1px 20px rgba(0, 0, 0, 0.1),1px -1px 5px rgba(50, 50, 50, 0.1);
+    border-radius: 13px;
+    border: 1px solid #DDD;
+    border-bottom: 1px solid white;
+    background: white;
+
+    padding: 20px 10px;
+    display: none;
+}
+#Show_idicatiiGE{
+    display: block;
+    float: left;
+}
+#Show_idicatiiGE:hover + #indicatii_GENedit{
+    display: block;
+}
+/*=========================[ costum styling]====================================================*/
+
+/*li#list_Menu1 {display: none;}
+li#list_Menu2 {display: none;}*/
+
+/*li > div:not(.products)  {display: none;}*/
+div.basket  {display: none;}
+div.basket + ol {display: none;}

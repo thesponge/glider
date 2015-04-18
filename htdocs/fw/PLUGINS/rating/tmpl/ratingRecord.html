@@ -1,0 +1,44 @@
+
+    <span id='ratings'>
+        <span id='Rating'  class='pull-right'>
+            ".
+                (isset($nrRates)
+                 ?   "
+                       <span class='muted'>
+                            votes
+                           <span id='nrRates' style=' font-size: 85%;'>{$nrRates}</span>
+                       </span>"
+                 :   ""
+                )
+            ."
+            <i class='icon-star{$stars[0]}'></i>
+            <i class='icon-star{$stars[1]}'></i>
+            <i class='icon-star{$stars[2]}'></i>
+            <i class='icon-star{$stars[3]}'></i>
+            <i class='icon-star{$stars[4]}'></i>
+
+
+            <span id='totalRating' style='display: none;'>
+                {$totalRating}
+            </span>
+
+
+        </span>
+        <br>
+
+        ".( isset($ustars)
+            ? "
+
+                <span id='uRating_{$uid}' title='{$DB_table_postfix}_{$DB_extKey_name}_{$DB_extKey_value}'>
+                     <span class='muted' style='font-size: 85%;'>Your vote</span>
+                     <i title='star1' class='icon-blue icon-star{$ustars[0]}'></i>
+                     <i title='star2' class='icon-blue icon-star{$ustars[1]}'></i>
+                     <i title='star3' class='icon-blue icon-star{$ustars[2]}'></i>
+                     <i title='star4' class='icon-blue icon-star{$ustars[3]}'></i>
+                     <i title='star5' class='icon-blue icon-star{$ustars[4]}'></i>
+
+                </span>
+             "
+            :""
+        )."
+    </span>

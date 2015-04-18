@@ -1,0 +1,50 @@
+
+<div class='allENTS listNews' id='listNews_{$o->lang}'>
+    ".$this->Render_items($o->news, $o, '',
+        "<div class='ENT prevNews' id='prevNews_{~ao->idNw}_{~o->lang}'>
+          <table class='newsItemTable'>
+          <tr><td>
+                `.(
+                    ~ao->picUrl
+                    ? `<a href='~ao->linkNews' target='~ao->linkTarget' class='picLink'>
+                            <img class='EDpic newsPic' src='~ao->picUrl'>
+                       </a>`
+                    : (~o->admin
+                         ?  ` <a  class='ATmpl-inline picLink ' href='#' >
+                                  <img class='EDpic  newsPic' src='http://placehold.it/200x150&text=news%20pic'>
+
+                              </a>`
+                         : ``
+                      )
+                ).`
+            </td><td>
+                <div class='prev-News-Details'>
+                    <a href='~ao->linkNews' target='~ao->linkTarget' class='linkTitle' >
+                       <span class='EDtxt title'>{~ao->title}</span>
+                    </a>
+                    <br>
+                    <span class='news-dateContainer' style='width: 97%;'>
+
+                        <span class='dateLabel floatLeft'>"._('Publishing date').":&nbsp;</span>
+                        <span class='EDdate floatLeft newsDate'> {~ao->dateNews}</span>
+                        <span class='floatRight r10'>
+                            <span class='ATmpl-inline l10 r10 extLink-lable' >
+                                Link
+                                </span>
+                            <span class='EDtxt  ATmpl-inline extLink'>
+                                {~ao->extLink}
+                            </span>
+                        </span>
+                    </span>
+                    <div class='EDtxa lead'>{~ao->lead}</div>
+
+                </div>
+
+            </tr>
+          </table>
+
+        </div>
+        <hr class='hrSeparator'>
+    "
+    )."
+</div>

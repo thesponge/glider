@@ -1,0 +1,113 @@
+   <div class='row' style='padding-top: 50px; min-height: 500px;'>
+        ".(strtotime($this->gldproject->subscriptionEnd) > strtotime(date('Y-m-d'))
+        ? "
+        <div class='row'>
+          <div class='large-4 large-offset-1 columns'>
+              <p>Ai o idee de proiect? Completează formularul și participă 
+              la Open Data Hackathon!</p>
+          </div>
+          <div class='large-6 large-pull-1 columns'>
+            <form action='proiecte/nou' method='post'>
+              <div class='row'>
+                  <div class='row collapse'>
+                    <div class='small-10 columns'>
+                      <input type='text' name='title' placeholder='Introdu un nume pentru noul proiect'>
+                    </div>
+                    <div class='small-2 columns'>
+                      <input type='submit' class='button postfix' value='Continuă' />
+                    </div>
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+          "
+        : "
+        <div class='row'>
+          <div class='large-12 columns'>
+              Te invităm să urmărești rezultatele, accesând pagina fiecărui proiect în parte!
+          </div>
+        </div>
+        "
+        )."
+        <hr>
+   <div class='row'>
+      <div class='large-12 columns'>
+          <p>Idei înscrise:</p>
+      </div>
+      <div class='large-12 columns'>
+        <table> 
+            <thead> 
+                <tr> 
+                    <th width='30'>
+                        ID
+                    </th> 
+                    <th width='200'>
+                        Denumire
+                    </th> 
+                    <th width='150'>
+                        Coordonator
+                    </th> 
+                    <th width='100%'>
+                        Scurtă descriere
+                    </th> 
+                    <th width='150'>
+                    </th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+            " . $this->Render_items($o->projects, $o, '',
+                " <tr>
+                    <td>{~ao->project_id}</td>
+                    <td>{~ao->title}</td>
+                    <td>{~ao->fname}</td>
+                    <td>
+                        `.
+                            nl2br(~ao->short_description)
+                        .`
+                        <span data-tooltip class='has-tip' 
+                                title='`
+                                    .nl2br(~ao->description).
+                                `'>
+                            [...]
+                        </span>
+                    </td>
+                    <td>
+                        <a href='proiecte/proiect-{~ao->project_id}' 
+                            class='radius label'>
+                            `.(strtotime(~this->gldproject->subscriptionEnd) < strtotime(date('Y-m-d'))
+                            ? `Detalii și rezultate`
+                            : `Detalii și înscriere`
+                            ).`
+                        </a>
+                        `.(
+                            ~this->admin==true
+                            ?
+                                (~ao->status == 0
+                                ? 
+                                `<a href='proiecte/proiect-{~ao->project_id}/activare'  title='Click pentru a modifica starea proiectului'
+                                    onclick='return confirm(&quot;Această acțiune va modifica starea proiectului în: APROBAT. Confirmi?&quot;)'>
+                                    <img src='fw/LOCALS/gldproject/css/img/on_icon.png'>
+                                </a>
+                                <a href='proiecte/edit/proiect-{~ao->project_id}' >
+                                    <img src='fw/LOCALS/gldproject/css/img/edit_icon.png'>
+                                </a>`
+                                : 
+                                `<a href='proiecte/proiect-{~ao->project_id}/deactivare'  title='Click pentru a modifica starea proiectului'
+                                    onclick='return confirm(&quot;Această acțiune va modifica starea proiectului în: NEAPROBAT. Confirmi?&quot;)'>
+                                    <img src='fw/LOCALS/gldproject/css/img/off_icon.png'>
+                                </a>
+                                <a href='proiecte/edit/proiect-{~ao->project_id}' >
+                                    <img src='fw/LOCALS/gldproject/css/img/edit_icon.png'>
+                                </a>`)
+                            : ``
+                        ).`
+                    </td> 
+                </tr> "
+            ) . "
+            </tbody> 
+        </table>
+       </div>
+   </div>
+   </div>
+

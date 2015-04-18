@@ -1,0 +1,47 @@
+
+    <div id='ratings' class='span' style='width:150px;'>
+
+        <span id='Rating'>
+             <span class='muted' style=' font-size: 85%; text-align: right;'>
+                 ".(isset($nrRates) && $nrRates!=0
+                      ?   " from  <span id='nrRates' >{$nrRates}</span> users"
+                      :   " not yet voted  "
+                     )
+                 ."
+             </span>
+
+            <span id='totalRating' style='display: none;'>
+                {$totalRating}
+            </span>
+
+
+        </span>
+
+        <br>
+
+        ".( isset($ustars)
+            ? "
+
+                <span id='uRating_{$uid}' title='{$DB_table_postfix}_{$DB_extKey_name}_{$DB_extKey_value}'>
+                     <span class='muted' style='font-size: 85%;'>Your vote</span>
+                     <i title='star1' class='icon-blue icon-star{$ustars[0]}'></i>
+                     <i title='star2' class='icon-blue icon-star{$ustars[1]}'></i>
+                     <i title='star3' class='icon-blue icon-star{$ustars[2]}'></i>
+                     <i title='star4' class='icon-blue icon-star{$ustars[3]}'></i>
+                     <i title='star5' class='icon-blue icon-star{$ustars[4]}'></i>
+
+                </span>
+             "
+            :""
+        )."
+    </div>
+    ".(isset($nrRates) && $nrRates!=0
+         ?   " <div class='iconBig iconBig-star pull-right' style='margin-top: -15px;'>
+                 <p>{$Rating}</p>
+               </div>
+               "
+         :   " <div class='iconBig iconBig-star-none pull-right' style='margin-top: -15px;'></div>"
+        )
+    ."
+
+

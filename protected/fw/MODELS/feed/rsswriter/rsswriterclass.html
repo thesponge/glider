@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Class: RSS writer</title>
+</head>
+<body>
+<center><h1>Class: RSS writer</h1></center>
+<hr />
+<ul>
+<p><b>Version:</b> <tt>@(#) $Id: rsswriterclass.class,v 1.14 2010/05/16 10:26:11 mlemos Exp $</tt></p>
+<h2><a name="table_of_contents">Contents</a></h2>
+<ul>
+<li><a href="#2.1.1">Summary</a></li>
+<ul>
+<li><a href="#3.2.0">Name</a></li>
+<li><a href="#3.2.0.0">Author</a></li>
+<li><a href="#3.2.0.1">Copyright</a></li>
+<li><a href="#3.2.0.2">Version</a></li>
+<li><a href="#3.2.0.3">Parent classes</a></li>
+<li><a href="#4.2.0">Purpose</a></li>
+<li><a href="#4.2.0.0">Usage</a></li>
+<li><a href="#4.2.0.1">Example</a></li>
+</ul>
+<li><a href="#5.1.1">Variables</a></li>
+<ul>
+<li><a href="#6.2.6">specification</a></li>
+<li><a href="#6.2.7">about</a></li>
+<li><a href="#6.2.8">rssnamespaces</a></li>
+<li><a href="#6.2.9">allownoitems</a></li>
+<li><a href="#6.2.10">generatedcomment</a></li>
+</ul>
+<li><a href="#7.1.1">Inherited variables</a></li>
+<li><a href="#9.1.1">Functions</a></li>
+<ul>
+<li><a href="#10.2.6">addchannel</a></li>
+<li><a href="#12.2.7">additem</a></li>
+<li><a href="#14.2.8">addimage</a></li>
+<li><a href="#16.2.9">addtextinput</a></li>
+<li><a href="#18.2.10">writerss</a></li>
+</ul>
+<li><a href="#21.1.1">Inherited functions</a></li>
+</ul>
+<p><a href="#table_of_contents">Top of the table of contents</a></p>
+</ul>
+<hr />
+<ul>
+<h2><li><a name="2.1.1">Summary</a></li></h2>
+<ul>
+<h3><a name="3.2.0">Name</a></h3>
+<p>RSS writer</p>
+<h3><a name="3.2.0.0">Author</a></h3>
+<p>Manuel Lemos (<a href="mailto:mlemos@acm.org">mlemos@acm.org</a>)</p>
+<h3><a name="3.2.0.1">Copyright</a></h3>
+<p>Copyright &copy; (C) Manuel Lemos 2002-2006</p>
+<h3><a name="3.2.0.2">Version</a></h3>
+<p>@(#) $Id: rsswriterclass.class,v 1.14 2010/05/16 10:26:11 mlemos Exp $</p>
+<h3><a name="3.2.0.3">Parent classes</a></h3>
+<ul>
+<p><li>XML writer</li></p>
+<p><b>Version:</b> <tt>@(#) $Id: xmlwriterclass.class,v 1.35 2007/09/17 21:00:20 mlemos Exp $</tt></p>
+</ul>
+<h3><a name="4.2.0">Purpose</a></h3>
+<p>Composing and generating Rich Site Summary (RSS) XML documents.</p>
+<h3><a name="4.2.0.0">Usage</a></h3>
+<p>The class extends the XML writer class to provide additional functions and variables that simplify the composition and generation of RSS documents.</p>
+<p>Use the functions <tt><a href="#function_addchannel">addchannel</a></tt> and <tt><a href="#function_additem">additem</a></tt> to define the RSS document content and then use the <tt><a href="#function_writerss">writerss</a></tt> to generate the document output.</p>
+<h3><a name="4.2.0.1">Example</a></h3>
+<p>Here follows an example of typical use of this class:</p>
+<pre>&lt;?php
+	
+	/*
+	 *  First create an object of the class.
+	 */
+	$rss_writer_object=&amp;new rss_writer_class;
+	
+	/*
+	 *  Choose the version of specification that the generated RSS document should conform.
+	 */
+	$rss_writer_object-&gt;specification='1.0';
+	
+	/*
+	 *  Specify the URL where the RSS document will be made available.
+	 */
+	$rss_writer_object-&gt;about='http://www.phpclasses.org/channels.xml';
+	
+	/*
+	 *  Specify the URL of an optional XSL stylesheet.
+	 *  This lets the document be rendered automatically in XML capable browsers.
+	 */
+	$rss_writer_object-&gt;stylesheet='http://www.phpclasses.org/rss1html.xsl';
+	
+	/*
+	 *  You may declare additional namespaces that enable the use of more property
+	 *  tags defined by extension modules of the RSS specification.
+	 */
+	$rss_writer_object-&gt;rssnamespaces['dc']='http://purl.org/dc/elements/1.1/';
+	
+	/*
+	 *  Define the properties of the channel.
+	 */
+	$properties=array();
+	$properties['description']='Repository of components and other resources for PHP developers';
+	$properties['link']='http://www.phpclasses.org/';
+	$properties['title']='PHP Classes repository';
+	$properties['dc:date']='2002-05-06T00:00:00Z';
+	$rss_writer_object-&gt;addchannel($properties);
+	
+	/*
+	 *  If your channel has a logo, before adding any channel items, specify the logo details this way.
+	 */
+	$properties=array();
+	$properties['url']='http://www.phpclasses.org/graphics/logo.gif';
+	$properties['link']='http://www.phpclasses.org/';
+	$properties['title']='PHP Classes repository logo';
+	$properties['description']='Repository of components and other resources for PHP developers';
+	$rss_writer_object-&gt;addimage($properties);
+	
+	/*
+	 *  Then add your channel items one by one.
+	 */
+	$properties=array();
+	$properties['description']='Latest components made available';
+	$properties['link']='http://www.phpclasses.org/browse/latest/latest.xml';
+	$properties['title']='Latest class entries';
+	$properties['dc:date']='2002-05-06T00:00:00Z';
+	$rss_writer_object-&gt;additem($properties);
+	$properties['description']='Latest book reviews released';
+	$properties['link']='http://www.phpclasses.org/reviews/latest/latest.xml';
+	$properties['title']='Latest reviews';
+	$properties['dc:date']='2002-05-06T00:00:00Z';
+	$rss_writer_object-&gt;additem($properties);
+	
+	/*
+	 *  If your channel has a search page, after adding the channel items, specify a search form details this way.
+	 */
+	$properties=array();
+	
+	/*
+	 *  The name property if the name of the text input form field on which the user will enter the search word.
+	 */
+	$properties['name']='words';
+	$properties['link']='http://www.phpclasses.org/search.html?go_search=1';
+	$properties['title']='Search for:';
+	$properties['description']='Search in the PHP Classes repository';
+	$rss_writer_object-&gt;addtextinput($properties);
+	
+	/*
+	 *  When you are done with the definition of the channel items, generate RSS document.
+	 */
+	if($rss_writer_object-&gt;writerss($output))
+	{
+		
+		/*
+		 *  If the document was generated successfully, you may now output it.
+		 */
+		Header('Content-Type: text/xml; charset=&quot;'.$rss_writer_object-&gt;outputencoding.'&quot;');
+		Header('Content-Length: '.strval(strlen($output)));
+		echo $output;
+	}
+	else
+	{
+		
+		/*
+		 *  If there was an error, output it as well.
+		 */
+		Header('Content-Type: text/plain');
+		echo ('Error: '.$rss_writer_object-&gt;error);
+	}
+?&gt;</pre>
+<p></p>
+<p><a href="#table_of_contents">Table of contents</a></p>
+</ul>
+</ul>
+<hr />
+<ul>
+<h2><li><a name="variables"></a><a name="5.1.1">Variables</a></li></h2>
+<ul>
+<li><tt><a href="#variable_specification">specification</a></tt></li><br />
+<li><tt><a href="#variable_about">about</a></tt></li><br />
+<li><tt><a href="#variable_rssnamespaces">rssnamespaces</a></tt></li><br />
+<li><tt><a href="#variable_allownoitems">allownoitems</a></tt></li><br />
+<li><tt><a href="#variable_generatedcomment">generatedcomment</a></tt></li><br />
+<p><a href="#table_of_contents">Table of contents</a></p>
+<h3><a name="variable_specification"></a><li><a name="6.2.6">specification</a></li></h3>
+<h3>Type</h3>
+<p><tt><i>string</i></tt></p>
+<h3>Default value</h3>
+<p><tt>'1.0'</tt></p>
+<h3>Purpose</h3>
+<p>Define the version of the specification that the generated RSS document should conform.</p>
+<h3>Usage</h3>
+<p>Currently the class supports only the versions 0.9, 0.91, 1.0 and 2.0.</p>
+<p><a href="#variables">Variables</a></p>
+<h3><a name="variable_about"></a><li><a name="6.2.7">about</a></li></h3>
+<h3>Type</h3>
+<p><tt><i>string</i></tt></p>
+<h3>Default value</h3>
+<p><tt>''</tt></p>
+<h3>Purpose</h3>
+<p>Specify a unique URL where the RSS will be made available.</p>
+<h3>Usage</h3>
+<p>Define this variable before adding the channel definition if the <tt><a href="#variable_specification">specification</a></tt> is '1.0'.</p>
+<p><a href="#variables">Variables</a></p>
+<h3><a name="variable_rssnamespaces"></a><li><a name="6.2.8">rssnamespaces</a></li></h3>
+<h3>Type</h3>
+<p><tt><i>array</i></tt></p>
+<h3>Default value</h3>
+<p><tt>array()</tt></p>
+<h3>Purpose</h3>
+<p>Specify extra namespaces that provide the definition of additional tags to be allowed within <tt>channel</tt>, <tt>items</tt>, <tt>image</tt> and <tt>textinput</tt> tags.</p>
+<h3>Usage</h3>
+<p>If you need to use extra tags defined in modules for RSS 1.0 or 2.0, specify them by adding entries to this associative array. The entry indexes are the namespace prefix and the entry values are the respective URL where such XML namespaces are defined. The namespace <tt>rdf</tt> is already defined by default for RSS 1.0, so you may not redeclare it.</p>
+<h3>Example</h3>
+<p>Set additional namespaces modules you need. In this case it is adding the namespace <tt>dc</tt> that defines tags such as <tt>&lt;dc:date&gt;</tt> and <tt>&lt;dc:source&gt;</tt> for specifying respectively the date and the source of the channel items.</p>
+<pre>&lt;?php
+	$rss_writer_object-&gt;rssnamespaces['dc']='http://purl.org/dc/elements/1.1/';
+?&gt;</pre>
+<p></p>
+<p><a href="#variables">Variables</a></p>
+<h3><a name="variable_allownoitems"></a><li><a name="6.2.9">allownoitems</a></li></h3>
+<h3>Type</h3>
+<p><tt><i>bool</i></tt></p>
+<h3>Default value</h3>
+<p><tt>0</tt></p>
+<h3>Purpose</h3>
+<p>Option to specify whether the channel may have no items.</p>
+<h3>Usage</h3>
+<p>If for some reason you need to generate a channel that may have no items, set this variable to 1.</p>
+<p><a href="#variables">Variables</a></p>
+<h3><a name="variable_generatedcomment"></a><li><a name="6.2.10">generatedcomment</a></li></h3>
+<h3>Type</h3>
+<p><tt><i>string</i></tt></p>
+<h3>Default value</h3>
+<p><tt>'Generated by: http://www.phpclasses.org/rsswriter $Revision: 1.14 $'</tt></p>
+<h3>Purpose</h3>
+<p>Define a text string that is used as a XML comment to identify the program that generated the XML document.</p>
+<h3>Usage</h3>
+<p>Set this variable to the name of the program that uses this class to generate XML documents. Set to an empty string to avoid generating this comment.</p>
+<h3>Example</h3>
+<p><tt>'Generated by: my.e-commerce.com'</tt></p>
+<p><a href="#variables">Variables</a></p>
+<p><a href="#table_of_contents">Table of contents</a></p>
+</ul>
+</ul>
+<ul>
+<h2><li><a name="functions"></a><a name="7.1.1">Inherited variables</a></li></h2>
+<ul>
+<li>structure</li><br />
+<li>stylesheet</li><br />
+<li>stylesheettype</li><br />
+<li>dtdtype</li><br />
+<li>dtddefinition</li><br />
+<li>dtdurl</li><br />
+<li>outputencoding</li><br />
+<li>inputencoding</li><br />
+<li>linebreak</li><br />
+<li>indenttext</li><br />
+<li>error</li><br />
+<p><a href="#table_of_contents">Table of contents</a></p>
+</ul>
+</ul>
+<hr />
+<ul>
+<h2><li><a name="functions"></a><a name="9.1.1">Functions</a></li></h2>
+<ul>
+<li><tt><a href="#function_addchannel">addchannel</a></tt></li><br />
+<li><tt><a href="#function_additem">additem</a></tt></li><br />
+<li><tt><a href="#function_addimage">addimage</a></tt></li><br />
+<li><tt><a href="#function_addtextinput">addtextinput</a></tt></li><br />
+<li><tt><a href="#function_writerss">writerss</a></tt></li><br />
+<p><a href="#table_of_contents">Table of contents</a></p>
+<h3><a name="function_addchannel"></a><li><a name="10.2.6">addchannel</a></li></h3>
+<h3>Synopsis</h3>
+<p><tt><i>bool</i> addchannel(</tt><ul>
+<tt>(input and output) <i>array</i> </tt><tt><a href="#argument_addchannel_properties">properties</a></tt></ul>
+<tt>)</tt></p>
+<h3>Purpose</h3>
+<p>Add the definition of the RSS channel.</p>
+<h3>Usage</h3>
+<p>Pass an associative array of simple properties that define the channel. Compound properties such as channel items should be defined with other more specific functions.</p>
+<h3>Arguments</h3>
+<ul>
+<p><tt><b><a name="argument_addchannel_properties">properties</a></b></tt> - Associative array that defines the list of properties of the channel.  The indexes of the array entries are the names of the properties and the values array entries are the property text string values. Some properties may have multiple values. Such property values should be passed as arrays. Required properties are: 'description', 'language', 'link', 'title'. Please check the RSS specification documents to learn about the optional properties. Some properties that require a custom tag structure also take values in a different way:</p>
+<p> <tt>atom:link</tt> - This property should be set to an array that defines links associated to the channel. Each array entry should be set to an associative array that defines properties of each link. Currently it supports the properties: <tt>rel</tt>, <tt>href</tt>, <tt>hreflang</tt>, <tt>length</tt>, <tt>title</tt>, and <tt>type</tt>. Make sure you set the namespace <tt>atom</tt> to <tt>http://www.w3.org/2005/Atom</tt></p>
+<p> <tt>itunes:category</tt> - This property should be used to define one ore more categories for a podcast to be submitted to iTunes. The property value should be an associative array with the entry keys set to the names of the categories. The entry values should be also associative arrays defining sub-categories in the same way. Make sure you set the namespace <tt>itunes</tt> to <tt>http://www.itunes.com/dtds/podcast-1.0.dtd</tt></p>
+<p> <tt>itunes:owner</tt> - This property should be used to define owner of a podcast to be submitted to iTunes. The property value should be an associative array with two entries: <tt>email</tt> with the e-mail address of the podcast owner and <tt>name</tt> with the name of the podcast owner. Make sure you set the namespace <tt>itunes</tt> to <tt>http://www.itunes.com/dtds/podcast-1.0.dtd</tt></p>
+<p> <tt>itunes:image</tt> - This property should be set to the URL of an image that will be used as cover for a podcast in iTunes. Make sure you set the namespace <tt>atom</tt> to <tt>http://www.w3.org/2005/Atom</tt></p>
+<p> </p>
+</ul>
+<h3>Return value</h3>
+<p>Success boolean flag.  If this flag is <tt>0</tt> then the <tt><a href="#variable_error">error</a></tt> variable contains the error message that explains the failure. This return value may be safely ignored if the function call arguments are correctly defined.</p>
+<p><a href="#functions">Functions</a></p>
+<h3><a name="function_additem"></a><li><a name="12.2.7">additem</a></li></h3>
+<h3>Synopsis</h3>
+<p><tt><i>bool</i> additem(</tt><ul>
+<tt>(input and output) <i>array</i> </tt><tt><a href="#argument_additem_properties">properties</a></tt></ul>
+<tt>)</tt></p>
+<h3>Purpose</h3>
+<p>Add the definition of the RSS channel item.</p>
+<h3>Usage</h3>
+<p>Pass an associative array of simple properties that define the channel item.</p>
+<h3>Arguments</h3>
+<ul>
+<p><tt><b><a name="argument_additem_properties">properties</a></b></tt> - Associative array that defines the list of properties of the channel item.  The indexes of the array entries are the names of the properties and the values array entries are the property text string values.  Some properties may have multiple values. Such property values should be passed as arrays.Required properties are: 'link', 'title'. The 'description' and 'enclosure' property is optional. Some properties that require a custom tag structure also take values in a different way:</p>
+<p> <tt>enclosure</tt> - This property should be set to an array with entries that define one or more files associated with the item. Each entry should be an associative array that defines three properties of the associated files: <tt>url</tt> for the file URL, <tt>length</tt> for the file length, and <tt>type</tt> for the MIME type of the file.</p>
+<p> <tt>atom:link</tt> - This property should be set to an array that defines links associated to the item. Each array entry should be set to an associative array that defines properties of each link. Currently it supports the properties: <tt>rel</tt>, <tt>href</tt>, <tt>hreflang</tt>, <tt>length</tt>, <tt>title</tt>, and <tt>type</tt>. Make sure you set the namespace <tt>atom</tt> to <tt>http://www.w3.org/2005/Atom</tt></p>
+<p> </p>
+</ul>
+<h3>Return value</h3>
+<p>Success boolean flag.  If this flag is <tt>0</tt> then the <tt><a href="#variable_error">error</a></tt> variable contains the error message that explains the failure. This return value may be safely ignored if the function call arguments are correctly defined.</p>
+<p><a href="#functions">Functions</a></p>
+<h3><a name="function_addimage"></a><li><a name="14.2.8">addimage</a></li></h3>
+<h3>Synopsis</h3>
+<p><tt><i>bool</i> addimage(</tt><ul>
+<tt>(input and output) <i>array</i> </tt><tt><a href="#argument_addimage_properties">properties</a></tt></ul>
+<tt>)</tt></p>
+<h3>Purpose</h3>
+<p>Add the definition of an image to be associated with the RSS channel.</p>
+<h3>Usage</h3>
+<p>Pass an associative array of simple properties that define the channel image. This function can only be used before defining any channel items using <tt><a href="#function_additem">additem</a></tt>.</p>
+<h3>Arguments</h3>
+<ul>
+<p><tt><b><a name="argument_addimage_properties">properties</a></b></tt> - Associative array that defines the list of properties of the channel item.  The indexes of the array entries are the names of the properties and the values array entries are the property text string values. Some properties may have multiple values. Such property values should be passed as arrays. Required properties are: 'url', 'link' and 'title'. The properties 'description', 'width' and 'height' are optional.</p>
+</ul>
+<h3>Return value</h3>
+<p>Success boolean flag.  If this flag is <tt>0</tt> then the <tt><a href="#variable_error">error</a></tt> variable contains the error message that explains the failure. This return value may be safely ignored if the function call arguments are correctly defined.</p>
+<p><a href="#functions">Functions</a></p>
+<h3><a name="function_addtextinput"></a><li><a name="16.2.9">addtextinput</a></li></h3>
+<h3>Synopsis</h3>
+<p><tt><i>bool</i> addtextinput(</tt><ul>
+<tt>(input and output) <i>array</i> </tt><tt><a href="#argument_addtextinput_properties">properties</a></tt></ul>
+<tt>)</tt></p>
+<h3>Purpose</h3>
+<p>Add the definition text input for searching the RSS channel.</p>
+<h3>Usage</h3>
+<p>Pass an associative array of simple properties that define the channel text input.</p>
+<h3>Arguments</h3>
+<ul>
+<p><tt><b><a name="argument_addtextinput_properties">properties</a></b></tt> - Associative array that defines the list of properties of the channel item.  The indexes of the array entries are the names of the properties and the values array entries are the property text string values. Some properties may have multiple values. Such property values should be passed as arrays. Required properties are: 'description', 'link', 'name' and 'title'.</p>
+</ul>
+<h3>Return value</h3>
+<p>Success boolean flag.  If this flag is <tt>0</tt> then the <tt><a href="#variable_error">error</a></tt> variable contains the error message that explains the failure. This return value may be safely ignored if the function call arguments are correctly defined.</p>
+<p><a href="#functions">Functions</a></p>
+<h3><a name="function_writerss"></a><li><a name="18.2.10">writerss</a></li></h3>
+<h3>Synopsis</h3>
+<p><tt><i>bool</i> writerss(</tt><ul>
+<tt>(output) <i>string &amp;</i> </tt><tt><a href="#argument_writerss_output">output</a></tt></ul>
+<tt>)</tt></p>
+<h3>Purpose</h3>
+<p>Generate the RSS XML document.</p>
+<h3>Usage</h3>
+<p>This function calls the <tt><a href="#function_write">write</a></tt> to generate the RSS XML document. However, you should call this function instead because it will set a few document parameters that are required to generate RSS XML documents properly. Pass a reference to a string variable that will hold the resulting XML document.</p>
+<h3>Arguments</h3>
+<ul>
+<p><tt><b><a name="argument_writerss_output">output</a></b></tt> - Reference to a variable that will hold the resulting RSS XML document.</p>
+</ul>
+<h3>Return value</h3>
+<p>Success boolean flag.  If this flag is <tt>0</tt> then the <tt><a href="#variable_error">error</a></tt> variable contains the error message that explains the failure.</p>
+<p><a href="#functions">Functions</a></p>
+<p><a href="#table_of_contents">Table of contents</a></p>
+</ul>
+</ul>
+<ul>
+<h2><li><a name="functions"></a><a name="21.1.1">Inherited functions</a></li></h2>
+<ul>
+<li>escapedata</li><br />
+<li>write</li><br />
+<li>addtag</li><br />
+<li>adddata</li><br />
+<li>adddatatag</li><br />
+<p><a href="#table_of_contents">Table of contents</a></p>
+</ul>
+</ul>
+
+<hr />
+<address>Manuel Lemos (<a href="mailto:mlemos@acm.org">mlemos@acm.org</a>)</address>
+</body>
+</html>

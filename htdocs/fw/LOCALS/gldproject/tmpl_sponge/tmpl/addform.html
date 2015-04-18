@@ -1,0 +1,105 @@
+<div class='row'>
+    <form action='".Toolbox::curURL()."' method='post' data-abide>
+      <input type='hidden' name='modName'  value='gldproject'>
+      <input type='hidden' name='methName' value='add'>
+    <fieldset>
+      <legend>1. General details</legend>
+        <div class='row collapse'>
+            <div class='large-5 columns'>
+              <div class='row collapse'>
+                  <div class='small-12 columns'>
+                      <label class='label' for='project_title'>Short and descriptive name for the project</label>
+                    <input required pattern='alpha' type='text' name='project_title' placeholder='Project title' 
+                        value='".($o->title ?: $_REQUEST['project_title'])."'>
+                    <small class='error'>Project title is required (validation: alphanumeric)</small>
+                  </div>
+                  <div class='small-12 columns'>
+                      <input pattern='url' type='text' name='project_url' placeholder='Project URL (optional)' 
+                          value='".($_REQUEST['project_url'] ?: '')."'>
+                      <small class='error'>Not a valid URL!</small>
+                  </div>
+              </div>
+            </div>
+            <div class='large-6 columns'>
+              <div class='row collapse'>
+                  <div class='small-6 columns'>
+                      <label class='label' for='person_firstname'>First name</label>
+                    <input required  pattern='alpha' type='text' name='person_firstname' placeholder='Coordinator first name'
+                        value='".($_REQUEST['person_firstname'] ?: '')."'>
+                    <small class='error'>Insert a first name</small>
+                  </div>
+                  <div class='small-6 columns'>
+                      <label class='label' for='person_lastname'>Last name</label>
+                    <input required pattern='alpha' type='text' name='person_lastname' placeholder='Coordinator last name'
+                        value='".($_REQUEST['person_lastname'] ?: '')."'>
+                    <small class='error'>Insert a last name</small>
+                  </div>
+                  <div class='small-12 columns'>
+                    <input required pattern='email' type='text' name='person_email' placeholder='Coordinator email'
+                        value='".($_REQUEST['person_email'] ?: '')."'>
+                      <small class='error'>Insert a valid email address</small>
+                  </div>
+                  <div class='small-12 columns'>
+                      <input  pattern='url' type='text' name='person_url' placeholder='Coordinator URL (optional)'
+                        value='".($_REQUEST['person_url'] ?: '')."'>
+                      <small class='error'>Insert a valid URL</small>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>2. Specifications <small>(Markdown allowed) – <a href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet' target='_blank'>Syntax help</a></small></legend>
+        <div class='row collapse'>
+            <div class='large-3 small-12 columns'>
+                <h6>Description</h6>
+            </div>
+            <div class='large-9 small-12 columns'>
+                <textarea required class='mw100' name='project_desc' placeholder='Project description'>".($_REQUEST['project_desc'] ?: '')."</textarea>
+                <small class='error'>Insert a description</small>
+            </div>
+        </div>
+        <div class='row collapse'>
+            <div class='large-6 small-12 columns'>
+                <h6>Short description<small>(max 200 chars)</small></h6>
+                <textarea required class='mw95' name='project_shortdesc' placeholder='This description will be shown on the projects list.'>".($_REQUEST['project_shortdesc'] ?: '')."</textarea>
+                <small class='error'>Insert a short description</small>
+            </div>
+            <div class='large-6 small-12 columns'>
+                <h6>Technical details <small>(e.g. links, descriptions)</small></h6>
+                <textarea required class='mw100' name='project_techdetails' placeholder='Implementation tech details'>".($_REQUEST['project_techdetails'] ?: '')."</textarea>
+                <small class='error'>Insert some tehnical details</small>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class='row collapse'>
+            <div class='large-8 small-12 columns'>
+                <h6>Other details (optional) <small>(observations, misc info)</small></h6>
+                <textarea class='mw100' name='project_misc' placeholder=''>".($_REQUEST['project_misc'] ?: '')."</textarea>
+            </div>
+            <div class='large-3 small-12 columns'>
+                <h6>CAPTCHA code</h6>
+                <img id='captcha' src='/assets/securimage-git/securimage_show.php' alt='CAPTCHA Image' />
+                <div class='row collapse'>
+                    <div class='small-8 columns'>
+                      <input required type='text' name='captcha_code' size='10' maxlength='6' />
+                      <small class='error'>Introduceți codul</small>
+                    </div>
+                    <div class='small-4 columns'>
+                      <a href='#' onclick=\"document.getElementById('captcha').src = '/assets/securimage-git/securimage_show.php?' + Math.random(); return false\" class='button postfix'>Reset</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class='large-12 small-12 columns'>
+                <p class='text-center'>
+                    <input type='submit' class='radius button' value='Submit'>
+                </p>
+            </div>
+        </div>
+    </fieldset>
+  </form>
+</div>

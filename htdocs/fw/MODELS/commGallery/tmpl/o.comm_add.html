@@ -1,0 +1,57 @@
+".(
+     !isset($o->commentsStat) || $o->commentsStat ?
+    "
+        <form  method='post' action='' class='addComments_form t10 b10'>
+              <button class='showHidden pull-right btn btn-mini'> add Feedback</button>
+              <button class='hiddeHidden pull-right close r5'>&times;</button>
+              <div class='hidden well p5 pt5' >
+
+                  <!--
+                  buton de brows
+                  campuri pentru
+                  poza
+                  loc
+                  title
+                  description / comment
+                  date
+                  -->
+
+
+                  <div class='addComm-pic'>
+                      <span class='ib'>
+                          <span  id='addComm-thumbPic' class='thumbPic'>
+                                <img src='http://placehold.it/150x150'  />
+                          </span>
+
+                          <input type='hidden' name='picUrl' />
+                          <br>
+                          <button class='btn btn-mini' id='callKCFinder_comm' >Browse</button>
+                      </span>
+
+                      <span id='addComm-content' class='ib l10'>
+                              <input type='text' name='picTitle' placeholder='Title'  class='span6' />
+                          <br><textarea name='picDescr' rows='5' cols='50' placeholder='Description' class='span6'></textarea>
+                          <br><input type='text' name='userName' placeholder='Name' value='".(isset($o->uname) ? $o->uname : "" )."' class='span2'/>
+                               <input type='text' name='picLoc' placeholder='Location'  class='span2'/>
+                                 <input type='text' name='picDate' placeholder='Date'  style='width: 80px;'/>
+                                 <input type='submit' name='addComment' value='submit' class='btn vaTop' />
+                      </span>
+                  </div>
+
+
+
+                  ".(
+                    $o->commentsApprov
+                    ? "<p class='text-warning'>Your comment must be approved by a moderator before appearing! </p>"
+                    : ""
+                  )."
+                  <p></p>
+
+              </div>
+              <a id='addCommAnc'></a>
+        </form>
+    "
+    : " <b>Feedback time is over! </b>"
+
+)."
+        

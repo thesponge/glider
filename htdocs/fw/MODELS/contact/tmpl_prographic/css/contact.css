@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.contact {width: 430px !important; position: relative;}
+
+.cke_skin_kama  { width:500px;}
+.ContactDdetails{ width:430px; height: 530px; }
+
+table#contact_form_table {
+    /*width: 100%;*/
+}
+
+form#form_comp  { width: 100%;}
+
+
+form#form_comp span               { width:110px;  }
+form#form_comp input[type='text'] { width:300px; border: 1px solid #bbb; display: block;margin-top:5px;}
+form#form_comp textarea           { width:300px; height: 170px; border: 1px solid #bbb;
+                                    display: block;margin-top:5px; overflow: auto; resize: none;}
+form#form_comp input[type='text'][name="captcha_code"]{ width: 127px;}
+
+
+
+
+form#form_comp input[type='submit'],
+form#form_comp input[type='reset']{ margin-right: 10px;}
+
+
+
+form#form_comp img {
+    margin: 3px;
+    float: left;
+}
+
+form#form_comp td {
+    padding-top: 8px;
+}
+
+#feedback
+{
+    clear: both;
+    font-size: 11px;
+    color: #8b0000;
+}
+#captcha{
+    width: 162px;
+}
+#captcha_reset {
+    width: 140px;
+    text-decoration: none;
+    color: inherit;
+    background: #ffffff;
+    display: block;
+    border-radius: 5px;
+    padding: 3px 0px;
+    text-align: center;
+    color: #999;
+    font-weight: bold;
+    box-shadow: 1px 1px 2px rgba(100,100,100,0.2);
+    border: 1px solid #CCC;
+}
+#captcha_reset:hover {
+    color: #666;
+    cursor: pointer;
+}
+
+#submit {
+    display: block;
+    width: 140px;
+    height: 50px;
+    background: #ffffff;
+    color: #999;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(100,100,100,0.2);
+    border: 1px solid #CCC;
+}
+#submit:hover {
+    color: #666;
+    cursor: pointer;
+}

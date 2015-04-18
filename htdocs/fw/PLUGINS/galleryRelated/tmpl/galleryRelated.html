@@ -1,0 +1,70 @@
+<div class='grid pro-mainPic'>
+    <a href='{$o->project->picUrl}' rel='alterPics_group' title='{$o->firstPic->picTitle}' >
+    ".(isset($o->firstPic->picUrl)
+         ? "<img class='EDpic mainPic' src='{$o->firstPic->picUrl}'>
+            <p class='EDtxt mainPicTitle'>{$o->firstPic->picTitle}</p>
+            "
+         : "<img class='EDpic mainPic' src='http://placehold.it/600x400'>
+            <p class='EDtxt mainPicTitle'></p>"
+      )."
+    </a>
+
+    ".(!$this->admin ? "" :
+        "<input type='hidden' name='mainPicId' value='{$o->firstPic->idPic}'>"
+    )."
+</div>
+
+<!-- =================[ Aternate pictures ] ===========================-->
+   ".($this->admin ? "" : "
+
+       <div class='project-alterPics'>
+
+               ".(count($o->alterPics) >= 7
+                   ? " <a href='#' class='prev'></a>
+                        <a href='#' class='next'></a>"
+                   : ""
+               )."
+
+
+               <div class='pro-myCarousel' >
+                   <ul>
+                             <li >
+                                  <img src='{$o->project->picUrl}' class='alterPic' alt='{$o->project->picTitle}' width='100' height='100'>
+                             </li>
+
+                       ".$this->renderDisplay_Items(
+                           $o->alterPics,
+                           "
+                              <li >
+                                       <img src='{~ao->picUrl}' class='alterPic'  alt='{~ao->picTitle}' width='100' height='100'>
+                              </li>
+                           ",
+                           '',$o
+                       )."
+
+                   </ul>
+               </div>
+
+           </div>
+   ")."
+
+   <div  class='allENTS grid pictures' id='pictures_{$o->LG}' style='".(!$this->admin ? "display: none;" : "" )."'>
+
+      ".(count($o->alterPics) != 0 ? "" : "
+
+              <span class='ENT altPic' id='altPic_0_{$o->LG}' style='display: none;'>
+                    <img src='http://placehold.it/100x100' class='EDpic alterPic' alt='Pic title' >
+                     <div class='EDtxt altPic-title'>Pic title </div>
+              </span>
+      ")."
+
+      ".$this->Render_itemsFromStr($o->alterPics, '', "
+                    <span class='ENT altPic' id='altPic_{~ao->idPic}_{~o->LG}'>
+                         <a href='{~ao->picUrl}' rel='alterPics_group' title='{~ao->picTitle}' >
+
+                             <img src='{~ao->picUrl}' class='EDpic alterPic' alt='{~ao->picTitle}' >
+                             <div class='EDtxt altPic-title'>{~ao->picTitle} </div>
+                         </a>
+                     </span>
+      ")."
+  </div>

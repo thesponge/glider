@@ -86,7 +86,7 @@ class Cgldproject
         );
         $this->DB->query($q);
         //var_dump($q);
-        Toolbox::relocate('/proiecte');
+        Toolbox::relocate('/cluj/proiecte');
     }
 
     public function Db_getProject($project_id)
@@ -154,7 +154,7 @@ class Cgldproject
             // Populate the project properties
             $this->Db_getProject($this->project_id);
 
-            if ((strtotime($this->subscriptionEnd) > strtotime(date('Y-m-d')))) {
+            if ((strtotime($this->gldproject->subscriptionEnd) > strtotime(date('Y-m-d')))) {
                 // Employ the "add" form to insert new stuff
                 $this->template_file = "editform";
             } else {
@@ -177,8 +177,9 @@ class Cgldproject
             $this->Db_getProject($this->project_id);
 
             // Check if subscription period is over
-            if ((strtotime($this->subscriptionEnd) > strtotime(date('Y-m-d')))) {
+            if ((strtotime($this->hackDate) > strtotime(date('Y-m-d')))) {
                 // Employ the "show" form to view/update the project
+		//$this->C->jsTalk .= "alert('Date: {$this->hackDate}');";
                 $this->template_file = "showproject";
             } else {
                 // Employ the "show results" template to view the project
@@ -191,7 +192,7 @@ class Cgldproject
                 $this->showStats();
             } else {
                 $this->C->jsTalk .= "alert('You must be authorized in order to access the stats.');";
-                $this->C->jsTalk .= "window.location = '/proiecte';";
+                $this->C->jsTalk .= "window.location = '/cluj/proiecte';";
             }
             break;
         }

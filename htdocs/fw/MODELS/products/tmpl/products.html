@@ -1,0 +1,46 @@
+<div id='back'>
+      <span id='history'>$history</span>
+       $backCAT
+</div>
+  <div class='{$ED}allENTS products' id='products_{$LG}'>
+        <div class='{$ED}ENT product' id='product_new_{$LG}' style='display: none !important;' >
+               <div class='NOTnew'><div></div></div>
+               <div class='PRDpic'> <img src='{$img_small}'  alt='imagine produs'/> </div>
+               <div class='EDtxt name_prod' > name</div>
+               <div class='EDtxt smallDESC'> small description   </div>
+                 <div class='allPRICE-NOstatusPROMO'>
+                     <div class='DIVprice'> $priceSTR <div class='EDtxt price'></div> lei  </div>
+                     <div class='DIVdetails'>  <a href='#'> $detailsSTR </a> </div>
+                     <div class='DIVpromo'></div>
+                </div>
+        </div>
+
+       ".$this->getDisplay_Items($productItems,"
+                <div class='{~ED}ENT product' id='product_{~id}_{~LG}' >
+                      <div class='{~new}'><div>{~new}</div></div>
+                      <div class='PRDpic'>
+                          <a href='{~href}'>
+                                  <img src='{~img_small}'  alt='imagine produs'/>
+                           </a>
+                      </div>
+
+                       <div class='EDtxt name_prod' > {~name} </div>
+                       <div class='EDtxt smallDESC'>  {~small_desc}  </div>
+                        <div class='allPRICE{~statusPROMO}'>
+                            <div class='DIVprice'>
+                                {~priceSTR}
+                                <span class='EDtxt price'> {~price}</span>
+                                lei
+                            </div>
+                            <div class='DIVdetails'>
+                               <a href='{~href}'> {~detailsSTR} </a>
+                            </div>
+                            <div class='DIVpromo'> {~promo} </div>
+                       </div>
+                </div>
+
+      ")."
+
+<!--[if lte IE 8]> <div class='product'></div> <![endif]-->
+  </div>
+  $pagination

@@ -1,0 +1,18 @@
+<button id='callKCFinder_gallery' style='position: absolute; z-index: 9999; top: 60px; '>
+    manage Pictures
+</button>
+
+".( isset($o->captions)
+   ? "
+           <button  style='position: absolute; z-index: 9999; top: 30px; '
+                    onclick=\"fmw.popUp.init({
+                       headerName: 'manage Captions',
+                       widthPop: '800',
+                       heightPop: '450',
+                       procesSCRIPT: '".RES_URL."{$o->modType}/gallery/managePics.html"."'
+                    }); \">
+               manage Captions
+           </button>
+     "
+   : ""
+)."

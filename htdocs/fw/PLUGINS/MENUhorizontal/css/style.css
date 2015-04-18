@@ -1,0 +1,74 @@
+@charset "UTF-8";
+ul.MENUhorizontal1{    padding: 0px;   -webkit-padding-start: 0px;}
+ul.MENUhorizontal1>li {
+    max-width: 150px;
+    min-width: 120px;
+
+    height: 50px;
+    display: inline-block;
+
+    text-align: left;
+    vertical-align: top;
+    font-size: 13px;
+
+    background-image: url("img/liniuta_meniu sus.png");
+    background-repeat: no-repeat;
+    background-position: right;
+
+
+}
+ul#menu_ro > li:nth-child(4)     {max-width:120px;}
+ul.MENUhorizontal1>li:last-child {background: none;}
+
+ul.MENUhorizontal1>li a
+{
+    text-align: center;
+    margin: 15px 0px;
+    display: block;
+    color: #666;
+    text-decoration: none;
+
+    padding: 2px 22px;
+
+}
+ul.MENUhorizontal1>li a:hover { padding: 2px 19px;  font-weight: bold; }
+ul.MENUhorizontal1>li a.current {font-weight: bold; }
+
+/*_____________________________________________________________________________________________________________*/
+
+
+
+ul.MENUhorizontal2{    padding: 0px;   -webkit-padding-start: 0px;}
+ul.MENUhorizontal2>li {
+    max-width: 160px;
+    min-width: 40px;
+
+    height: 50px;
+    display: inline-block;
+
+    text-align: left;
+    vertical-align: top;
+    font-size: 10px;
+
+    background-image: url("img/liniuta_meniu sus.png");
+    background-repeat: no-repeat;
+    background-position: right;
+
+
+}
+ul#menu_ro > li:nth-child(4)     {max-width:120px;}
+ul.MENUhorizontal2>li:last-child {background: none;}
+
+ul.MENUhorizontal2>li a
+{
+    text-align: center;
+    margin: 15px 0px;
+    display: block;
+    color: #666;
+    text-decoration: none;
+
+    padding: 2px 22px;
+
+}
+ul.MENUhorizontal2>li a:hover {  color: #000000; }
+ul.MENUhorizontal2>li a.current {color: #000000; }

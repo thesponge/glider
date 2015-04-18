@@ -1,0 +1,63 @@
+@charset "UTF-8";
+.Reduceri
+{
+    padding: 10px 15px;
+}
+.Reduceri p#Denumire
+{
+    color:#aaa;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: -35px;
+    width: 300px;
+    margin-bottom: 25px;
+}
+.Reduceri input[name='pret_promo']
+{
+    text-align: right;
+    width: 50px;
+}
+.Reduceri input[name='end_promo'],
+.Reduceri input[name='end_new']
+{
+    text-align: center;
+    width: 70px;
+}
+.Reduceri input[name='save_promo']
+{
+
+}
+#REDUCERIcont{margin: 0px auto; width: 495px;}
+
+.showINDICATII {
+    display: inline-block;
+    letter-spacing: 1px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 20px;
+    width: 90px;
+    height: 15px;
+    padding: 3px;
+    text-align: center;
+    background: #EEE;
+    border: 1px outset white;
+    box-shadow: -1px 0px 7px #CCC;
+  }
+.indicatii {
+    display: none;
+    font-size: 11px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background: -webkit-linear-gradient(top, #F1F1F1 0%, white 1%, #F1F1F1 1.2%,white 10%,white 100%);
+    border-top: 1px solid #DDD;
+}
+
+.showINDICATII:hover + .indicatii {display: block;}
+
+.product .content .new{ left: 10% !important;} /* pentru cazul in care sunt in admin sa aiba loc TOOLSem*/
+
+form.product  .new{ left: 10% !important;} /* pentru cazul in care sunt in admin sa aiba loc TOOLSem*/
+
+
+

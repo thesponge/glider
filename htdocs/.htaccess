@@ -64,8 +64,11 @@ RewriteEngine On
 RewriteRule ^home$ / [L,NC,R=301]
 RewriteRule ^faq$ ?idT=2&idC=2 [L,NC]
 RewriteRule ^proiecte$ ?idT=3&idC=3&route=list [L,NC]
+RewriteRule ^projects$ ?idT=3&idC=3&route=list [L,NC]
 RewriteRule ^program$ ?idT=4&idC=4 [L,NC]
+RewriteRule ^schedule$ ?idT=4&idC=4 [L,NC]
 RewriteRule ^parteneri$ ?idT=5&idC=5 [L,NC]
+RewriteRule ^partners$ ?idT=5&idC=5 [L,NC]
 
 RewriteRule ^proiecte/nou$ ?idT=3&idC=3&route=add [L,NC]
 RewriteRule ^proiecte/stats$ ?idT=3&idC=3&route=stats [L,NC]
@@ -73,6 +76,20 @@ RewriteRule ^proiecte/proiect-([0-9]+)$ ?idT=3&idC=3&route=show&projectid=$1 [L,
 RewriteRule ^proiecte/edit/proiect-([0-9]+)$ ?idT=3&idC=3&route=edit&projectid=$1 [L,NC]
 RewriteRule ^proiecte/proiect-([0-9]+)/activare ?idT=3&idC=3&route=toggleStatus&projectid=$1&status=1 [L,NC]
 RewriteRule ^proiecte/proiect-([0-9]+)/deactivare ?idT=3&idC=3&route=toggleStatus&projectid=$1&status=0 [L,NC]
+
+RewriteRule ^home$ / [L,NC,R=301]
+RewriteRule ^faq$ ?idT=2&idC=2 [L,NC]
+RewriteRule ^projects$ ?idT=3&idC=3&route=list [L,NC]
+RewriteRule ^schedule$ ?idT=4&idC=4 [L,NC]
+RewriteRule ^partners$ ?idT=5&idC=5 [L,NC]
+RewriteRule ^about$ ?idT=5&idC=5 [L,NC]
+RewriteRule ^despre$ ?idT=5&idC=5 [L,NC]
+RewriteRule ^projects/new$ ?idT=3&idC=3&route=add [L,NC]
+RewriteRule ^projects/stats$ ?idT=3&idC=3&route=stats [L,NC]
+RewriteRule ^projects/project-([0-9]+)$ ?idT=3&idC=3&route=show&projectid=$1 [L,NC]
+RewriteRule ^projects/edit/project-([0-9]+)$ ?idT=3&idC=3&route=edit&projectid=$1 [L,NC]
+RewriteRule ^projects/project-([0-9]+)/activate ?idT=3&idC=3&route=toggleStatus&projectid=$1&status=1 [L,NC]
+RewriteRule ^projects/project-([0-9]+)/deactivate ?idT=3&idC=3&route=toggleStatus&projectid=$1&status=0 [L,NC]
 
 
 # Rescriere pentru pagini simple (idT + idC)

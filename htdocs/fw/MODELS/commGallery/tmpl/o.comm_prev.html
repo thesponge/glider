@@ -1,0 +1,64 @@
+".(
+     $this->admin
+     ?      "<div class='addTOOLSbtn'>".
+                 ( $o->commentsApprov
+                        ? ($ao->approved
+                            ?  "<input type='submit'  class='ATmpl' name='ANapprove' value='an approve' />"
+
+                            :  "<input type='submit'  class='ATmpl' name='approve' value='approve' />"
+                        ): ""
+                 ).
+                 ($ao->approved || !$o->commentsApprov
+                    ?   ( $ao->prior
+                            ? "<input type='submit'  class='ATmpl' name='addPriority' value='Add Priority' />"
+                            : "<input type='submit'  class='ATmpl' name='delPriority' value='Delete Priority' />"
+                        )
+                    : ''
+
+                  )
+             ."</div>"
+     :  ""
+ )."
+ <div class='{$o->ED}ENT ib comm-small comment' id='comment_{$ao->idComm}_{$o->LG}' >
+
+         ".( isset($this->admin)
+             ? ($ao->approved == 0 && $ao->commentsApprov
+                 ? " <span class='label label-mini label-warning pull-right'>not approved</span>"
+                 : ""
+               )
+             : ''
+
+         )."
+
+         <div class='commPic'>
+             <div  class='thumbPic'>
+                 <img src='{$ao->picUrl}'  />
+             </div>
+
+             <div class='muted'>
+                     <p class='b'>
+                         ".($ao->picTitle
+                            ? $ao->picTitle
+                            : 'no name')."</p>
+                     <small class='userName r5'>{$ao->userName} </small>
+                     <small class='entryDate'>  {$ao->entryDate} </small>
+
+                     ". $this->Render_object(
+                                $this->thumbs->{'SET_thComm'.$ao->idComm},'',
+                               "PLUGINS/thumbs/tmpl/thumbs.html")."
+             </div>
+
+             <div class='commPic-details'>
+
+                 <div class='hidden commPic-fullDetails'>
+                     <p>{$ao->picDescr}</p>
+                     <b>Location</b> <span>{$ao->picLoc}</span>
+                     <b>Date</b>     <span>{$ao->picDate}</span>
+                 </div>
+             </div>
+         </div>
+
+
+
+ </div>
+

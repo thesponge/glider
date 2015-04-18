@@ -1,0 +1,1 @@
+change_type updateITEM id 25 detail Array typeSTATUS OLD<br />

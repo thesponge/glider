@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+.pro-mainPic {
+    margin: 0px;
+}
+    .pro-mainPic img{
+        width: 600px;
+        height: 400px;
+        overflow-y: hidden ;
+    }
+    .pro-mainPic .mainPicTitle{
+        display: block;
+        width: 300px;
+        font-weight: bold;
+        font-size: 10pt;
+        margin-top: 0px;
+    }
+
+.pro-details{
+    margin-left: 20px;
+    width: 320px;
+    height: 400px;
+   /* overflow-y: auto;*/
+    margin-right: 0px;
+
+}
+    .pro-Title{
+        font-weight: bold;
+        font-size: 15pt;
+        width: 275px;
+        margin-top: 0px;
+        margin-bottom: 20px !important;
+    }
+
+    .pro-details > div{
+        margin-bottom: 5px;
+    }
+    .pro-details div *[class^="ED"]{
+        height: 18px;
+        margin-left: 4px !important;
+    }
+
+    .pro-details .pro-labels{
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 8pt;
+    }
+
+
+    .pro-details .proDescription{
+        width: 320px;
+        min-height: 250px;
+        overflow-y: auto;
+    }
+/*===============[ carousel.html]================================*/
+.project-alterPics{
+   /* outline: 1px solid red;*/
+    width: 960px;
+    height: 120px;
+    position: relative;
+}
+/*===============[nex, prev carousel.html]================================*/
+
+.project-alterPics .prev,
+.project-alterPics .next{
+
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    height: 40px;
+    width: 28px;
+    top: 30px;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+
+}
+.project-alterPics .next{
+    position: absolute;
+    background-image: url("img/next.png");
+    right: -10px;
+    z-index: 10;
+}
+
+.project-alterPics .prev{
+    position: absolute;
+    background-image: url("img/prev.png");
+    left: 0px;
+    z-index: 10;
+}
+
+.project-alterPics:hover .prev,
+.project-alterPics:hover .next{
+    opacity: 1;
+}
+
+
+
+.pro-myCarousel {
+    position: relative;
+    text-align:left;
+    padding:0px 0px 0px 0px;
+}
+.pro-myCarousel ul{
+    list-style: none;
+}
+
+
+.pro-myCarousel ul li{
+    float: left;
+    /*margin-left: 10px;*/
+    height:89px;
+    width:132px;
+    list-style:none;
+    padding:10px 0px 0px 5px;
+}
+.pro-myCarousel ul li:first-child{ margin-left: 0px;}
+
+.pro-myCarousel img{
+    width: 128px;
+    height: 80px;
+    overflow-y: hidden;
+}
+.pro-myCarousel img:hover{
+    box-shadow: 0px 2px 10px #bbb;
+    outline: 1px solid #eee;
+    cursor: pointer;
+    /*border: 1px solid #eee;
+    border-radius: 2px;
+    margin-top: -7px;*/
+}
+
+/*===============[ADMIN - manage Pictures]================================*/
+
+.pictures {
+    width: 960px;
+    margin: 0px;
+}
+
+.altPic{
+    margin-right: 10px;
+    margin-bottom: 15px;
+    width: 175px;
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+.altPic img{
+    width: 175px;
+    height: 120px;
+    overflow-y: hidden;
+}
+.altPic .altPic-title{
+    height: 18px;
+}

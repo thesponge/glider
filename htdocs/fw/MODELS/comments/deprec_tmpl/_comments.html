@@ -1,0 +1,88 @@
+<div class='postComments t10'>
+
+    ".(
+         !isset($commentsStat) || $commentsStat ?
+        "
+            <form  method='post' action='' class='addComments_form '>
+                  <button class='showHidden pull-right btn'> add Feedback</button>
+                  <button class='hiddeHidden pull-right close r5'>&times;</button>
+                  <div class='hidden well' >
+
+                        <textarea name='comment' rows='10' cols='50' placeholder='YourFeedback'></textarea>
+                        <div>
+                            <input name='userName' placeholder='Name' value='".(isset($uname) ? $uname : "" )."'/>
+                            <input type='submit' name='addComment' value='submit Feedback' class='btn' />
+                        </div>
+
+                      ".(
+                        $commentsApprov
+                        ? "<p class='text-warning'>Your comment must be approved by a moderator before appearing! </p>"
+                        : ""
+                      )."
+                      <p></p>
+
+                  </div>
+                  <a id='addCommAnc'></a>
+            </form>
+        "
+        : " <b>Feedback time is over! </b>"
+
+    )."
+
+    ".(
+        $commentsApprov && $addCommFeedback
+        ? "<p class='text-success'>Your feedback has been sent and waits for an approval! </p>"
+        : ""
+    )."
+
+
+
+
+     <div class='{$ED}allENTS allcomments' id='allcomments_{$LG}'>
+
+
+       ".$this->getDisplay_Items($comments,"
+                `.(
+                    ~this->admin && ~commentsApprov
+                    ?      `<div class='addTOOLSbtn'>`.
+                                (  ~approved
+                                    ?  `<input type='submit'  class='ATmpl' name='ANapprove' value='an approve' />`
+                                    :  `<input type='submit'  class='ATmpl' name='approve' value='approve' />`
+                                )
+                            .`</div>`
+                    :  ``
+                ).`
+                <div class='{~ED}ENT comment' id='comment_{~idComm}_{~LG}' >
+
+                    &nbsp;&nbsp;&nbsp;
+
+
+                    <div class='comment'>
+
+                        `.( isset(~this->admin)
+                            ? (~approved == 0 && ~commentsApprov
+                                ? ` <span class='label label-warning pull-right'>not approved</span>`
+                                : ``
+                              )
+                            : ''
+
+                        ).`
+                        {~comment}
+                    </div>
+                    <small class='muted'>
+
+                        <span class='userName r5'>{~userName}</span>
+                        <span class='ED entryDate'>{~entryDate}</span>
+                        `.~this->get_renderDISPLAY('thumbs','SET_thComm'.~idComm).`
+                        `.~this->get_renderDISPLAY_byTmplFile('rating','ratingUser','SET_Comm'.~uidComm).`
+                    </small>
+                </div>
+                 <br>
+
+
+      ")."
+
+  </div>
+
+</div>
+$pagination

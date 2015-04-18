@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo of onVisible</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="demo.css" type="text/css" />
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="onvisible.js"></script>
+	</head>
+	<body>
+		<h1>onVisible</h1>
+		<p>Trigger an event when elements become visibles.</p>
+		<p>Read the <a href="https://github.com/madef/onVisible/blob/master/README.md">documentation</a></p>
+		<div id="log"></div>
+		<div class="event">#1</div>
+		<div class="event">#2</div>
+		<div class="event">#3</div>
+		<div class="event">#4</div>
+		<div class="event">#5</div>
+		<div class="event">#6</div>
+		<div class="event">#7</div>
+		<div class="event">#8</div>
+		<div class="event">#9</div>
+		<div class="event">#10</div>
+		<div class="event">#11</div>
+		<div class="event">#12</div>
+		
+		<script>
+		$(document).ready(function() {
+			$('.event').visibilityListener();
+		});
+		
+		$('.event').on('visible', function() {
+			$(this).addClass('on');
+			$('#log').prepend(
+				$('<div></div>')
+					.html($(this).html() + ' is now visible')
+			);
+		});
+		$('.event').on('partiallyvisible', function() {
+			$(this).removeClass('fullyvisible');
+		});
+		$('.event').on('fullyvisible', function() {
+			$(this).addClass('fullyvisible');
+		});
+		$('.event').on('hidden', function() {
+			$(this).removeClass('on');
+			$(this).removeClass('fullyvisible');
+			$('#log').prepend(
+				$('<div></div>')
+					.html($(this).html() + ' is now hidden')
+			);
+		});
+		</script>
+		
+	</body>
+</html>

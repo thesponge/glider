@@ -1,0 +1,8 @@
+Prographic contact form :: email
+
+{$o->subject}
+From: {$o->senderName} ({$o->senderMail})
+
+Message content:
+
+{$o->message}

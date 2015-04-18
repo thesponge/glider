@@ -1,0 +1,37 @@
+
+<div class='allENTS listNews' id='listNews_{$o->lang}'>
+    ".$this->Render_items(
+          $o->news,
+          "<div class='ENT prevNews' id='prevNews_{~ao->idNw}_{~o->lang}'>
+                `.(
+                    ~ao->picUrl
+                    ? `<a href='~ao->linkNews' target='~ao->linkTarget' class='picLink'>
+                            <img class='EDpic newsPic' src='~ao->picUrl'>
+                       </a>`
+                    : (~o->admin
+                         ?  ` <a  class='ATmpl-inline picLink ' href='#' >
+                                  <img class='EDpic  newsPic' src='http://placehold.it/200x150&text=news%20pic'>
+
+                              </a>`
+                         : ``
+                      )
+                ).`
+
+                <div class='prev-News-Details'>
+                    <a href='~ao->linkNews' target='~ao->linkTarget' class='linkTitle' >
+                       <div class='EDtxt title'>{~ao->title}</div>
+                    </a>
+                    <span class='news-dateContainer'>
+
+                        <span  class='EDtxt newsDate'>{~ao->newsDate}</span>
+                        <span class='ATmpl l10 extLink-lable'> ext Link</span>
+                        <span class='EDtxt ATmpl extLink'>{~ao->extLink}</span>
+                    </span>
+                    <div class='EDtxa lead'>{~ao->lead}</div>
+
+                </div>
+
+          </div>"
+          , '',$o
+    )."
+</div>

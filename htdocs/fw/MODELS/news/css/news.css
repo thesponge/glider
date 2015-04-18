@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+.floatLeft  { float: left;}
+.floatRight { float: right;}
+
+/*=================[listNews] ==========================*/
+.prevNews{
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.prevNews a.picLink{
+    width: 200px;
+    height: 150px;
+    overflow-x: hidden;
+    float: left;
+}
+
+.prevNews a.picLink img{
+    height: 150px;
+    display: block ;
+}
+
+.prev-News-Details {
+    /*width: 750px;*/
+    float: right;
+    clear: both;
+    vertical-align: top;
+
+}
+    .prev-News-Details .linkTitle{
+        display: block;
+    }
+        .prev-News-Details .title{
+            font-weight: bold;
+        }
+
+         .prev-News-Details .lead{
+        }
+
+.prevNews  a.ATmpl,
+.prevNews  a.ATmpl-inline      {display: none; }
+
+.addForm  .ATmpl-inline,
+form[id^="EDITform"] .ATmpl-inline
+{
+    display: inline-block !important;
+}      /*  cand ajunge in cadrul unui form se face vizibil  */
+
+.news-dateContainer {
+    padding: auto 15px;
+}
+
+.listNews .title {
+    font-size: 1.5em;
+    line-height: 100%;
+    width: 98%;
+}
+
+form .title {
+}
+
+.listNews .lead {
+    clear: both;
+    margin-top: 8px;
+    line-height: 150%;
+}
+
+form .lead {
+    min-height: 100px;
+    width: 99%;
+}
+form .extLink {min-width: 300px; }
+
+.listNews .picLink input {
+    margin-left: 25px;
+    top: 50px;
+}
+
+/*.newsItemTable {
+    margin: 30px auto;
+}*/
+
+.newsItemTable tr td {
+    padding: 0px 5px;
+    vertical-align: top;
+}
+.newsItemTable tr td:first-child a {
+    margin: 0px 10px 0px 20px;
+}
+.newsItemTable tr td:last-child {
+    padding: 0px 0px 0px 20px;
+    text-align: justify;
+}
+
+.newsDate, .dateLabel {
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.hrSeparator {
+    display: block;
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsla(0,0%,0%,0)), color-stop(50%,hsla(0,0%,0%,.15)), color-stop(100%,hsla(0,0%,0%,0)));
+    background: -webkit-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.15) 50%, hsla(0,0%,0%,0) 100%);
+    background:    -moz-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.15) 50%, hsla(0,0%,0%,0) 100%);
+    background:     -ms-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.15) 50%, hsla(0,0%,0%,0) 100%);
+    background:      -o-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.15) 50%, hsla(0,0%,0%,0) 100%);
+    background:         linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.15) 50%, hsla(0,0%,0%,0) 100%);
+}
+
+/*=================[news] ==========================*/
+
+.news .newsTitle {
+    width: 955px;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0.67em 0 !important;
+}
+
+
+form .newsLead {
+    width: 946px;
+    min-height: 150px;
+    overflow: scroll-y;
+    margin: 0.5em 0 !important;
+    padding: 5px !important;
+}
+
+form .newsContent {
+    min-height: 350px;
+}

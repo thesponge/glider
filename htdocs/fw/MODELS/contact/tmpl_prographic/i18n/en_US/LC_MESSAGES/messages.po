@@ -1,0 +1,79 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Victor Nițu <victor@debian.org.ro>\n"
+"Language-Team: Serenity Media <office@serenitymedia.ro>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Romanian\n"
+"X-Poedit-Country: ROMANIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+# Full name
+msgid "Nume, prenume"
+msgstr "Full name"
+
+# Email
+msgid "Email"
+msgstr "Email"
+
+# Subject
+msgid "Subiect"
+msgstr "Subject"
+
+# Message
+msgid "Mesaj"
+msgstr "Message"
+
+# CAPTCHA
+msgid "Codul din imagine"
+msgstr "Code in the image"
+
+# Regenerate CAPTCHA
+msgid "Regenerează codul"
+msgstr "Regenerate code"
+
+# Attch file
+msgid "Atașează fișier"
+msgstr "Attach file"
+
+# Submit
+msgid "Trimite"
+msgstr "Send"
+
+# Success message
+msgid "Mesajul a fost trimis!"
+msgstr "Message sent!"
+
+# Default error message
+msgid "S-a produs o eroare, vă rugăm contactați un administrator."
+msgstr "An error occurred, please contact an administrator."
+
+# Correction message
+msgid "Corectați următoarele câmpuri:"
+msgstr "Please correct the following fields:"
+
+# Name info
+msgid "Numele complet (între 3 și 60 de caractere)"
+msgstr "Full name (3 to 60 characters)"
+
+# Subject info
+msgid "Subiectul (minim 5 caractere)"
+msgstr "Subject (at least 5 characters)"
+
+# Email info
+msgid "O adresă de email validă"
+msgstr "A valid email address"
+
+# Message info
+msgid "Mesajul (minim 10 caractere)"
+msgstr "Message (at least 10 characters)"
+
+# Wrong CAPTCHA
+msgid "Codul CAPTCHA"
+msgstr "CAPTCHA code"
+

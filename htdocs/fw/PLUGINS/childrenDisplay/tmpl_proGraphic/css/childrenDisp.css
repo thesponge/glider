@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+#children_display{
+    float: right;
+    margin-right: 30px;
+    margin-top: 18px;
+   /* outline: 1px solid #b22222;*/
+}
+
+#children_display ul{
+    margin: 0px;
+}
+#children_display ul li{
+
+    list-style: none;
+    float: left;
+}
+
+#children_display ul li > a{
+
+    color: #aaa;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration:none;
+    padding: 5px 10px;
+}
+
+#children_display ul li > a:hover{
+    color: #666;
+}
+
+#children_display ul li.currentPage >a {
+     color: #666;
+
+}

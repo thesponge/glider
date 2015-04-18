@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Prographic contact form :: email</title>
+    </head>
+<body>
+    <h3>".$o->subject."</h3>
+    <b>From: </b> <span>".$o->senderName." (<a href='mailto:".$o->senderMail."'>".$o->senderMail."</a>)</span>
+    <p>Message:
+        <blockquote>
+            ".nl2br($o->message)."
+        </blockquote>
+    </p>
+</body>
+</html>
